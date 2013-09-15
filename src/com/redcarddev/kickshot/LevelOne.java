@@ -1,15 +1,22 @@
 package com.redcarddev.kickshot;
 
+import java.util.Random;
+
 import com.redcarddev.kickshot.views.Board;
+import com.redcarddev.kickshot.views.Dice;
 
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.View.OnClickListener;
 
-public class LevelOne extends Activity {
+public class LevelOne extends Activity implements OnClickListener {
+	
+	String LOGCAT = LevelOne.class.getName();
 	
 	int currentPlayer = 1;
 	
@@ -21,6 +28,7 @@ public class LevelOne extends Activity {
 		setContentView(R.layout.level_one);
 		
 		 this.board = (Board)findViewById(R.id.board);
+		 this.board.setOnClickListener(this);
 	}
 
 	@Override
@@ -59,6 +67,18 @@ public class LevelOne extends Activity {
 	        default:
 	            return super.onOptionsItemSelected(item);
 	    }
+	}
+
+	@Override
+	public void onClick(View view) {
+		if (view.getId() == R.id.board) {
+			Log.v(LOGCAT, "Clicked on the board");
+			
+			Random r = new Random();
+			
+			this.board.changeDice(r.nextInt(6-1) + 1);
+		}
+		
 	}
 
 }

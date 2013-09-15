@@ -7,24 +7,36 @@ import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
-import android.graphics.Paint;
 import android.util.AttributeSet;
+import android.view.MotionEvent;
 import android.view.View;
 
 public class Board extends View {
-	
-	Paint mPaint = null;
+
 	Bitmap chip = null;
+	
+	Dice dice = null;
+	Bitmap diceImage = null;
+	
 	
 	private Canvas canvas = null;
 	
 	protected int chipXPos = 0;
 	protected int chipYPos = 0;
 	
+	protected int diceXPos = 0;
+	protected int diceYPos = 0;
+	
 	int initSet = 0;
 
 	public Board(Context context, AttributeSet attrs) {
 	    super(context, attrs);
+	    
+	    this.dice = new Dice(context);
+	}
+	
+	public boolean onTouchEvent(MotionEvent event) {
+		return super.onTouchEvent(event);
 	}
 	
 	public void changeChip(int playerTurn) {
@@ -41,6 +53,11 @@ public class Board extends View {
 		
 		
 		this.chip = BitmapFactory.decodeResource(res, chipDrawable);
+		invalidate();
+	}
+	
+	public void changeDice(int diceFace) {
+		this.dice.setDiceFace(diceFace);
 		invalidate();
 	}
 	
@@ -76,6 +93,8 @@ public class Board extends View {
 		if (this.initSet == 0) {
 			this.init();
 		}
+		
+		canvas.drawBitmap(this.dice.getCurrent(), this.diceXPos, this.diceYPos, null);
 		
 		canvas.drawBitmap(this.chip, this.chipXPos, this.chipYPos, null);
 		
