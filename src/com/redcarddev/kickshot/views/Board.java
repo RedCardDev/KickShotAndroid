@@ -18,9 +18,6 @@ public class Board extends View {
 	
 	private Canvas canvas = null;
 	
-	private int mWidth;
-	private int mHeight;
-	
 	protected int chipXPos = 0;
 	protected int chipYPos = 0;
 	
@@ -30,11 +27,26 @@ public class Board extends View {
 	    super(context, attrs);
 	}
 	
-	private void init() {
+	public void changeChip(int playerTurn) {
+		
+		int chipDrawable;
+		
+		if (playerTurn == 1) {//home chip
+			chipDrawable = R.drawable.ballchiphome;
+		} else {//away chip
+			chipDrawable = R.drawable.ballchipaway;
+		}
+		
 		Resources res = getContext().getResources();
-		int chipDrawable = R.drawable.ballchiphome;
+		
 		
 		this.chip = BitmapFactory.decodeResource(res, chipDrawable);
+		invalidate();
+	}
+	
+	private void init() {
+		
+		changeChip(1);
 		
 		this.chipXPos = (this.canvas.getWidth() - this.chip.getWidth()) / 2;
 		this.chipYPos = (this.canvas.getHeight() - this.chip.getHeight()) / 2;
