@@ -44,6 +44,19 @@ public class Board extends View {
 		invalidate();
 	}
 	
+	public void towardsAway(int steps) {
+		this.moveChip(steps);
+	}
+	
+	public void towardsHome(int steps) {
+		this.moveChip(-1 * steps);
+	}
+	
+	private void moveChip(int number) {
+		this.chipYPos = this.chipYPos - (50 * number);
+		invalidate();
+	}
+	
 	private void init() {
 		
 		changeChip(1);
