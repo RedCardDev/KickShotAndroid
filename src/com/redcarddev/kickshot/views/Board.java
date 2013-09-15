@@ -27,6 +27,8 @@ public class Board extends View {
 	protected int diceXPos = 0;
 	protected int diceYPos = 0;
 	
+	protected int diceHomePosition = 0;
+	
 	int initSet = 0;
 
 	public Board(Context context, AttributeSet attrs) {
@@ -50,14 +52,25 @@ public class Board extends View {
 		}
 		
 		Resources res = getContext().getResources();
-		
-		
 		this.chip = BitmapFactory.decodeResource(res, chipDrawable);
+		
 		invalidate();
 	}
 	
 	public void changeDice(int diceFace) {
 		this.dice.setDiceFace(diceFace);
+		invalidate();
+	}
+	
+	public void positionDiceHome() {
+		
+		this.diceYPos = this.diceHomePosition;
+		invalidate();
+		
+	}
+	
+	public void positionDiceAway() {
+		this.diceYPos = 150;
 		invalidate();
 	}
 	
@@ -76,7 +89,11 @@ public class Board extends View {
 	
 	private void init() {
 		
+		this.diceHomePosition = this.canvas.getHeight() - 150;
+		
 		changeChip(1);
+		positionDiceHome();
+		
 		
 		this.chipXPos = (this.canvas.getWidth() - this.chip.getWidth()) / 2;
 		this.chipYPos = (this.canvas.getHeight() - this.chip.getHeight()) / 2;

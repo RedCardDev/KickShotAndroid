@@ -45,10 +45,12 @@ public class LevelOne extends Activity implements OnClickListener {
 	    switch (item.getItemId()) {
 	        case R.id.action_settings:
 	        	
-	        	if (this.currentPlayer == 1) {
+	        	if (this.currentPlayer == 1) {//change to away
 	        		this.currentPlayer = 2;
-	        	} else {
+	        		this.board.positionDiceAway();
+	        	} else {//change to home
 	        		this.currentPlayer = 1;
+	        		this.board.positionDiceHome();
 	        	}
 	        	
 	        	this.board.changeChip(this.currentPlayer);
@@ -56,11 +58,7 @@ public class LevelOne extends Activity implements OnClickListener {
 	            return true;
 	        case R.id.action_move_ball:
 	        	
-	        	if (this.currentPlayer == 1) {
-	        		this.board.towardsAway(1);
-	        	} else {
-	        		this.board.towardsHome(1);
-	        	}
+	        	
 	        	
 	        	return true;
 	        	
@@ -76,8 +74,22 @@ public class LevelOne extends Activity implements OnClickListener {
 			
 			Random r = new Random();
 			
-			this.board.changeDice(r.nextInt(6-1) + 1);
+			int moves = r.nextInt(6-1) + 1;
+			
+			this.board.changeDice(moves);
+			this.moveBall(moves);
+			
 		}
+		
+	}
+	
+	protected void moveBall(int positions) {
+		
+		if (this.currentPlayer == 1) {
+    		this.board.towardsAway(positions);
+    	} else {
+    		this.board.towardsHome(positions);
+    	}
 		
 	}
 
