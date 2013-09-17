@@ -15,7 +15,9 @@ public class Board extends View {
 
 	Bitmap chip = null;
 	
-	Dice dice = null;
+	//two dice in case of doubles
+	Dice dice1 = null;
+	Dice dice2 = null;
 	Bitmap diceImage = null;
 	
 	
@@ -24,17 +26,21 @@ public class Board extends View {
 	protected int chipXPos = 0;
 	protected int chipYPos = 0;
 	
-	protected int diceXPos = 0;
-	protected int diceYPos = 0;
+	protected int dice1XPos = 0;
+	protected int dice1YPos = 0;
+	protected int dice2XPos = 0;
+	protected int dice2YPos = 0;
 	
-	protected int diceHomePosition = 0;
+	protected int dice1HomePosition = 0;
+	protected int dice2HomePosition = 0;
 	
 	int initSet = 0;
 
 	public Board(Context context, AttributeSet attrs) {
 	    super(context, attrs);
 	    
-	    this.dice = new Dice(context);
+	    this.dice1 = new Dice(context);
+	    this.dice2 = new Dice(context);
 	}
 	
 	public boolean onTouchEvent(MotionEvent event) {
@@ -57,20 +63,24 @@ public class Board extends View {
 		invalidate();
 	}
 	
-	public void changeDice(int diceFace) {
-		this.dice.setDiceFace(diceFace);
+	public void changeDice(int dice1Face, int dice2Face) {
+		this.dice1.setDiceFace(dice1Face);
+		this.dice2.setDiceFace(dice2Face);
 		invalidate();
 	}
 	
 	public void positionDiceHome() {
 		
-		this.diceYPos = this.diceHomePosition;
+		//this.diceYPos = this.diceHomePosition;
+		this.dice1YPos = 150;
+		this.dice2YPos = 250;
 		invalidate();
 		
 	}
 	
 	public void positionDiceAway() {
-		this.diceYPos = 150;
+		this.dice1YPos = 150;
+		this.dice2YPos = 250;
 		invalidate();
 	}
 	
@@ -83,13 +93,25 @@ public class Board extends View {
 	}
 	
 	private void moveChip(int number) {
-		this.chipYPos = this.chipYPos - (50 * number);
+		//this is just barely too much
+		this.chipYPos = this.chipYPos - (40 * number);
+		if(chipYPos < 120){
+			chipYPos = 120;
+			// put shot on goal function here
+			// Shoot(int player)
+		}
+		else if(chipYPos > 850){
+			chipYPos = 850;
+			// put shot on goal function here
+			// Shoot(int player)
+		}
 		invalidate();
 	}
 	
 	private void init() {
 		
-		this.diceHomePosition = this.canvas.getHeight() - 150;
+		this.dice1HomePosition = this.canvas.getHeight() - 150;
+		this.dice2HomePosition = this.canvas.getHeight() - 250;
 		
 		changeChip(1);
 		positionDiceHome();
@@ -111,7 +133,8 @@ public class Board extends View {
 			this.init();
 		}
 		
-		canvas.drawBitmap(this.dice.getCurrent(), this.diceXPos, this.diceYPos, null);
+		canvas.drawBitmap(this.dice1.getCurrent(), this.dice1XPos, this.dice1YPos, null);
+		canvas.drawBitmap(this.dice2.getCurrent(), this.dice2XPos, this.dice2YPos, null);
 		
 		canvas.drawBitmap(this.chip, this.chipXPos, this.chipYPos, null);
 		
