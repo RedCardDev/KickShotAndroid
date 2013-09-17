@@ -25,6 +25,7 @@
         
         <activity
             android:name="com.redcarddev.kickshot.LevelOne"
+            android:screenOrientation="portrait"
             android:label="@string/app_name" >
         </activity>
     </application>
