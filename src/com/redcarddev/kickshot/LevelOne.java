@@ -73,11 +73,21 @@ public class LevelOne extends Activity implements OnClickListener {
 			Log.v(LOGCAT, "Clicked on the board");
 			
 			Random r = new Random();
+			int numloop = 0;
+			long lastSec = 0;
+			int moves1 = 1;
+			int moves2 = 1;
+			while(numloop < 8){
+				long sec = System.currentTimeMillis() / 1000;
+				if(sec != lastSec){
+					numloop++;
+					moves1 = r.nextInt(6-1) + 1;
+					moves2 = r.nextInt(6-1) + 1;
+					this.board.changeDice(moves1, moves2);
+					lastSec = sec;
+				}
+			}
 			
-			int moves1 = r.nextInt(6-1) + 1;
-			int moves2 = r.nextInt(6-1) + 1;
-			
-			this.board.changeDice(moves1, moves2);
 			if(moves1 > moves2){
 				this.moveBall(moves1);
 			}
