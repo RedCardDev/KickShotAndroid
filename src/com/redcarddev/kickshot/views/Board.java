@@ -72,8 +72,8 @@ public class Board extends View {
 	public void positionDiceHome() {
 		
 		//this.diceYPos = this.diceHomePosition;
-		this.dice1YPos = 150;
-		this.dice2YPos = 250;
+		this.dice1YPos = 700;
+		this.dice2YPos = 800;
 		invalidate();
 		
 	}
