@@ -29,19 +29,15 @@ public class Board extends View {
 	protected int chipXPos = 0;
 	protected int chipYPos = 0;
 	protected int chipInitYPos = 0;
-	
 	protected int chipLine = 0;
 	
-	protected int dice1XPos = 0;
-	protected int dice1YPos = 0;
-	protected int dice2XPos = 0;
-	protected int dice2YPos = 0;
+	protected int[] diceYPos = {0,0};
 	
-	protected int dice1HomePosition = 0;
-	protected int dice2HomePosition = 0;
+	protected int[] diceHomeYPosition = {0,0}; //set in init
+	protected int[] diceAwayYPosition = {150, 250};
 	
-	public final static int CHIP_HOME = 1;
-	public final static int CHIP_AWAY = 2;
+	public final static int HOME = 1;
+	public final static int AWAY = 2;
 	
 	int initSet = 0;
 
@@ -60,9 +56,9 @@ public class Board extends View {
 		
 		int chipDrawable;
 		
-		if (playerTurn == Board.CHIP_HOME) {//home chip
+		if (playerTurn == Board.HOME) {//home chip
 			chipDrawable = R.drawable.ballchiphome;
-		} else if (playerTurn == Board.CHIP_AWAY) {//away chip
+		} else if (playerTurn == Board.AWAY) {//away chip
 			chipDrawable = R.drawable.ballchipaway;
 		} else {
 			return false;
@@ -82,17 +78,15 @@ public class Board extends View {
 	}
 	
 	public void positionDiceHome() {
-		
-		//this.diceYPos = this.diceHomePosition;
-		this.dice1YPos = 150;
-		this.dice2YPos = 250;
+		this.diceYPos[0] = this.diceHomeYPosition[0];
+		this.diceYPos[1] = this.diceHomeYPosition[1];
 		invalidate();
 		
 	}
 	
 	public void positionDiceAway() {
-		this.dice1YPos = 150;
-		this.dice2YPos = 250;
+		this.diceYPos[0] = this.diceAwayYPosition[0];
+		this.diceYPos[1] = this.diceAwayYPosition[1];
 		invalidate();
 	}
 	
@@ -127,8 +121,8 @@ public class Board extends View {
 	
 	private void init() {
 		
-		this.dice1HomePosition = this.canvas.getHeight() - 150;
-		this.dice2HomePosition = this.canvas.getHeight() - 250;
+		this.diceHomeYPosition[0] = this.canvas.getHeight() - 150;
+		this.diceHomeYPosition[1] = this.canvas.getHeight() - 250;
 		
 		ballPosession(1);
 		positionDiceHome();
@@ -150,8 +144,8 @@ public class Board extends View {
 			this.init();
 		}
 		
-		canvas.drawBitmap(this.dice1.getCurrent(), this.dice1XPos, this.dice1YPos, null);
-		canvas.drawBitmap(this.dice2.getCurrent(), this.dice2XPos, this.dice2YPos, null);
+		canvas.drawBitmap(this.dice1.getCurrent(), 0, this.diceYPos[0], null);
+		canvas.drawBitmap(this.dice2.getCurrent(), 0, this.diceYPos[1], null);
 		
 		canvas.drawBitmap(this.chip, this.chipXPos, this.chipYPos, null);
 		

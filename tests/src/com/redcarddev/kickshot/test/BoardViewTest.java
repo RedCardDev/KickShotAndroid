@@ -69,10 +69,10 @@ public class BoardViewTest extends AndroidTestCase {
 		set = this.board.ballPosession(2);
 		assertTrue(set);
 		
-		set = this.board.ballPosession(Board.CHIP_HOME);
+		set = this.board.ballPosession(Board.HOME);
 		assertTrue(set);
 		
-		set = this.board.ballPosession(Board.CHIP_AWAY);
+		set = this.board.ballPosession(Board.AWAY);
 		assertTrue(set);
 		
 		set = this.board.ballPosession(3);
@@ -83,12 +83,20 @@ public class BoardViewTest extends AndroidTestCase {
 		
 	}
 	
-	public void testDiceSetFace() {
-		Log.v(LOGTAG, "testDiceSetFace e");
+	public void testDicePositionAway() {
+		Log.v(LOGTAG, "testDicePositionAway e");
 		
+		Boolean set = false;
 		
+		//position the first dice to the away site
+		set = this.board.diceTowardsAway(1);
+		assertTrue(set);
 		
-		Log.v(LOGTAG, "testDiceSetFace x");
+		//position the first dice to the away site
+		set = this.board.diceTowardsAway(2);
+		assertTrue(set);
+		
+		Log.v(LOGTAG, "testDicePositionAway x");
 	}
 
 }
