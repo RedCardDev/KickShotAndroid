@@ -8,10 +8,13 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 
 public class Board extends View {
+	
+	String LOGTAG = "BoardView";
 
 	Bitmap chip = null;
 	
@@ -25,6 +28,7 @@ public class Board extends View {
 	
 	protected int chipXPos = 0;
 	protected int chipYPos = 0;
+	protected int chipInitYPos = 0;
 	
 	protected int chipLine = 0;
 	
@@ -49,20 +53,23 @@ public class Board extends View {
 		return super.onTouchEvent(event);
 	}
 	
-	public void changeChip(int playerTurn) {
+	public Boolean changeChip(int playerTurn) {
 		
 		int chipDrawable;
 		
 		if (playerTurn == 1) {//home chip
 			chipDrawable = R.drawable.ballchiphome;
-		} else {//away chip
+		} else if (playerTurn == 2) {//away chip
 			chipDrawable = R.drawable.ballchipaway;
+		} else {
+			return false;
 		}
 		
 		Resources res = getContext().getResources();
 		this.chip = BitmapFactory.decodeResource(res, chipDrawable);
 		
 		invalidate();
+		return true;
 	}
 	
 	public void changeDice(int dice1Face, int dice2Face) {
@@ -88,32 +95,31 @@ public class Board extends View {
 	
 	public int towardsAway(int steps) {
 		this.chipLine += steps;
-		this.moveChip(steps);
-		
-		return this.chipLine;
+		return this.moveChip();
 	}
 	
 	public int towardsHome(int steps) {
 		this.chipLine -= steps;
-		this.moveChip(-1 * steps);
-		
-		return this.chipLine;
+		return this.moveChip();
 	}
 	
-	private void moveChip(int number) {
-		//this is just barely too much
-		this.chipYPos = this.chipYPos - (40 * number);
-		if(chipYPos < 120){
-			chipYPos = 120;
-			// put shot on goal function here
-			// Shoot(int player)
+	private int moveChip() {
+		
+		if(this.chipLine <= -11){ //do not allow past the home goal
+			this.chipLine = -11;
 		}
-		else if(chipYPos > 850){
-			chipYPos = 850;
-			// put shot on goal function here
-			// Shoot(int player)
+		else if(this.chipLine >= 11){//do not allow past the away goal
+			this.chipLine = 11;
 		}
+		
+		Log.v(LOGTAG, "Chip Line: " + this.chipLine);
+		
+		this.chipYPos = this.chipInitYPos - (40 * this.chipLine);
+		Log.v(LOGTAG, "Setting chipYPos: " + this.chipYPos);
+		
 		invalidate();
+		
+		return this.chipLine;
 	}
 	
 	private void init() {
@@ -126,7 +132,7 @@ public class Board extends View {
 		
 		
 		this.chipXPos = (this.canvas.getWidth() - this.chip.getWidth()) / 2;
-		this.chipYPos = (this.canvas.getHeight() - this.chip.getHeight()) / 2;
+		this.chipYPos = this.chipInitYPos = (this.canvas.getHeight() - this.chip.getHeight()) / 2;
 		
 		this.initSet = 1;
 		

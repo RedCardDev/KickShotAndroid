@@ -28,8 +28,33 @@ public class BoardViewTest extends AndroidTestCase {
 		int line = this.board.towardsAway(5);
 		assertEquals(5, line);
 		
+		line = this.board.towardsAway(5);
+		assertEquals(10, line);
+		
+		//the view should only move to line 11
+		line = this.board.towardsAway(6);
+		assertEquals(11, line);
+		
 		
 		Log.v(LOGTAG, "testBallTowardsAway x");
+	}
+	
+	public void testBallTowardsHome() {
+		Log.v(LOGTAG, "testBallTowardsHome e");
+
+		
+		int line = this.board.towardsHome(5);
+		assertEquals(-5, line);
+		
+		line = this.board.towardsHome(5);
+		assertEquals(-10, line);
+		
+		//the view should only move to line 11
+		line = this.board.towardsHome(6);
+		assertEquals(-11, line);
+		
+		
+		Log.v(LOGTAG, "testBallTowardsHome x");
 	}
 
 }
