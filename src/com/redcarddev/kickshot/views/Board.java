@@ -19,8 +19,7 @@ public class Board extends View {
 	Bitmap chip = null;
 	
 	//two dice in case of doubles
-	Dice dice1 = null;
-	Dice dice2 = null;
+	protected Dice[] dice;
 	Bitmap diceImage = null;
 	
 	
@@ -31,8 +30,7 @@ public class Board extends View {
 	protected int chipInitYPos = 0;
 	protected int chipLine = 0;
 	
-	protected int[] diceYPos = {0,0};
-	
+	protected int[] diceYPos = {0,0}; //represents the current position
 	protected int[] diceHomeYPosition = {0,0}; //set in init
 	protected int[] diceAwayYPosition = {150, 250};
 	
@@ -44,8 +42,9 @@ public class Board extends View {
 	public Board(Context context, AttributeSet attrs) {
 	    super(context, attrs);
 	    
-	    this.dice1 = new Dice(context);
-	    this.dice2 = new Dice(context);
+	    dice = new Dice[2];
+	    this.dice[0] = new Dice(context);
+	    this.dice[1] = new Dice(context);
 	}
 	
 	public boolean onTouchEvent(MotionEvent event) {
@@ -71,23 +70,40 @@ public class Board extends View {
 		return true;
 	}
 	
-	public void changeDice(int dice1Face, int dice2Face) {
-		this.dice1.setDiceFace(dice1Face);
-		this.dice2.setDiceFace(dice2Face);
-		invalidate();
-	}
-	
-	public void positionDiceHome() {
-		this.diceYPos[0] = this.diceHomeYPosition[0];
-		this.diceYPos[1] = this.diceHomeYPosition[1];
+	public Boolean diceChangeFace(int dice, int diceFace) {
+		
+		if (dice < 1 || dice > 2) {
+			return false;
+		}
+		
+		this.dice[dice - 1].setDiceFace(diceFace);
 		invalidate();
 		
+		return true;
 	}
 	
-	public void positionDiceAway() {
-		this.diceYPos[0] = this.diceAwayYPosition[0];
-		this.diceYPos[1] = this.diceAwayYPosition[1];
+	public Boolean dicePositionHome(int dice) {
+		
+		if (dice < 1 || dice > 2) {
+			return false;
+		}
+		
+		this.diceYPos[dice - 1] = this.diceHomeYPosition[dice - 1];
 		invalidate();
+		
+		return true;
+	}
+	
+	public Boolean dicePositionAway(int dice) {
+		
+		if (dice < 1 || dice > 2) {
+			return false;
+		}
+		
+		this.diceYPos[dice - 1] = this.diceAwayYPosition[dice - 1];
+		invalidate();
+		
+		return true;
 	}
 	
 	public int ballTowardsAway(int steps) {
@@ -125,7 +141,8 @@ public class Board extends View {
 		this.diceHomeYPosition[1] = this.canvas.getHeight() - 250;
 		
 		ballPosession(1);
-		positionDiceHome();
+		dicePositionHome(1);
+		dicePositionHome(2);
 		
 		
 		this.chipXPos = (this.canvas.getWidth() - this.chip.getWidth()) / 2;
@@ -144,8 +161,8 @@ public class Board extends View {
 			this.init();
 		}
 		
-		canvas.drawBitmap(this.dice1.getCurrent(), 0, this.diceYPos[0], null);
-		canvas.drawBitmap(this.dice2.getCurrent(), 0, this.diceYPos[1], null);
+		canvas.drawBitmap(this.dice[0].getCurrent(), 0, this.diceYPos[0], null);
+		canvas.drawBitmap(this.dice[1].getCurrent(), 0, this.diceYPos[1], null);
 		
 		canvas.drawBitmap(this.chip, this.chipXPos, this.chipYPos, null);
 		

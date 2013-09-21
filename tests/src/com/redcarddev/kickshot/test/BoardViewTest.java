@@ -89,14 +89,80 @@ public class BoardViewTest extends AndroidTestCase {
 		Boolean set = false;
 		
 		//position the first dice to the away site
-		set = this.board.diceTowardsAway(1);
+		set = this.board.dicePositionAway(0);
+		assertFalse(set);
+		
+		//position the first dice to the away site
+		set = this.board.dicePositionAway(1);
 		assertTrue(set);
 		
 		//position the first dice to the away site
-		set = this.board.diceTowardsAway(2);
+		set = this.board.dicePositionAway(2);
 		assertTrue(set);
 		
+		//position the first dice to the away site
+		set = this.board.dicePositionAway(3);
+		assertFalse(set);
+		
 		Log.v(LOGTAG, "testDicePositionAway x");
+	}
+	
+	public void testDicePositionHome() {
+		Log.v(LOGTAG, "testDicePositionHome e");
+		
+		Boolean set = false;
+		
+		//position the first dice to the away site
+		set = this.board.dicePositionHome(0);
+		assertFalse(set);
+		
+		//position the first dice to the away site
+		set = this.board.dicePositionHome(1);
+		assertTrue(set);
+		
+		//position the first dice to the away site
+		set = this.board.dicePositionHome(2);
+		assertTrue(set);
+		
+		//position the first dice to the away site
+		set = this.board.dicePositionHome(3);
+		assertFalse(set);
+		
+		Log.v(LOGTAG, "testDicePositionHome x");
+	}
+	
+	public void testDiceChangeFace() {
+		Log.v(LOGTAG, "testDiceChangeFace e");
+		
+		Boolean set = false;
+		
+		set = this.board.diceChangeFace(1, 0);
+		assertTrue(set);
+		
+		set = this.board.diceChangeFace(2, 1);
+		assertTrue(set);
+		
+		set = this.board.diceChangeFace(1, 2);
+		assertTrue(set);
+		
+		set = this.board.diceChangeFace(2, 3);
+		assertTrue(set);
+		
+		set = this.board.diceChangeFace(1, 4);
+		assertTrue(set);
+		
+		set = this.board.diceChangeFace(2, 5);
+		assertTrue(set);
+		
+		set = this.board.diceChangeFace(1, 6);
+		assertTrue(set);
+		
+		set = this.board.diceChangeFace(2, 7);
+		assertTrue(set);
+		
+		Log.v(LOGTAG, "testDiceChangeFace x");
+		
+		
 	}
 
 }
