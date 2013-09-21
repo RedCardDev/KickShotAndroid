@@ -53,7 +53,7 @@ public class LevelOne extends Activity implements OnClickListener {
 	        		this.board.positionDiceHome();
 	        	}
 	        	
-	        	this.board.changeChip(this.currentPlayer);
+	        	this.board.ballPosession(this.currentPlayer);
 	        	
 	            return true;
 	        case R.id.action_move_ball:
@@ -95,9 +95,9 @@ public class LevelOne extends Activity implements OnClickListener {
 	protected void moveBall(int positions) {
 		
 		if (this.currentPlayer == 1) {
-    		this.board.towardsAway(positions);
+    		this.board.ballTowardsAway(positions);
     	} else {
-    		this.board.towardsHome(positions);
+    		this.board.ballTowardsHome(positions);
     	}
 		
 	}
