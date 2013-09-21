@@ -26,6 +26,8 @@ public class Board extends View {
 	protected int chipXPos = 0;
 	protected int chipYPos = 0;
 	
+	protected int chipLine = 0;
+	
 	protected int dice1XPos = 0;
 	protected int dice1YPos = 0;
 	protected int dice2XPos = 0;
@@ -84,12 +86,18 @@ public class Board extends View {
 		invalidate();
 	}
 	
-	public void towardsAway(int steps) {
+	public int towardsAway(int steps) {
+		this.chipLine += steps;
 		this.moveChip(steps);
+		
+		return this.chipLine;
 	}
 	
-	public void towardsHome(int steps) {
+	public int towardsHome(int steps) {
+		this.chipLine -= steps;
 		this.moveChip(-1 * steps);
+		
+		return this.chipLine;
 	}
 	
 	private void moveChip(int number) {
