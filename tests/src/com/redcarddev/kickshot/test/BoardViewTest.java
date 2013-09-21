@@ -25,14 +25,14 @@ public class BoardViewTest extends AndroidTestCase {
 		Log.v(LOGTAG, "testBallTowardsAway e");
 
 		
-		int line = this.board.towardsAway(5);
+		int line = this.board.ballTowardsAway(5);
 		assertEquals(5, line);
 		
-		line = this.board.towardsAway(5);
+		line = this.board.ballTowardsAway(5);
 		assertEquals(10, line);
 		
 		//the view should only move to line 11
-		line = this.board.towardsAway(6);
+		line = this.board.ballTowardsAway(6);
 		assertEquals(11, line);
 		
 		
@@ -43,14 +43,14 @@ public class BoardViewTest extends AndroidTestCase {
 		Log.v(LOGTAG, "testBallTowardsHome e");
 
 		
-		int line = this.board.towardsHome(5);
+		int line = this.board.ballTowardsHome(5);
 		assertEquals(-5, line);
 		
-		line = this.board.towardsHome(5);
+		line = this.board.ballTowardsHome(5);
 		assertEquals(-10, line);
 		
 		//the view should only move to line 11
-		line = this.board.towardsHome(6);
+		line = this.board.ballTowardsHome(6);
 		assertEquals(-11, line);
 		
 		

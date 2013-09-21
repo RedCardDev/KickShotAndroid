@@ -93,17 +93,17 @@ public class Board extends View {
 		invalidate();
 	}
 	
-	public int towardsAway(int steps) {
+	public int ballTowardsAway(int steps) {
 		this.chipLine += steps;
 		return this.moveChip();
 	}
 	
-	public int towardsHome(int steps) {
+	public int ballTowardsHome(int steps) {
 		this.chipLine -= steps;
 		return this.moveChip();
 	}
 	
-	private int moveChip() {
+	private int ballMove() {
 		
 		if(this.chipLine <= -11){ //do not allow past the home goal
 			this.chipLine = -11;
