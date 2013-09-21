@@ -40,6 +40,9 @@ public class Board extends View {
 	protected int dice1HomePosition = 0;
 	protected int dice2HomePosition = 0;
 	
+	public final static int CHIP_HOME = 1;
+	public final static int CHIP_AWAY = 2;
+	
 	int initSet = 0;
 
 	public Board(Context context, AttributeSet attrs) {
@@ -53,13 +56,13 @@ public class Board extends View {
 		return super.onTouchEvent(event);
 	}
 	
-	public Boolean changeChip(int playerTurn) {
+	public Boolean ballPosession(int playerTurn) {
 		
 		int chipDrawable;
 		
-		if (playerTurn == 1) {//home chip
+		if (playerTurn == Board.CHIP_HOME) {//home chip
 			chipDrawable = R.drawable.ballchiphome;
-		} else if (playerTurn == 2) {//away chip
+		} else if (playerTurn == Board.CHIP_AWAY) {//away chip
 			chipDrawable = R.drawable.ballchipaway;
 		} else {
 			return false;
@@ -95,12 +98,12 @@ public class Board extends View {
 	
 	public int ballTowardsAway(int steps) {
 		this.chipLine += steps;
-		return this.moveChip();
+		return this.ballMove();
 	}
 	
 	public int ballTowardsHome(int steps) {
 		this.chipLine -= steps;
-		return this.moveChip();
+		return this.ballMove();
 	}
 	
 	private int ballMove() {
@@ -127,7 +130,7 @@ public class Board extends View {
 		this.dice1HomePosition = this.canvas.getHeight() - 150;
 		this.dice2HomePosition = this.canvas.getHeight() - 250;
 		
-		changeChip(1);
+		ballPosession(1);
 		positionDiceHome();
 		
 		
