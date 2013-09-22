@@ -9,7 +9,13 @@ public class AllTests extends TestSuite {
 		
 		TestSuite suite = new TestSuite(AllTests.class.getName());
 		
-		suite.addTest(new BoardViewTest("testFirst"));
+		/* Ball Chip Tests */
+		suite.addTest(new BoardViewTest("testBallTowardsAway"));
+		suite.addTest(new BoardViewTest("testBallTowardsHome"));
+		suite.addTest(new BoardViewTest("testBallPosession"));
+		
+		/* Multiple Dice Tests */
+		suite.addTest(new BoardViewTest("testDicePositionAway"));
 		
 		return suite;
 	}

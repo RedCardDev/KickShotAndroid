@@ -18,9 +18,16 @@ public class LevelOne extends Activity implements OnClickListener {
 	
 	String LOGCAT = LevelOne.class.getName();
 	
+	static Random r;
+	
 	int currentPlayer = 1;
+	int currentState = 0;
 	
 	Board board = null;
+	
+	final static int OFFENSE_STATE = 1;
+	final static int DEFENSE_STATE = 2;
+	final static int SHOT_STATE = 3;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +36,8 @@ public class LevelOne extends Activity implements OnClickListener {
 		
 		 this.board = (Board)findViewById(R.id.board);
 		 this.board.setOnClickListener(this);
+		 
+		 this.r = new Random();
 	}
 
 	@Override
@@ -47,10 +56,12 @@ public class LevelOne extends Activity implements OnClickListener {
 	        	
 	        	if (this.currentPlayer == 1) {//change to away
 	        		this.currentPlayer = 2;
-	        		this.board.positionDiceAway();
+	        		this.board.dicePositionAway(1);
+	        		this.board.dicePositionAway(2);
 	        	} else {//change to home
 	        		this.currentPlayer = 1;
-	        		this.board.positionDiceHome();
+	        		this.board.dicePositionHome(1);
+	        		this.board.dicePositionHome(2);
 	        	}
 	        	
 	        	this.board.ballPosession(this.currentPlayer);
@@ -58,7 +69,15 @@ public class LevelOne extends Activity implements OnClickListener {
 	            return true;
 	        case R.id.action_move_ball:
 	        	
+	        	switch(1) {
 	        	
+		        	case LevelOne.OFFENSE_STATE:
+		        	case LevelOne.DEFENSE_STATE:
+		        	case LevelOne.SHOT_STATE:
+		        		this.rollDiceAction();
+	        		break;
+	        	
+	        	}
 	        	
 	        	return true;
 	        	
@@ -72,33 +91,72 @@ public class LevelOne extends Activity implements OnClickListener {
 		if (view.getId() == R.id.board) {
 			Log.v(LOGCAT, "Clicked on the board");
 			
-			Random r = new Random();
 			
-			int moves1 = r.nextInt(6-1) + 1;
-			int moves2 = r.nextInt(6-1) + 1;
-			
-			this.board.changeDice(moves1, moves2);
-			if(moves1 > moves2){
-				this.moveBall(moves1);
-			}
-			else if(moves2 > moves1){
-				this.moveBall(moves2);
-			}
-			else{
-				this.moveBall(moves1 + 1);
-			}
+			this.rollDiceAction();
 			
 		}
 		
 	}
 	
+	/**
+	 * Find an integer between 1 and 6
+	 * @return
+	 */
+	protected int rollDice() {
+		return r.nextInt(6-1) + 1;
+	}
+	
+	/**
+	 * Roles both dice at the same time
+	 * 
+	 * Calculates two dice roles and changes the dice faces
+	 * on the board. Then moves the ball the distance of the
+	 * value of the largest dice (plus one for doubles).
+	 * 
+	 */
+	protected void rollDiceAction() {
+		
+		int moves1 = this.rollDice();
+		int moves2 = this.rollDice();
+		
+		this.board.diceChangeFace(1, moves1);
+		this.board.diceChangeFace(2, moves2);
+
+		if(moves1 > moves2){
+			this.moveBall(moves1);
+		}
+		else if(moves2 > moves1){
+			this.moveBall(moves2);
+		}
+		else{ //doubles were rolled
+			this.moveBall(moves1 + 1);
+		}
+		
+	}
+	
+	/**
+	 * Has the view move the ball a specific number of lines
+	 * 
+	 * If currentPlayer is player #1 then move the ball towards
+	 * the away goal, and if player #2 then move the ball
+	 * towards the home goal. If the currentLine is 11 or -11
+	 * then change the game state to SHOT_STATE.
+	 * 
+	 * @param positions
+	 */
 	protected void moveBall(int positions) {
 		
+		int currentLine = 0;
+		
 		if (this.currentPlayer == 1) {
-    		this.board.ballTowardsAway(positions);
+    		currentLine = this.board.ballTowardsAway(positions);
     	} else {
-    		this.board.ballTowardsHome(positions);
+    		currentLine = this.board.ballTowardsHome(positions);
     	}
+		
+		if (currentLine == 11 || currentLine == -11) {
+			this.currentState = LevelOne.SHOT_STATE;
+		}
 		
 	}
 
