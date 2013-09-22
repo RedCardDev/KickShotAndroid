@@ -21,6 +21,7 @@ public class LevelOne extends Activity implements OnClickListener {
 	static Random r;
 	
 	int currentPlayer = 1;
+	int currentState = 0;
 	
 	Board board = null;
 	
@@ -97,10 +98,22 @@ public class LevelOne extends Activity implements OnClickListener {
 		
 	}
 	
+	/**
+	 * Find an integer between 1 and 6
+	 * @return
+	 */
 	protected int rollDice() {
 		return r.nextInt(6-1) + 1;
 	}
 	
+	/**
+	 * Roles both dice at the same time
+	 * 
+	 * Calculates two dice roles and changes the dice faces
+	 * on the board. Then moves the ball the distance of the
+	 * value of the largest dice (plus one for doubles).
+	 * 
+	 */
 	protected void rollDiceAction() {
 		
 		int moves1 = this.rollDice();
@@ -115,19 +128,35 @@ public class LevelOne extends Activity implements OnClickListener {
 		else if(moves2 > moves1){
 			this.moveBall(moves2);
 		}
-		else{
+		else{ //doubles were rolled
 			this.moveBall(moves1 + 1);
 		}
 		
 	}
 	
+	/**
+	 * Has the view move the ball a specific number of lines
+	 * 
+	 * If currentPlayer is player #1 then move the ball towards
+	 * the away goal, and if player #2 then move the ball
+	 * towards the home goal. If the currentLine is 11 or -11
+	 * then change the game state to SHOT_STATE.
+	 * 
+	 * @param positions
+	 */
 	protected void moveBall(int positions) {
 		
+		int currentLine = 0;
+		
 		if (this.currentPlayer == 1) {
-    		this.board.ballTowardsAway(positions);
+    		currentLine = this.board.ballTowardsAway(positions);
     	} else {
-    		this.board.ballTowardsHome(positions);
+    		currentLine = this.board.ballTowardsHome(positions);
     	}
+		
+		if (currentLine == 11 || currentLine == -11) {
+			this.currentState = LevelOne.SHOT_STATE;
+		}
 		
 	}
 

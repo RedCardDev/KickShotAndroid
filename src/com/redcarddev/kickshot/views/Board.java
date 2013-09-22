@@ -51,6 +51,11 @@ public class Board extends View {
 		return super.onTouchEvent(event);
 	}
 	
+	/**
+	 * Changes the Bitmap displayed for the ball chip
+	 * @param playerTurn Either Board.HOME or Board.AWAY
+	 * @return True if a possible player
+	 */
 	public Boolean ballPosession(int playerTurn) {
 		
 		int chipDrawable;
@@ -70,6 +75,12 @@ public class Board extends View {
 		return true;
 	}
 	
+	/**
+	 * Changes the face of a specific dice
+	 * @param dice The dice that should be changes (1 or 2)
+	 * @param diceFace The number to display on the dice (1..6)
+	 * @return True if a possible dice index
+	 */
 	public Boolean diceChangeFace(int dice, int diceFace) {
 		
 		if (dice < 1 || dice > 2) {
@@ -82,6 +93,11 @@ public class Board extends View {
 		return true;
 	}
 	
+	/**
+	 * Moves the specified dice to the home position
+	 * @param dice The die to move
+	 * @return True if a possible dice index
+	 */
 	public Boolean dicePositionHome(int dice) {
 		
 		if (dice < 1 || dice > 2) {
@@ -94,6 +110,11 @@ public class Board extends View {
 		return true;
 	}
 	
+	/**
+	 * Moves the specified dice to the away position
+	 * @param dice The die to move
+	 * @return True if a possible dice index
+	 */
 	public Boolean dicePositionAway(int dice) {
 		
 		if (dice < 1 || dice > 2) {
@@ -106,16 +127,30 @@ public class Board extends View {
 		return true;
 	}
 	
+	/**
+	 * Moves the specified ball towards the away goal
+	 * @param steps The number of steps to move the ball
+	 * @return The line number that the ball moved to
+	 */
 	public int ballTowardsAway(int steps) {
 		this.chipLine += steps;
 		return this.ballMove();
 	}
 	
+	/**
+	 * Moves the specified ball towards the home goal
+	 * @param steps The number of steps to move the ball
+	 * @return The line number that the ball moved to
+	 */
 	public int ballTowardsHome(int steps) {
 		this.chipLine -= steps;
 		return this.ballMove();
 	}
 	
+	/**
+	 * Moves the ball to the line specified by chipLine
+	 * @return The line number that the ball moved to
+	 */
 	private int ballMove() {
 		
 		if(this.chipLine <= -11){ //do not allow past the home goal
@@ -135,6 +170,9 @@ public class Board extends View {
 		return this.chipLine;
 	}
 	
+	/**
+	 * Prepares the resources for onDraw
+	 */
 	private void init() {
 		
 		this.diceHomeYPosition[0] = this.canvas.getHeight() - 150;
