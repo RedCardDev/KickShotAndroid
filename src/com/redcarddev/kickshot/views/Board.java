@@ -18,23 +18,60 @@ public class Board extends View {
 
 	Bitmap chip = null;
 	
-	//two dice in case of doubles
+	/**
+	 * Holds the dice objects
+	 */
 	protected Dice[] dice;
 	Bitmap diceImage = null;
 	
-	
+	/**
+	 * The area that will display the dice and the ball chip
+	 */
 	private Canvas canvas = null;
 	
+	/**
+	 * The current x position of the ball
+	 */
 	protected int chipXPos = 0;
+	
+	/**
+	 * The current y position of the ball
+	 */
 	protected int chipYPos = 0;
+	
+	/**
+	 * The initial y position of the ball
+	 */
 	protected int chipInitYPos = 0;
+	
+	/**
+	 * The line the ball should be on
+	 */
 	protected int chipLine = 0;
 	
+	/**
+	 * The y position of the two dice
+	 */
 	protected int[] diceYPos = {0,0}; //represents the current position
+	
+	/**
+	 * The home y position of the two dice
+	 */
 	protected int[] diceHomeYPosition = {0,0}; //set in init
+	
+	/**
+	 * The away y position of the two dice
+	 */
 	protected int[] diceAwayYPosition = {150, 250};
 	
+	/**
+	 * Class variable for HOME
+	 */
 	public final static int HOME = 1;
+	
+	/**
+	 * Class variable for AWAY
+	 */
 	public final static int AWAY = 2;
 	
 	int initSet = 0;
