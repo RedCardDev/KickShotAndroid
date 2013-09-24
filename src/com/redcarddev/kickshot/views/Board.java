@@ -24,7 +24,7 @@ public class Board extends View {
 	private Canvas canvas = null;
 	
 	protected int chipXPos = 0;
-	protected int chipYPos = 0;
+	public int chipYPos = 0;
 	
 	protected int dice1XPos = 0;
 	protected int dice1YPos = 0;
@@ -97,13 +97,13 @@ public class Board extends View {
 		this.chipYPos = this.chipYPos - (40 * number);
 		if(chipYPos < 120){
 			chipYPos = 120;
-			// put shot on goal function here
-			// Shoot(int player)
+			this.dice1YPos = 150;
+			this.dice2YPos = 800;
 		}
 		else if(chipYPos > 850){
 			chipYPos = 850;
-			// put shot on goal function here
-			// Shoot(int player)
+			this.dice1YPos = 150;
+			this.dice2YPos = 800;
 		}
 		invalidate();
 	}
