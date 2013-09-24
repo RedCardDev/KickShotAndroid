@@ -93,6 +93,8 @@ public class LevelOne extends Activity implements OnClickListener {
 			
 			
 			this.rollDiceAction();
+			
+			this.rollDiceAction();
 		
 		}
 		
