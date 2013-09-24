@@ -8,117 +8,231 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 
 public class Board extends View {
+	
+	String LOGTAG = "BoardView";
 
 	Bitmap chip = null;
 	
-	//two dice in case of doubles
-	Dice dice1 = null;
-	Dice dice2 = null;
+	/**
+	 * Holds the dice objects
+	 */
+	protected Dice[] dice;
 	Bitmap diceImage = null;
 	
-	
+	/**
+	 * The area that will display the dice and the ball chip
+	 */
 	private Canvas canvas = null;
 	
+	/**
+	 * The current x position of the ball
+	 */
 	protected int chipXPos = 0;
-	public int chipYPos = 0;
 	
-	protected int dice1XPos = 0;
-	protected int dice1YPos = 0;
-	protected int dice2XPos = 0;
-	protected int dice2YPos = 0;
+	/**
+	 * The current y position of the ball
+	 */
+	protected int chipYPos = 0;
 	
-	protected int dice1HomePosition = 0;
-	protected int dice2HomePosition = 0;
+	/**
+	 * The initial y position of the ball
+	 */
+	protected int chipInitYPos = 0;
+	
+	/**
+	 * The line the ball should be on
+	 */
+	protected int chipLine = 0;
+	
+	/**
+	 * The y position of the two dice
+	 */
+	protected int[] diceYPos = {0,0}; //represents the current position
+	
+	/**
+	 * The home y position of the two dice
+	 */
+	protected int[] diceHomeYPosition = {0,0}; //set in init
+	
+	/**
+	 * The away y position of the two dice
+	 */
+	protected int[] diceAwayYPosition = {150, 250};
+	
+	/**
+	 * Class variable for HOME
+	 */
+	public final static int HOME = 1;
+	
+	/**
+	 * Class variable for AWAY
+	 */
+	public final static int AWAY = 2;
 	
 	int initSet = 0;
 
 	public Board(Context context, AttributeSet attrs) {
 	    super(context, attrs);
 	    
-	    this.dice1 = new Dice(context);
-	    this.dice2 = new Dice(context);
+	    dice = new Dice[2];
+	    this.dice[0] = new Dice(context);
+	    this.dice[1] = new Dice(context);
 	}
 	
 	public boolean onTouchEvent(MotionEvent event) {
 		return super.onTouchEvent(event);
 	}
 	
-	public void changeChip(int playerTurn) {
+	/**
+	 * sets the location of the chip
+	 * @param loc the integer the chipLine is set to
+	 */
+	public void setChipLocation(int loc){
+		this.chipLine = loc;
+		this.chipYPos = this.chipInitYPos - (40 * this.chipLine);
+	}
+	
+	/**
+	 * Changes the Bitmap displayed for the ball chip
+	 * @param playerTurn Either Board.HOME or Board.AWAY
+	 * @return True if a possible player
+	 */
+	public Boolean ballPosession(int playerTurn) {
 		
 		int chipDrawable;
 		
-		if (playerTurn == 1) {//home chip
+		if (playerTurn == Board.HOME) {//home chip
 			chipDrawable = R.drawable.ballchiphome;
-		} else {//away chip
+		} else if (playerTurn == Board.AWAY) {//away chip
 			chipDrawable = R.drawable.ballchipaway;
+		} else {
+			return false;
 		}
 		
 		Resources res = getContext().getResources();
 		this.chip = BitmapFactory.decodeResource(res, chipDrawable);
 		
 		invalidate();
+		return true;
 	}
 	
-	public void changeDice(int dice1Face, int dice2Face) {
-		this.dice1.setDiceFace(dice1Face);
-		this.dice2.setDiceFace(dice2Face);
-		invalidate();
-	}
-	
-	public void positionDiceHome() {
+	/**
+	 * Changes the face of a specific dice
+	 * @param dice The dice that should be changes (1 or 2)
+	 * @param diceFace The number to display on the dice (1..6)
+	 * @return True if a possible dice index
+	 */
+	public Boolean diceChangeFace(int dice, int diceFace) {
 		
-		//this.diceYPos = this.diceHomePosition;
-		this.dice1YPos = 700;
-		this.dice2YPos = 800;
+		if (dice < 1 || dice > 2) {
+			return false;
+		}
+		
+		this.dice[dice - 1].setDiceFace(diceFace);
 		invalidate();
 		
+		return true;
 	}
 	
-	public void positionDiceAway() {
-		this.dice1YPos = 150;
-		this.dice2YPos = 250;
-		invalidate();
-	}
-	
-	public void towardsAway(int steps) {
-		this.moveChip(steps);
-	}
-	
-	public void towardsHome(int steps) {
-		this.moveChip(-1 * steps);
-	}
-	
-	private void moveChip(int number) {
-		//this is just barely too much
-		this.chipYPos = this.chipYPos - (40 * number);
-		if(chipYPos < 120){
-			chipYPos = 120;
-			this.dice1YPos = 150;
-			this.dice2YPos = 800;
+	/**
+	 * Moves the specified dice to the home position
+	 * @param dice The die to move
+	 * @return True if a possible dice index
+	 */
+	public Boolean dicePositionHome(int dice) {
+		
+		if (dice < 1 || dice > 2) {
+			return false;
 		}
-		else if(chipYPos > 850){
-			chipYPos = 850;
-			this.dice1YPos = 150;
-			this.dice2YPos = 800;
-		}
+		
+		this.diceYPos[dice - 1] = this.diceHomeYPosition[dice - 1];
 		invalidate();
+		
+		return true;
 	}
 	
+	/**
+	 * Moves the specified dice to the away position
+	 * @param dice The die to move
+	 * @return True if a possible dice index
+	 */
+	public Boolean dicePositionAway(int dice) {
+		
+		if (dice < 1 || dice > 2) {
+			return false;
+		}
+		
+		this.diceYPos[dice - 1] = this.diceAwayYPosition[dice - 1];
+		invalidate();
+		
+		return true;
+	}
+	
+	/**
+	 * Moves the specified ball towards the away goal
+	 * @param steps The number of steps to move the ball
+	 * @return The line number that the ball moved to
+	 */
+	public int ballTowardsAway(int steps) {
+		this.chipLine += steps;
+		return this.ballMove();
+	}
+	
+	/**
+	 * Moves the specified ball towards the home goal
+	 * @param steps The number of steps to move the ball
+	 * @return The line number that the ball moved to
+	 */
+	public int ballTowardsHome(int steps) {
+		this.chipLine -= steps;
+		return this.ballMove();
+	}
+	
+	/**
+	 * Moves the ball to the line specified by chipLine
+	 * @return The line number that the ball moved to
+	 */
+	private int ballMove() {
+		
+		if(this.chipLine <= -11){ //do not allow past the home goal
+			//for some reason this isn't working quite right... sends it too far past the goal line
+			this.chipLine = -11;
+		}
+		else if(this.chipLine >= 11){//do not allow past the away goal
+			this.chipLine = 11;
+		}
+		
+		Log.v(LOGTAG, "Chip Line: " + this.chipLine);
+		
+		this.chipYPos = this.chipInitYPos - (40 * this.chipLine);
+		Log.v(LOGTAG, "Setting chipYPos: " + this.chipYPos);
+		
+		invalidate();
+		
+		return this.chipLine;
+	}
+	
+	/**
+	 * Prepares the resources for onDraw
+	 */
 	private void init() {
 		
-		this.dice1HomePosition = this.canvas.getHeight() - 150;
-		this.dice2HomePosition = this.canvas.getHeight() - 250;
+		this.diceHomeYPosition[0] = this.canvas.getHeight() - 250;
+		this.diceHomeYPosition[1] = this.canvas.getHeight() - 350;
 		
-		changeChip(1);
-		positionDiceHome();
+		ballPosession(1);
+		dicePositionHome(1);
+		dicePositionHome(2);
 		
 		
 		this.chipXPos = (this.canvas.getWidth() - this.chip.getWidth()) / 2;
-		this.chipYPos = (this.canvas.getHeight() - this.chip.getHeight()) / 2;
+		this.chipYPos = this.chipInitYPos = (this.canvas.getHeight() - this.chip.getHeight()) / 2;
+		this.chipLine = -2;
 		
 		this.initSet = 1;
 		
@@ -133,8 +247,8 @@ public class Board extends View {
 			this.init();
 		}
 		
-		canvas.drawBitmap(this.dice1.getCurrent(), this.dice1XPos, this.dice1YPos, null);
-		canvas.drawBitmap(this.dice2.getCurrent(), this.dice2XPos, this.dice2YPos, null);
+		canvas.drawBitmap(this.dice[0].getCurrent(), 0, this.diceYPos[0], null);
+		canvas.drawBitmap(this.dice[1].getCurrent(), 0, this.diceYPos[1], null);
 		
 		canvas.drawBitmap(this.chip, this.chipXPos, this.chipYPos, null);
 		

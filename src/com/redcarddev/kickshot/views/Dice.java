@@ -57,6 +57,10 @@ public class Dice {
 		
 	}
 	
+	/**
+	 * The current dice face
+	 * @return
+	 */
 	public Bitmap getCurrent() {
 		return this.face;
 	}
