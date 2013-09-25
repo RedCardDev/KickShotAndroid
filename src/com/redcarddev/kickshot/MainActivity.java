@@ -1,19 +1,29 @@
 package com.redcarddev.kickshot;
 
+
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
+import android.util.Log;
 import android.view.Menu;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
 
-public class MainActivity extends Activity {
+public class MainActivity extends Activity implements OnClickListener {
+	
+	protected String LOGTAG = "MainActivity";
+	
+	Button juniorButton = null;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		
-		Intent intent = new Intent(this, LevelOne.class);
-		startActivity(intent);
+		this.juniorButton = (Button)findViewById(R.id.junior);
+		this.juniorButton.setOnClickListener(this);
+		
 	}
 
 	@Override
@@ -22,6 +32,22 @@ public class MainActivity extends Activity {
 		getMenuInflater().inflate(R.menu.main, menu);
 		
 		return true;
+	}
+	
+	@Override
+	public void onClick(View view) {
+		
+		Log.v(LOGTAG, "onClick e");
+		
+		if (view.getId() == R.id.junior) {
+			
+			Intent intent = new Intent(MainActivity.this, LevelOne.class);
+			startActivity(intent);
+			
+			
+		}
+		
+		Log.v(LOGTAG, "onClick e");
 	}
 
 }
