@@ -4,5 +4,6 @@
     <string name="app_name">KickShot</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
+    <color name="background">#619ec6</color>
 
 </resources>

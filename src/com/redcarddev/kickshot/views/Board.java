@@ -89,6 +89,15 @@ public class Board extends View {
 	}
 	
 	/**
+	 * sets the location of the chip
+	 * @param loc the integer the chipLine is set to
+	 */
+	public void setChipLocation(int loc){
+		this.chipLine = loc;
+		this.chipYPos = this.chipInitYPos - (40 * this.chipLine);
+	}
+	
+	/**
 	 * Changes the Bitmap displayed for the ball chip
 	 * @param playerTurn Either Board.HOME or Board.AWAY
 	 * @return True if a possible player
@@ -191,6 +200,7 @@ public class Board extends View {
 	private int ballMove() {
 		
 		if(this.chipLine <= -11){ //do not allow past the home goal
+			//for some reason this isn't working quite right... sends it too far past the goal line
 			this.chipLine = -11;
 		}
 		else if(this.chipLine >= 11){//do not allow past the away goal
@@ -212,8 +222,8 @@ public class Board extends View {
 	 */
 	private void init() {
 		
-		this.diceHomeYPosition[0] = this.canvas.getHeight() - 150;
-		this.diceHomeYPosition[1] = this.canvas.getHeight() - 250;
+		this.diceHomeYPosition[0] = this.canvas.getHeight() - 250;
+		this.diceHomeYPosition[1] = this.canvas.getHeight() - 350;
 		
 		ballPosession(1);
 		dicePositionHome(1);
@@ -222,6 +232,7 @@ public class Board extends View {
 		
 		this.chipXPos = (this.canvas.getWidth() - this.chip.getWidth()) / 2;
 		this.chipYPos = this.chipInitYPos = (this.canvas.getHeight() - this.chip.getHeight()) / 2;
+		this.chipLine = -2;
 		
 		this.initSet = 1;
 		

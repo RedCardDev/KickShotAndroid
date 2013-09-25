@@ -89,17 +89,53 @@ public class LevelOne extends Activity implements OnClickListener {
 	@Override
 	public void onClick(View view) {
 		if (view.getId() == R.id.board) {
-			Log.v(LOGCAT, "Clicked on the board");
-			
-			
+			Log.v(LOGCAT, "Clicked on the board");		
 			this.rollDiceAction();
-			
-			this.rollDiceAction();
-		
 		}
 		
 	}
 	
+
+	protected void Shoot(int player1Shot, int player2Shot){
+		int offense = 0;
+		int defense = 0;
+		int chipLoc = 0;
+		
+		this.board.dicePositionHome(1);
+		this.board.dicePositionAway(2);
+		
+		if(this.currentPlayer == 1){
+			offense = player1Shot;
+			defense = player2Shot;
+		}
+		else{
+			offense = player2Shot;
+			defense = player1Shot;
+		}
+		
+		
+		if(offense > defense){
+			//player score increments by 1
+			//player variable is an argument
+			//playerScore++
+			System.out.println("scored!");
+			chipLoc = 2;
+		}
+		else{
+			chipLoc = 9;
+		}
+		
+		if(this.currentPlayer != 1){
+			chipLoc = -chipLoc;
+		}
+		
+		this.currentPlayer = (this.currentPlayer % 2) + 1;
+		this.board.ballPosession(this.currentPlayer);
+		this.board.setChipLocation(chipLoc);
+		//reposition the dice
+	}
+	
+
 	/**
 	 * Find an integer between 1 and 6
 	 * @return
@@ -117,21 +153,35 @@ public class LevelOne extends Activity implements OnClickListener {
 	 * 
 	 */
 	protected void rollDiceAction() {
+		if(this.currentPlayer == 1){
+			this.board.dicePositionHome(1);
+			this.board.dicePositionHome(2);
+		}
+		else{
+			this.board.dicePositionAway(1);
+			this.board.dicePositionAway(2);
+		}
 		
 		int moves1 = this.rollDice();
 		int moves2 = this.rollDice();
 		
 		this.board.diceChangeFace(1, moves1);
 		this.board.diceChangeFace(2, moves2);
-
-		if(moves1 > moves2){
-			this.moveBall(moves1);
+		
+		//if moving shooting
+		if(this.currentState != LevelOne.SHOT_STATE){
+			if(moves1 > moves2){
+				this.moveBall(moves1);
+			}
+			else if(moves2 > moves1){
+				this.moveBall(moves2);
+			}
+			else{ //doubles were rolled
+				this.moveBall(moves1 + 1);
+			}
 		}
-		else if(moves2 > moves1){
-			this.moveBall(moves2);
-		}
-		else{ //doubles were rolled
-			this.moveBall(moves1 + 1);
+		else{
+			this.Shoot(moves1, moves2);
 		}
 		
 	}
