@@ -67,20 +67,7 @@ public class LevelOne extends Activity implements OnClickListener {
 	        	this.board.ballPosession(this.currentPlayer);
 	        	
 	            return true;
-	        case R.id.action_move_ball:
-	        	
-	        	switch(1) {
-	        	
-		        	case LevelOne.OFFENSE_STATE:
-		        	case LevelOne.DEFENSE_STATE:
-		        	case LevelOne.SHOT_STATE:
-		        		this.rollDiceAction();
-	        		break;
-	        	
-	        	}
-	        	
-	        	return true;
-	        	
+	            
 	        default:
 	            return super.onOptionsItemSelected(item);
 	    }
@@ -89,34 +76,45 @@ public class LevelOne extends Activity implements OnClickListener {
 	@Override
 	public void onClick(View view) {
 		if (view.getId() == R.id.board) {
-			Log.v(LOGCAT, "Clicked on the board");		
+			Log.v(LOGCAT, "Clicked on the board");
+        	
+        	switch(this.currentState) {
+        	
+	        	case LevelOne.OFFENSE_STATE:
+	        	case LevelOne.DEFENSE_STATE:
+	        		this.rollDiceAction();
+	        		break;
+	        	case LevelOne.SHOT_STATE:
+	        		this.rollDiceAction();
+	        		this.currentState = LevelOne.OFFENSE_STATE;
+        		break;
+        	
+        	}
+			
 			this.rollDiceAction();
 		}
 		
 	}
 	
 
-	protected void Shoot(int player1Shot, int player2Shot){
-		int offense = 0;
-		int defense = 0;
+	protected void Shoot(int dice1Shot, int dice2Shot){
 		int chipLoc = 0;
 		
-		this.board.dicePositionHome(1);
-		this.board.dicePositionAway(2);
 		
-		if(this.currentPlayer == 1){
-			offense = player1Shot;
-			defense = player2Shot;
+		if(this.currentPlayer == 2){
+			this.board.dicePositionHome(1);
+			this.board.dicePositionHome(2);
 		}
 		else{
-			offense = player2Shot;
-			defense = player1Shot;
+			this.board.dicePositionAway(1);
+			this.board.dicePositionAway(2);
 		}
 		
 		
-		if(offense > defense){
+		if(dice1Shot != dice2Shot){
 			//player score increments by 1
 			//player variable is an argument
+			//this must be the current player since the opponent is rolling
 			//playerScore++
 			System.out.println("scored!");
 			chipLoc = 2;
@@ -125,14 +123,15 @@ public class LevelOne extends Activity implements OnClickListener {
 			chipLoc = 9;
 		}
 		
-		if(this.currentPlayer != 1){
+		if(this.currentPlayer == 2){
 			chipLoc = -chipLoc;
 		}
 		
 		this.currentPlayer = (this.currentPlayer % 2) + 1;
 		this.board.ballPosession(this.currentPlayer);
 		this.board.setChipLocation(chipLoc);
-		//reposition the dice
+		this.currentState = LevelOne.OFFENSE_STATE;
+		//reposition the dice		
 	}
 	
 
@@ -169,7 +168,7 @@ public class LevelOne extends Activity implements OnClickListener {
 		this.board.diceChangeFace(2, moves2);
 		
 		//if moving shooting
-		if(this.currentState != LevelOne.SHOT_STATE){
+		if(this.currentState == LevelOne.OFFENSE_STATE){
 			if(moves1 > moves2){
 				this.moveBall(moves1);
 			}
@@ -180,8 +179,12 @@ public class LevelOne extends Activity implements OnClickListener {
 				this.moveBall(moves1 + 1);
 			}
 		}
+		else if(this.currentState == LevelOne.DEFENSE_STATE){
+			//try and intercept
+		}
 		else{
 			this.Shoot(moves1, moves2);
+			
 		}
 		
 	}
