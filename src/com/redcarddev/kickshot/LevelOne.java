@@ -117,14 +117,15 @@ public class LevelOne extends Activity implements OnClickListener {
 			//this must be the current player since the opponent is rolling
 			//playerScore++
 			System.out.println("scored!");
-			chipLoc = 2;
+			chipLoc = 12;
 		}
 		else{
-			chipLoc = 9;
-		}
-		
-		if(this.currentPlayer == 2){
-			chipLoc = -chipLoc;
+			if(this.currentPlayer == 1){
+				chipLoc = 2;
+			}
+			else{
+				chipLoc = 21;
+			}
 		}
 		
 		this.currentPlayer = (this.currentPlayer % 2) + 1;
@@ -209,7 +210,7 @@ public class LevelOne extends Activity implements OnClickListener {
     		currentLine = this.board.ballTowardsHome(positions);
     	}
 		
-		if (currentLine == 11 || currentLine == -11) {
+		if (currentLine == 23 || currentLine == 0) {
 			this.currentState = LevelOne.SHOT_STATE;
 		}
 		
