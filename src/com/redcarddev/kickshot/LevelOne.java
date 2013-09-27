@@ -1,11 +1,14 @@
 package com.redcarddev.kickshot;
 
 import java.util.Random;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import com.redcarddev.kickshot.views.Board;
 import com.redcarddev.kickshot.views.Dice;
 
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -71,9 +74,73 @@ public class LevelOne extends Activity implements OnClickListener {
 	public void onClick(View view) {
 		if (view.getId() == R.id.board) {
 			Log.v(LOGTAG, "Clicked on the board");
+			
+			
+			
+			this.board.setEnabled(false);
         	
         	this.playerTurn();
-        	this.computerTurn();
+        	
+        	Timer buttonTimer = new Timer();
+        	buttonTimer.schedule(new TimerTask() {
+
+        	    @Override
+        	    public void run() {
+        	        runOnUiThread(new Runnable() {
+
+        	            @Override
+        	            public void run() {
+
+        	        		
+        	            	board.dicePositionAway(1);
+        	        		board.dicePositionAway(2);
+        	        		
+        	        		
+        	        		Timer buttonTimer2 = new Timer();
+        	        		buttonTimer2.schedule(new TimerTask() {
+
+        	            	    @Override
+        	            	    public void run() {
+        	            	        runOnUiThread(new Runnable() {
+
+        	            	            @Override
+        	            	            public void run() {
+
+        	            	        		
+        	            	        		computerTurn();
+        	            	        		
+        	            	        		Timer buttonTimer3 = new Timer();
+        	            	        		buttonTimer3.schedule(new TimerTask() {
+
+        	            	            	    @Override
+        	            	            	    public void run() {
+        	            	            	        runOnUiThread(new Runnable() {
+
+        	            	            	            @Override
+        	            	            	            public void run() {
+        	            	            	            	
+
+        	            	            	        		
+        	            	            	        		board.dicePositionHome(1);
+        	            	            	        		board.dicePositionHome(2);
+        	            	            	            	
+        	            	            	                board.setEnabled(true);
+        	            	            	            }
+        	            	            	        });
+        	            	            	    }
+        	            	            	}, 5000);
+        	            	        		
+        	            	        		
+        	            	            }
+        	            	        });
+        	            	    }
+        	            	}, 5000);
+        	        		
+        	        		
+        	            }
+        	        });
+        	    }
+        	}, 5000);
 		}
 		
 	}
@@ -217,15 +284,6 @@ public class LevelOne extends Activity implements OnClickListener {
 			//switch posession
 			this.currentState = LevelOne.DEFENSE_STATE;
 			this.board.ballPosession(Board.AWAY);
-			
-			
-			try{
-			    Thread.sleep(5000);
-			}catch(InterruptedException e){
-			    System.out.println("got interrupted!");
-			}
-			
-			this.computerOffenseAction();
 		}
 		
 	}
