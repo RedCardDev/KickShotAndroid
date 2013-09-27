@@ -62,7 +62,7 @@ public class Board extends View {
 	/**
 	 * The away y position of the two dice
 	 */
-	protected int[] diceAwayYPosition = {150, 250};
+	protected int[] diceAwayYPosition = {50, 250};
 	
 	/**
 	 * Class variable for HOME
@@ -205,17 +205,17 @@ public class Board extends View {
 	 */
 	private int ballMove() {
 		
-		if(this.chipLine <= 0){ //do not allow past the home goal
+		if(this.chipLine <= -11){ //do not allow past the home goal
 			//for some reason this isn't working quite right... sends it too far past the goal line
-			this.chipLine = 0;
+			this.chipLine = -11;
 		}
-		else if(this.chipLine >= 23){//do not allow past the away goal
-			this.chipLine = 23;
+		else if(this.chipLine >= 11){//do not allow past the away goal
+			this.chipLine = 11;
 		}
 		
 		Log.v(LOGTAG, "Chip Line: " + this.chipLine);
 		
-		this.chipYPos = (this.chipLine + 1) * this.canvas.getHeight()/24;
+		this.chipYPos = this.chipInitYPos - (this.chipLine * 40);
 		Log.v(LOGTAG, "Setting chipYPos: " + this.chipYPos);
 		
 		invalidate();
@@ -230,7 +230,7 @@ public class Board extends View {
 		
 		//need to make this more dynamic for the smaller devices
 		//
-		this.diceHomeYPosition[0] = this.canvas.getHeight() - 250;
+		this.diceHomeYPosition[0] = this.canvas.getHeight() - 150;
 		this.diceHomeYPosition[1] = this.canvas.getHeight() - 350;
 		
 		ballPosession(1);
@@ -240,8 +240,8 @@ public class Board extends View {
 		
 		this.chipXPos = (this.canvas.getWidth() - this.chip.getWidth()) / 2;
 						
-		this.chipYPos = this.canvas.getHeight()/2;
-		this.chipLine = 12;
+		this.chipInitYPos = this.chipYPos = (this.canvas.getHeight() - this.chip.getHeight())/2;
+		this.chipLine = 0;
 		
 		this.initSet = 1;
 		

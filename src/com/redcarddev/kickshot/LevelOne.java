@@ -7,27 +7,33 @@ import com.redcarddev.kickshot.views.Dice;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.Toast;
 
 public class LevelOne extends Activity implements OnClickListener {
 	
-	String LOGCAT = LevelOne.class.getName();
+	String LOGTAG = LevelOne.class.getName();
 	
 	static Random r;
 	
 	int currentPlayer = 1;
-	int currentState = 0;
+	int currentState = 1;
 	
 	Board board = null;
 	
 	final static int OFFENSE_STATE = 1;
 	final static int DEFENSE_STATE = 2;
 	final static int SHOT_STATE = 3;
+	final static int BLOCK_STATE = 4;
+	
+	final static int AWAY_GOAL_LINE = 0;
+	final static int HOME_GOAL_LINE = 23;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -54,18 +60,6 @@ public class LevelOne extends Activity implements OnClickListener {
 	    switch (item.getItemId()) {
 	        case R.id.action_settings:
 	        	
-	        	if (this.currentPlayer == 1) {//change to away
-	        		this.currentPlayer = 2;
-	        		this.board.dicePositionAway(1);
-	        		this.board.dicePositionAway(2);
-	        	} else {//change to home
-	        		this.currentPlayer = 1;
-	        		this.board.dicePositionHome(1);
-	        		this.board.dicePositionHome(2);
-	        	}
-	        	
-	        	this.board.ballPosession(this.currentPlayer);
-	        	
 	            return true;
 	            
 	        default:
@@ -76,63 +70,21 @@ public class LevelOne extends Activity implements OnClickListener {
 	@Override
 	public void onClick(View view) {
 		if (view.getId() == R.id.board) {
-			Log.v(LOGCAT, "Clicked on the board");
+			Log.v(LOGTAG, "Clicked on the board");
         	
-        	switch(this.currentState) {
-        	
-	        	case LevelOne.OFFENSE_STATE:
-	        	case LevelOne.DEFENSE_STATE:
-	        		this.rollDiceAction();
-	        		break;
-	        	case LevelOne.SHOT_STATE:
-	        		this.rollDiceAction();
-	        		this.currentState = LevelOne.OFFENSE_STATE;
-        		break;
-        	
-        	}
-			
-			this.rollDiceAction();
+        	this.playerTurn();
+        	this.computerTurn();
 		}
 		
 	}
 	
+	
+	public void showToast(String text) {
+		Context context = getApplicationContext();
+		int duration = Toast.LENGTH_SHORT;
 
-	protected void Shoot(int dice1Shot, int dice2Shot){
-		int chipLoc = 0;
-		
-		
-		if(this.currentPlayer == 2){
-			this.board.dicePositionHome(1);
-			this.board.dicePositionHome(2);
-		}
-		else{
-			this.board.dicePositionAway(1);
-			this.board.dicePositionAway(2);
-		}
-		
-		
-		if(dice1Shot != dice2Shot){
-			//player score increments by 1
-			//player variable is an argument
-			//this must be the current player since the opponent is rolling
-			//playerScore++
-			System.out.println("scored!");
-			chipLoc = 12;
-		}
-		else{
-			if(this.currentPlayer == 1){
-				chipLoc = 2;
-			}
-			else{
-				chipLoc = 21;
-			}
-		}
-		
-		this.currentPlayer = (this.currentPlayer % 2) + 1;
-		this.board.ballPosession(this.currentPlayer);
-		this.board.setChipLocation(chipLoc);
-		this.currentState = LevelOne.OFFENSE_STATE;
-		//reposition the dice		
+		Toast toast = Toast.makeText(context, text, duration);
+		toast.show();
 	}
 	
 
@@ -152,40 +104,158 @@ public class LevelOne extends Activity implements OnClickListener {
 	 * value of the largest dice (plus one for doubles).
 	 * 
 	 */
-	protected void rollDiceAction() {
-		if(this.currentPlayer == 1){
-			this.board.dicePositionHome(1);
-			this.board.dicePositionHome(2);
-		}
-		else{
-			this.board.dicePositionAway(1);
-			this.board.dicePositionAway(2);
-		}
-		
+	protected int[] rollDiceAction() {
 		int moves1 = this.rollDice();
 		int moves2 = this.rollDice();
 		
 		this.board.diceChangeFace(1, moves1);
 		this.board.diceChangeFace(2, moves2);
 		
-		//if moving shooting
-		if(this.currentState == LevelOne.OFFENSE_STATE){
-			if(moves1 > moves2){
-				this.moveBall(moves1);
-			}
-			else if(moves2 > moves1){
-				this.moveBall(moves2);
-			}
-			else{ //doubles were rolled
-				this.moveBall(moves1 + 1);
-			}
+		this.showToast("Rolled: " + moves1 + " and " + moves2);
+		
+		int[] moves = {moves1, moves2};
+		
+		return moves;
+	}
+	
+	public Boolean doubles(int[] moves) {
+		
+		if (moves[0] == moves[1]) {
+			return true;
 		}
-		else if(this.currentState == LevelOne.DEFENSE_STATE){
-			//try and intercept
+		
+		return false;
+	}
+	
+	public int max(int[] moves) {
+		if (moves[0] > moves[1]) {
+			return moves[0];
 		}
-		else{
-			this.Shoot(moves1, moves2);
+		
+		return moves[1];
+	}
+	
+	public void playerOffenseAction() {
+		Log.v(LOGTAG, "playerOffenseAction e");
+		
+		int currentLine = 0;
+		
+		int[] moves = this.rollDiceAction();
+		
+		if (doubles(moves)) { //did the player lose possesion
+			Log.v(LOGTAG, "playerOffenseAction\t change to defense state");
+			this.currentState = LevelOne.DEFENSE_STATE;
 			
+			this.board.ballPosession(Board.AWAY);
+			
+		} else {//kept possesion
+			
+			currentLine = this.moveBall(this.max(moves));//make the move
+			
+			if (currentLine == LevelOne.AWAY_GOAL_LINE) {//take a shot?
+				
+				Log.v(LOGTAG, "playerOffenseAction\t change to shot state");
+				
+				this.currentState = LevelOne.SHOT_STATE;
+				
+			}
+			
+			
+		}
+		
+		Log.v(LOGTAG, "offenseAction x");
+		
+	}
+	
+	public void computerOffenseAction() {
+		
+		int currentLine = 0;
+		
+		int[] moves = this.rollDiceAction();
+		
+		if (doubles(moves)) { //switch to player on offense
+			
+			this.currentState = LevelOne.OFFENSE_STATE;
+			this.board.ballPosession(Board.HOME);
+			
+		} else {
+			
+			currentLine = this.moveBall(this.max(moves));//make the move
+			
+			if (currentLine == LevelOne.HOME_GOAL_LINE) {//take a shot?
+				
+				Log.v(LOGTAG, "playerOffenseAction\t change to shot state");
+				
+				this.currentState = LevelOne.BLOCK_STATE;
+				
+			}
+			
+			
+		}
+		
+	}
+	
+	public void playerDefenseAction() {
+		
+		int[] moves = this.rollDiceAction();
+		
+		if (doubles(moves)) {//take controll of the ball
+			
+			this.currentState = LevelOne.OFFENSE_STATE;
+			this.board.ballPosession(Board.HOME);
+			
+		}
+		
+		
+	}
+	
+	public void computerDefenseAction() {
+		
+		int[] moves = this.rollDiceAction();
+		
+		if (doubles(moves)) {//take away posession
+			//switch posession
+			this.currentState = LevelOne.DEFENSE_STATE;
+			this.board.ballPosession(Board.AWAY);
+			
+			
+			try{
+			    Thread.sleep(5000);
+			}catch(InterruptedException e){
+			    System.out.println("got interrupted!");
+			}
+			
+			this.computerOffenseAction();
+		}
+		
+	}
+	
+	public void playerTurn() {
+		
+		switch(this.currentState) {
+    	
+	    	case LevelOne.OFFENSE_STATE:
+	    		this.playerOffenseAction();
+			break;
+	    	case LevelOne.DEFENSE_STATE:
+	    		this.playerDefenseAction();
+    		break;
+		
+		}
+		
+	}
+	
+	public void computerTurn() {
+		
+		switch(this.currentState) {
+    	
+	    	case LevelOne.OFFENSE_STATE:
+	    		this.computerDefenseAction();
+			break;
+	    	case LevelOne.DEFENSE_STATE:
+	    		this.computerOffenseAction();
+    		break;
+		
 		}
 		
 	}
@@ -200,19 +270,17 @@ public class LevelOne extends Activity implements OnClickListener {
 	 * 
 	 * @param positions
 	 */
-	protected void moveBall(int positions) {
+	protected int moveBall(int positions) {
 		
 		int currentLine = 0;
 		
-		if (this.currentPlayer == 1) {
+		if (this.currentState == LevelOne.OFFENSE_STATE) {
     		currentLine = this.board.ballTowardsAway(positions);
-    	} else {
+    	} else if (this.currentState == LevelOne.DEFENSE_STATE) {
     		currentLine = this.board.ballTowardsHome(positions);
     	}
 		
-		if (currentLine == 23 || currentLine == 0) {
-			this.currentState = LevelOne.SHOT_STATE;
-		}
+		return currentLine;
 		
 	}
 
