@@ -17,6 +17,9 @@ public class AllTests extends TestSuite {
 		/* Multiple Dice Tests */
 		suite.addTest(new BoardViewTest("testDicePositionAway"));
 		
+		
+		suite.addTestSuite(MainActivityTest.class);
+		
 		return suite;
 	}
 
