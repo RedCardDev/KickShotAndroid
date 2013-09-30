@@ -35,8 +35,8 @@ public class LevelOne extends Activity implements OnClickListener {
 	final static int SHOT_STATE = 3;
 	final static int BLOCK_STATE = 4;
 	
-	final static int AWAY_GOAL_LINE = 0;
-	final static int HOME_GOAL_LINE = 23;
+	final static int AWAY_GOAL_LINE = 11;
+	final static int HOME_GOAL_LINE = -11;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
