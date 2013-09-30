@@ -288,6 +288,45 @@ public class LevelOne extends Activity implements OnClickListener {
 		
 	}
 	
+	protected void playerBlockAction() {
+		
+		int[] moves = this.rollDiceAction();
+		
+		this.currentState = LevelOne.OFFENSE_STATE;
+		this.board.ballPosession(Board.HOME);
+		
+		if (doubles(moves)) {//blocked
+			
+			
+			this.moveBall(moves[0] + moves[1]);
+
+		} else {
+			
+			this.board.goalAddAway();
+			this.board.setChipLocation(0);
+			
+		}
+		
+	}
+	
+	protected void computerBlockAction() {
+		
+		int[] moves = this.rollDiceAction();
+		
+		this.currentState = LevelOne.DEFENSE_STATE;
+		this.board.ballPosession(Board.AWAY);
+		
+		if (doubles(moves)) {//blocked
+			
+			this.moveBall(moves[0] + moves[1]);
+			
+		} else {
+			this.board.goalAddHome();
+			this.board.setChipLocation(0);
+		}
+		
+	}
+	
 	public void playerTurn() {
 		
 		switch(this.currentState) {
@@ -297,6 +336,9 @@ public class LevelOne extends Activity implements OnClickListener {
 			break;
 	    	case LevelOne.DEFENSE_STATE:
 	    		this.playerDefenseAction();
+    		break;
+	    	case LevelOne.BLOCK_STATE:
+	    		this.playerBlockAction();
     		break;
 		
 		}
@@ -313,6 +355,8 @@ public class LevelOne extends Activity implements OnClickListener {
 	    	case LevelOne.DEFENSE_STATE:
 	    		this.computerOffenseAction();
     		break;
+	    	case LevelOne.SHOT_STATE:
+	    		this.computerBlockAction();
 		
 		}
 		
