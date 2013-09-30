@@ -7,6 +7,9 @@ import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.Paint.Style;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
@@ -64,6 +67,18 @@ public class Board extends View {
 	 */
 	protected int[] diceAwayYPosition = {50, 250};
 	
+	protected Bitmap goalAwayImage = null;
+	
+	protected Bitmap goalHomeImage = null;
+	
+	protected int[] goalYPos = {0,0};
+	protected int[] goalXPos = {0,0};
+	
+	protected int goalsAway = 0;
+	protected int goalsHome = 0;
+	
+	protected Paint paint;
+	
 	/**
 	 * Class variable for HOME
 	 */
@@ -82,6 +97,12 @@ public class Board extends View {
 	    dice = new Dice[2];
 	    this.dice[0] = new Dice(context);
 	    this.dice[1] = new Dice(context);
+	    
+	    Resources res = getContext().getResources();
+	    
+	    this.goalAwayImage = BitmapFactory.decodeResource(res, R.drawable.ballchipaway);
+	    this.goalHomeImage = BitmapFactory.decodeResource(res, R.drawable.ballchiphome);
+	    
 	}
 	
 	public boolean onTouchEvent(MotionEvent event) {
@@ -237,11 +258,27 @@ public class Board extends View {
 		dicePositionHome(1);
 		dicePositionHome(2);
 		
+		//set goal position away
+		this.goalYPos[Board.AWAY - 1] = 0;
+		this.goalXPos[Board.AWAY - 1] = this.canvas.getWidth() - this.goalAwayImage.getWidth();
+		
+		//set goal position home
+		this.goalYPos[Board.HOME - 1] = this.canvas.getHeight() - ( 4 * this.chip.getHeight() );
+		this.goalXPos[Board.HOME - 1] = this.canvas.getWidth() - this.goalHomeImage.getWidth();
+		
 		
 		this.chipXPos = (this.canvas.getWidth() - this.chip.getWidth()) / 2;
 						
 		this.chipInitYPos = this.chipYPos = (this.canvas.getHeight() - this.chip.getHeight())/2;
 		this.chipLine = 0;
+		
+		this.paint = new Paint(); 
+		paint.setColor(Color.WHITE); 
+		paint.setStyle(Style.FILL); 
+		this.canvas.drawPaint(paint); 
+
+		paint.setColor(Color.RED); 
+		paint.setTextSize(40); 
 		
 		this.initSet = 1;
 		
@@ -261,6 +298,27 @@ public class Board extends View {
 		
 		canvas.drawBitmap(this.chip, this.chipXPos, this.chipYPos, null);
 		
+		canvas.drawBitmap(this.goalAwayImage, this.goalXPos[1], this.goalYPos[1], null);
+		canvas.drawBitmap(this.goalHomeImage, this.goalXPos[0], this.goalYPos[0], null);
+		
+		
+		canvas.drawText(Integer.toString(this.goalsHome), this.goalXPos[0] + 15, this.goalYPos[0] + 40, this.paint);
+		canvas.drawText(Integer.toString(this.goalsAway), this.goalXPos[1] + 15, this.goalYPos[1] + 40, this.paint);
+		
+	}
+
+	public Boolean goalAddAway() {
+		
+		this.goalsAway++;
+
+		return true;
+	}
+	
+	public Boolean goalAddHome() {
+		
+		this.goalsHome++;
+
+		return true;
 	}
 
 }

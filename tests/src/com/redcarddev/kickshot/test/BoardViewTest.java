@@ -164,6 +164,32 @@ public class BoardViewTest extends AndroidTestCase {
 		
 		
 	}
+	
+	public void testGoalAddAway() {
+		
+		Log.v(LOGTAG, "testGoalAddAway e");
+		
+		Boolean set = false;
+		
+		set = this.board.goalAddAway();
+		assertTrue(set);
+		
+		Log.v(LOGTAG, "testGoalAddAway x");
+		
+	}
+	
+	public void testGoalAddHome() {
+		
+		Log.v(LOGTAG, "testGoalAddHome e");
+		
+		Boolean set = false;
+		
+		set = this.board.goalAddHome();
+		assertTrue(set);
+		
+		Log.v(LOGTAG, "testGoalAddHome x");
+		
+	}
 
 }
 
