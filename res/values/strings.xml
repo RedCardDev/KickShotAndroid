@@ -3,7 +3,19 @@
 
     <string name="app_name">KickShot</string>
     <string name="action_settings">Settings</string>
-    <string name="hello_world">Hello world!</string>
     <color name="background">#619ec6</color>
+    
+    <!-- Level One / Game -->
+    <string name="LevelOnePlayerGoal">You scored!</string>
+    <string name="LevelOneComputerGoal">They scored</string>
+    
+    <string name="LevelOnePlayerShot">You took a shot!</string>
+    <string name="LevelOneComputerShot">They took a shot</string>
+    
+    <string name="LevelOnePlayerBlock">You blocked their shot!</string>
+    <string name="LevelOneComputerBlock">They blocked your shot</string>
+    
+    <!-- Level One / Menu -->
+    <string name="LevelOneRules">Rules</string>
 
 </resources>
