@@ -61,7 +61,10 @@ public class LevelOne extends Activity implements OnClickListener {
 	public boolean onOptionsItemSelected(MenuItem item) {
 	    // Handle item selection
 	    switch (item.getItemId()) {
-	        case R.id.action_settings:
+	        case R.id.action_rules:
+	        	
+	        	Intent intent = new Intent(LevelOne.this, LevelOneRules.class);
+	        	startActivity(intent);
 	        	
 	            return true;
 	            
@@ -225,6 +228,9 @@ public class LevelOne extends Activity implements OnClickListener {
 				
 				this.currentState = LevelOne.SHOT_STATE;
 				
+				this.showToast(this.getResources().getString(R.string.LevelOnePlayerShot)); 
+				
+				
 			}
 			
 			
@@ -254,6 +260,8 @@ public class LevelOne extends Activity implements OnClickListener {
 				Log.v(LOGTAG, "playerOffenseAction\t change to shot state");
 				
 				this.currentState = LevelOne.BLOCK_STATE;
+				
+				this.showToast(this.getResources().getString(R.string.LevelOneComputerShot));
 				
 			}
 			
@@ -297,10 +305,13 @@ public class LevelOne extends Activity implements OnClickListener {
 		
 		if (doubles(moves)) {//blocked
 			
+			this.showToast(this.getResources().getString(R.string.LevelOnePlayerBlock));
 			
 			this.moveBall(moves[0] + moves[1]);
 
 		} else {
+			
+			this.showToast(this.getResources().getString(R.string.LevelOneComputerGoal));
 			
 			this.board.goalAddAway();
 			this.board.setChipLocation(0);
@@ -318,9 +329,14 @@ public class LevelOne extends Activity implements OnClickListener {
 		
 		if (doubles(moves)) {//blocked
 			
+			this.showToast(this.getResources().getString(R.string.LevelOneComputerBlock));
+			
 			this.moveBall(moves[0] + moves[1]);
 			
 		} else {
+			
+			this.showToast(this.getResources().getString(R.string.LevelOnePlayerGoal));
+			
 			this.board.goalAddHome();
 			this.board.setChipLocation(0);
 		}

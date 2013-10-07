@@ -30,6 +30,12 @@
             android:screenOrientation="portrait"
             android:label="@string/app_name" >
         </activity>
+        
+        <activity
+            android:name="com.redcarddev.kickshot.LevelOneRules"
+            android:screenOrientation="portrait"
+            android:label="@string/app_name" >
+        </activity>
     </application>
 
 </manifest>
