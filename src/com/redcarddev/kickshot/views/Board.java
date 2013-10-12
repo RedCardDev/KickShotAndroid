@@ -115,13 +115,7 @@ public class Board extends View {
 	 */
 	public void setChipLocation(int loc){
 		this.chipLine = loc;
-		if(loc == 12){
-			this.chipYPos = (this.canvas.getHeight() - this.chip.getHeight()) / 2;
-			this.chipYPos = this.canvas.getHeight()/2;
-		}
-		else{
-			this.chipYPos = (this.chipLine + 1) * this.canvas.getHeight()/24;
-		}
+		this.ballMove();
 	}
 	
 	/**
@@ -270,7 +264,7 @@ public class Board extends View {
 		this.chipXPos = (this.canvas.getWidth() - this.chip.getWidth()) / 2;
 						
 		this.chipInitYPos = this.chipYPos = (this.canvas.getHeight() - this.chip.getHeight())/2;
-		this.chipLine = 0;
+		this.chipLine = 9;
 		
 		this.paint = new Paint(); 
 		paint.setColor(Color.WHITE); 
