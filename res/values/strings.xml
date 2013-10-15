@@ -17,5 +17,11 @@
     
     <!-- Level One / Menu -->
     <string name="LevelOneRules">Rules</string>
+    <string name="Rule1">1) Ball Starts at the midfield circle after every score or the start of each half.</string>
+    <string name="Rule2">2) Offense rolls dice to advance the ball. Ball advances equal to the highest die value.</string>
+    <string name="Rule3">3) If a double is rolled, the offense turns the ball over.</string>
+    <string name="Rule4">4) Defense rolls dice. If doubles, defense intercepts the ball.</string>
+    <string name="Rule5">5) If offense advances to the goal line, they enter shooting mode and take a shot immediately.</string>
+    <string name="Rule6">6) Defense rolls dice. If doubles, defense blocks the shot and receives the ball on the line equal to the total dice roll.</string>
 
 </resources>
