@@ -264,7 +264,7 @@ public class Board extends View {
 		this.chipXPos = (this.canvas.getWidth() - this.chip.getWidth()) / 2;
 						
 		this.chipInitYPos = this.chipYPos = (this.canvas.getHeight() - this.chip.getHeight())/2;
-		this.chipLine = 9;
+		this.chipLine = 0;
 		
 		this.paint = new Paint(); 
 		paint.setColor(Color.WHITE); 

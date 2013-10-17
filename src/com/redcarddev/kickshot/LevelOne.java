@@ -131,19 +131,19 @@ public class LevelOne extends Activity implements OnClickListener {
         	            	            	            }
         	            	            	        });
         	            	            	    }
-        	            	            	}, 5000);
+        	            	            	}, 1000);
         	            	        		
         	            	        		
         	            	            }
         	            	        });
         	            	    }
-        	            	}, 5000);
+        	            	}, 3000);
         	        		
         	        		
         	            }
         	        });
         	    }
-        	}, 5000);
+        	}, 1000);
 		}
 		
 	}
