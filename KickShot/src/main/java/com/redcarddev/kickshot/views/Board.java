@@ -51,6 +51,11 @@ public class Board extends View {
 	 * The line the ball should be on
 	 */
 	protected int chipLine = 0;
+
+    /**
+     * The Score to win the game
+     */
+    protected int maxScore = 10;
 	
 	/**
 	 * The y position of the two dice
@@ -314,5 +319,15 @@ public class Board extends View {
 
 		return true;
 	}
+
+    public Integer GameOver(){
+        if(this.goalsAway == maxScore){
+            return 1;
+        }
+        if(this.goalsHome == maxScore){
+            return 2;
+        }
+        return 0;
+    }
 
 }

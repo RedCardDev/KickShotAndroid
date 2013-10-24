@@ -34,6 +34,8 @@ public class LevelOne extends Activity implements OnClickListener {
 	final static int DEFENSE_STATE = 2;
 	final static int SHOT_STATE = 3;
 	final static int BLOCK_STATE = 4;
+    final static int WON_STATE = 5;
+    final static int LOST_STATE = 6;
 	
 	final static int AWAY_GOAL_LINE = 11;
 	final static int HOME_GOAL_LINE = -11;
@@ -61,6 +63,12 @@ public class LevelOne extends Activity implements OnClickListener {
 	public boolean onOptionsItemSelected(MenuItem item) {
 	    // Handle item selection
 	    switch (item.getItemId()) {
+            case R.id.play_again:
+                Intent start_again = new Intent(LevelOne.this, LevelOne.class);
+                finish();
+                startActivity(start_again);
+
+                return true;
 	        case R.id.action_rules:
 	        	
 	        	Intent intent = new Intent(LevelOne.this, LevelOneRules.class);
@@ -77,73 +85,81 @@ public class LevelOne extends Activity implements OnClickListener {
 	public void onClick(View view) {
 		if (view.getId() == R.id.board) {
 			Log.v(LOGTAG, "Clicked on the board");
-			
+
+            if(board.GameOver() == 1){
+                this.currentState = LevelOne.LOST_STATE;
+            }
+            else if(board.GameOver() == 2){
+                this.currentState = LevelOne.WON_STATE;
+            }
+
 			
 			
 			this.board.setEnabled(false);
         	
         	this.playerTurn();
-        	
-        	Timer buttonTimer = new Timer();
-        	buttonTimer.schedule(new TimerTask() {
+            if(this.currentState != LevelOne.WON_STATE && this.currentState != LevelOne.LOST_STATE){
+                Timer buttonTimer = new Timer();
+                buttonTimer.schedule(new TimerTask() {
 
-        	    @Override
-        	    public void run() {
-        	        runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        runOnUiThread(new Runnable() {
 
-        	            @Override
-        	            public void run() {
+                            @Override
+                            public void run() {
 
-        	        		
-        	            	board.dicePositionAway(1);
-        	        		board.dicePositionAway(2);
-        	        		
-        	        		
-        	        		Timer buttonTimer2 = new Timer();
-        	        		buttonTimer2.schedule(new TimerTask() {
 
-        	            	    @Override
-        	            	    public void run() {
-        	            	        runOnUiThread(new Runnable() {
+                                board.dicePositionAway(1);
+                                board.dicePositionAway(2);
 
-        	            	            @Override
-        	            	            public void run() {
 
-        	            	        		
-        	            	        		computerTurn();
-        	            	        		
-        	            	        		Timer buttonTimer3 = new Timer();
-        	            	        		buttonTimer3.schedule(new TimerTask() {
+                                Timer buttonTimer2 = new Timer();
+                                buttonTimer2.schedule(new TimerTask() {
 
-        	            	            	    @Override
-        	            	            	    public void run() {
-        	            	            	        runOnUiThread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        runOnUiThread(new Runnable() {
 
-        	            	            	            @Override
-        	            	            	            public void run() {
-        	            	            	            	
+                                            @Override
+                                            public void run() {
 
-        	            	            	        		
-        	            	            	        		board.dicePositionHome(1);
-        	            	            	        		board.dicePositionHome(2);
-        	            	            	            	
-        	            	            	                board.setEnabled(true);
-        	            	            	            }
-        	            	            	        });
-        	            	            	    }
-        	            	            	}, 1000);
-        	            	        		
-        	            	        		
-        	            	            }
-        	            	        });
-        	            	    }
-        	            	}, 3000);
-        	        		
-        	        		
-        	            }
-        	        });
-        	    }
-        	}, 1000);
+
+                                                computerTurn();
+
+                                                Timer buttonTimer3 = new Timer();
+                                                buttonTimer3.schedule(new TimerTask() {
+
+                                                    @Override
+                                                    public void run() {
+                                                        runOnUiThread(new Runnable() {
+
+                                                            @Override
+                                                            public void run() {
+
+
+
+                                                                board.dicePositionHome(1);
+                                                                board.dicePositionHome(2);
+
+                                                                board.setEnabled(true);
+                                                            }
+                                                        });
+                                                    }
+                                                }, 1000);
+
+
+                                            }
+                                        });
+                                    }
+                                }, 3000);
+
+
+                            }
+                        });
+                    }
+                }, 1000);
+            }
 		}
 		
 	}
@@ -323,10 +339,10 @@ public class LevelOne extends Activity implements OnClickListener {
 	protected void computerBlockAction() {
 		
 		int[] moves = this.rollDiceAction();
-		
-		this.currentState = LevelOne.DEFENSE_STATE;
-		this.board.ballPosession(Board.AWAY);
-		
+
+        this.currentState = LevelOne.DEFENSE_STATE;
+        this.board.ballPosession(Board.AWAY);
+
 		if (doubles(moves)) {//blocked
 			
 			this.showToast(this.getResources().getString(R.string.LevelOneComputerBlock));
@@ -339,6 +355,8 @@ public class LevelOne extends Activity implements OnClickListener {
 			
 			this.board.goalAddHome();
 			this.board.setChipLocation(0);
+            //this really needs to have a timer added
+            computerTurn();
 		}
 		
 	}
@@ -356,6 +374,12 @@ public class LevelOne extends Activity implements OnClickListener {
 	    	case LevelOne.BLOCK_STATE:
 	    		this.playerBlockAction();
     		break;
+            case LevelOne.LOST_STATE:
+                this.showToast("You Lost!");
+                break;
+            case LevelOne.WON_STATE:
+                this.showToast("You Won!");
+                break;
 		
 		}
 		
@@ -373,11 +397,18 @@ public class LevelOne extends Activity implements OnClickListener {
     		break;
 	    	case LevelOne.SHOT_STATE:
 	    		this.computerBlockAction();
+                break;
+            case LevelOne.LOST_STATE:
+                this.showToast("You Lost!");
+                break;
+            case LevelOne.WON_STATE:
+                this.showToast("You Won!");
+                break;
 		
 		}
 		
 	}
-	
+
 	/**
 	 * Has the view move the ball a specific number of lines
 	 * 

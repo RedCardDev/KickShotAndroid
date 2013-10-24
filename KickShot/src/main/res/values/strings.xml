@@ -16,6 +16,7 @@
     <string name="LevelOneComputerBlock">They blocked your shot</string>
     
     <!-- Level One / Menu -->
+    <string name="PlayAgain">Play Again?</string>
     <string name="LevelOneRules">Rules</string>
     <string name="Rule1">1) Ball Starts at the midfield circle after every score or the start of each half.</string>
     <string name="Rule2">2) Offense rolls dice to advance the ball. Ball advances equal to the highest die value.</string>
