@@ -22,6 +22,17 @@ android {
     }
 }
 
+sourceSets {
+    dependencies {
+        instrumentTestCompile 'com.google.guava:guava:11.0.2'
+    }
+}
+
+configurations { spoon }
+
+
 dependencies {
     compile 'com.android.support:appcompat-v7:18.0.0'
+    instrumentTestCompile 'com.jayway.android.robotium:robotium-solo:4.2'
+    spoon 'com.squareup.spoon:spoon-runner:1.0.5'
 }
