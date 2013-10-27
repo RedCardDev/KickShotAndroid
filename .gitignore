@@ -31,3 +31,10 @@ local.properties
 *.ipr
 *~
 *.swp
+
+KickShot/build/*
+KickShot/build/incremental/dex/debug/inputs.data
+
+KickShot/build/incremental/mergeResources/debug/inputs.data
+
+KickShot/build/incremental/mergeResources/debug/outputs.data
