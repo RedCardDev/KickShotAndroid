@@ -10,6 +10,8 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 
+import java.util.Random;
+
 public class MainActivity extends Activity implements OnClickListener {
 	
 	protected String LOGTAG = "MainActivity";
@@ -42,6 +44,11 @@ public class MainActivity extends Activity implements OnClickListener {
 		if (view.getId() == R.id.junior) {
 			
 			Intent intent = new Intent(MainActivity.this, LevelOne.class);
+
+            Random random = new Random();
+            intent.putExtra(LevelOne.PARAM_RANDOM, random);
+
+
 			startActivity(intent);
 			
 			

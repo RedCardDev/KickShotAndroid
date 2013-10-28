@@ -95,8 +95,3 @@ public class LevelOneActions extends Activity {
 
 
 }
-
-class ActionData {
-    public String action = "";
-    public String image = "";
-}

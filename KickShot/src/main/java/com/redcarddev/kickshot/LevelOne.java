@@ -28,6 +28,8 @@ public class LevelOne extends Activity implements OnClickListener {
 	int currentState = 1;
 	
 	Board board = null;
+
+    final static String PARAM_RANDOM = "";
 	
 	final static int OFFENSE_STATE = 1;
 	final static int DEFENSE_STATE = 2;
@@ -41,13 +43,13 @@ public class LevelOne extends Activity implements OnClickListener {
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.level_one);
-		
-		 this.board = (Board)findViewById(R.id.board);
-		 this.board.setOnClickListener(this);
-		 
-		 this.r = new Random();
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.level_one);
+
+        this.board = (Board)findViewById(R.id.board);
+        this.board.setOnClickListener(this);
+
+        this.r = (Random) getIntent().getSerializableExtra(LevelOne.PARAM_RANDOM);
 	}
 
 	@Override
