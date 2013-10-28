@@ -2,6 +2,8 @@
 <resources>
 
     <!-- From: file:/Users/otternq/Documents/workspace/KickShot/KickShot/build/exploded-bundles/ComAndroidSupportAppcompatV71800.aar/res/values/values.xml -->
+    <eat-comment />
+
     <attr name="actionBarDivider" format="reference" />
     <attr name="actionBarItemBackground" format="reference" />
     <attr name="actionBarSize" format="dimension" />
@@ -77,10 +79,16 @@
     <color name="abc_search_url_text_pressed">@android:color/black</color>
     <color name="abc_search_url_text_selected">@android:color/black</color>
     <!-- From: file:/Users/otternq/Documents/workspace/KickShot/KickShot/src/main/res/values/strings.xml -->
+    <eat-comment />
+
     <color name="background">#619ec6</color>
     <!-- From: file:/Users/otternq/Documents/workspace/KickShot/KickShot/src/main/res/values/colors_kickshot.xml -->
+    <eat-comment />
+
     <color name="pressed_kickshot">#CC33B5E5</color>
     <!-- From: file:/Users/otternq/Documents/workspace/KickShot/KickShot/build/exploded-bundles/ComAndroidSupportAppcompatV71800.aar/res/values/values.xml -->
+    <eat-comment />
+
     <declare-styleable name="ActionBar">
 
         <!-- The type of navigation to use. -->
@@ -484,9 +492,13 @@
     <dimen name="abc_search_view_preferred_width">320dip</dimen>
     <dimen name="abc_search_view_text_min_width">160dip</dimen>
     <!-- From: file:/Users/otternq/Documents/workspace/KickShot/KickShot/src/main/res/values/dimens.xml -->
+    <eat-comment />
+
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <!-- From: file:/Users/otternq/Documents/workspace/KickShot/KickShot/build/exploded-bundles/ComAndroidSupportAppcompatV71800.aar/res/values/values.xml -->
+    <eat-comment />
+
     <item name="action_bar_activity_content" type="id"/>
     <item name="action_menu_divider" type="id"/>
     <item name="action_menu_presenter" type="id"/>
@@ -494,6 +506,8 @@
 
     <integer name="abc_max_action_buttons">2</integer>
     <!-- From: file:/Users/otternq/Documents/workspace/KickShot/KickShot/src/main/res/values/strings.xml -->
+    <eat-comment />
+
     <string name="LevelOneComputerBlock">They blocked your shot</string>
     <string name="LevelOneComputerGoal">They scored</string>
     <string name="LevelOneComputerShot">They took a shot</string>
@@ -501,6 +515,7 @@
     <string name="LevelOnePlayerGoal">You scored!</string>
     <string name="LevelOnePlayerShot">You took a shot!</string>
     <string name="LevelOneRules">Rules</string>
+    <string name="PlayAgain">Play Again?</string>
     <string name="Rule1">1) Ball Starts at the midfield circle after every score or the start of each half.</string>
     <string name="Rule2">2) Offense rolls dice to advance the ball. Ball advances equal to the highest die value.</string>
     <string name="Rule3">3) If a double is rolled, the offense turns the ball over.</string>
@@ -508,6 +523,8 @@
     <string name="Rule5">5) If offense advances to the goal line, they enter shooting mode and take a shot immediately.</string>
     <string name="Rule6">6) Defense rolls dice. If doubles, defense blocks the shot and receives the ball on the line equal to the total dice roll.</string>
     <!-- From: file:/Users/otternq/Documents/workspace/KickShot/KickShot/build/exploded-bundles/ComAndroidSupportAppcompatV71800.aar/res/values/values.xml -->
+    <eat-comment />
+
     <string name="abc_action_bar_home_description">Navigate home</string>
     <string name="abc_action_bar_up_description">Navigate up</string>
     <string name="abc_action_menu_overflow_description">More options</string>
@@ -522,9 +539,13 @@
     <string name="abc_shareactionprovider_share_with">Share with</string>
     <string name="abc_shareactionprovider_share_with_application">Share with %s</string>
     <!-- From: file:/Users/otternq/Documents/workspace/KickShot/KickShot/src/main/res/values/strings.xml -->
+    <eat-comment />
+
     <string name="action_settings">Settings</string>
     <string name="app_name">KickShot</string>
     <!-- From: file:/Users/otternq/Documents/workspace/KickShot/KickShot/src/main/res/values/styles_kickshot.xml -->
+    <eat-comment />
+
     <style name="ActionBar.Solid.Kickshot" parent="@android:style/Widget.Holo.Light.ActionBar.Solid">
         <item name="android:background">@drawable/ab_solid_kickshot</item>
         <item name="android:backgroundStacked">@drawable/ab_stacked_solid_kickshot</item>
@@ -545,6 +566,8 @@
         <item name="android:background">@drawable/btn_cab_done_kickshot</item>
     </style>
     <!-- From: file:/Users/otternq/Documents/workspace/KickShot/KickShot/src/main/res/values/styles.xml -->
+    <eat-comment />
+
     <style name="AppBaseTheme" parent="android:Theme.Light">
         <!--
             Theme customizations available in newer API levels can go in
@@ -557,6 +580,8 @@
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
     <!-- From: file:/Users/otternq/Documents/workspace/KickShot/KickShot/src/main/res/values/styles_kickshot.xml -->
+    <eat-comment />
+
     <style name="DropDownListView.Kickshot" parent="@android:style/Widget.Holo.Light.ListView.DropDown">
         <item name="android:listSelector">@drawable/selectable_background_kickshot</item>
     </style>
@@ -575,6 +600,8 @@
         <item name="android:progressDrawable">@drawable/progress_horizontal_kickshot</item>
     </style>
     <!-- From: file:/Users/otternq/Documents/workspace/KickShot/KickShot/build/exploded-bundles/ComAndroidSupportAppcompatV71800.aar/res/values/values.xml -->
+    <eat-comment />
+
     <style name="TextAppearance.AppCompat.Base.CompactMenu.Dialog" parent="android:TextAppearance.Medium">
         <item name="android:textColor">@android:color/primary_text_light</item>
     </style>
@@ -942,6 +969,8 @@
 
     <style name="Theme.Base.Light" parent="android:Theme.Light" />
     <!-- From: file:/Users/otternq/Documents/workspace/KickShot/KickShot/src/main/res/values/styles_kickshot.xml -->
+    <eat-comment />
+
     <style name="Theme.Kickshot" parent="@android:style/Theme.Holo.Light">
         <item name="android:actionBarItemBackground">@drawable/selectable_background_kickshot</item>
         <item name="android:popupMenuStyle">@style/PopupMenu.Kickshot</item>
@@ -959,6 +988,8 @@
         <item name="android:dropDownListViewStyle">@style/DropDownListView.Kickshot</item>
     </style>
     <!-- From: file:/Users/otternq/Documents/workspace/KickShot/KickShot/build/exploded-bundles/ComAndroidSupportAppcompatV71800.aar/res/values/values.xml -->
+    <eat-comment />
+
     <style name="Widget.AppCompat.ActionBar" parent="Widget.AppCompat.Base.ActionBar" />
 
     <style name="Widget.AppCompat.ActionBar.Solid" parent="Widget.AppCompat.Base.ActionBar.Solid" />

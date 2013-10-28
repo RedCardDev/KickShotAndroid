@@ -15,4 +15,4 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Medium Text"
         android:id="@+id/actionText" />
-</LinearLayout>
+</LinearLayout><!-- From: file:/Users/otternq/Documents/workspace/KickShot/KickShot/src/main/res/layout/level_one_actions.xml -->
