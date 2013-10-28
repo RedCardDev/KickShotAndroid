@@ -4,6 +4,7 @@ import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import com.redcarddev.kickshot.utils.LevelOneState;
 import com.redcarddev.kickshot.views.Board;
 import com.redcarddev.kickshot.views.Dice;
 
@@ -24,19 +25,21 @@ public class LevelOne extends Activity implements OnClickListener {
 	String LOGTAG = LevelOne.class.getName();
 	
 	static Random r;
+    private LevelOneState state;
 
 	int currentState = 1;
 	
 	Board board = null;
 
-    final static String PARAM_RANDOM = "";
+    final static String PARAM_RANDOM = "Random";
+    final static String PARAM_STATE = "State";
 	
-	final static int OFFENSE_STATE = 1;
-	final static int DEFENSE_STATE = 2;
-	final static int SHOT_STATE = 3;
-	final static int BLOCK_STATE = 4;
-    final static int WON_STATE = 5;
-    final static int LOST_STATE = 6;
+	public final static int OFFENSE_STATE = 1;
+    public final static int DEFENSE_STATE = 2;
+    public final static int SHOT_STATE = 3;
+    public final static int BLOCK_STATE = 4;
+    public final static int WON_STATE = 5;
+    public final static int LOST_STATE = 6;
 	
 	final static int AWAY_GOAL_LINE = 11;
 	final static int HOME_GOAL_LINE = -11;
@@ -50,6 +53,7 @@ public class LevelOne extends Activity implements OnClickListener {
         this.board.setOnClickListener(this);
 
         this.r = (Random) getIntent().getSerializableExtra(LevelOne.PARAM_RANDOM);
+        this.state = (LevelOneState) getIntent().getSerializableExtra(LevelOne.PARAM_STATE);
 	}
 
 	@Override
@@ -246,6 +250,7 @@ public class LevelOne extends Activity implements OnClickListener {
 		} else {//kept possesion
 			
 			currentLine = this.moveBall(this.max(moves));//make the move
+            this.state.setCurrentBallPosition(currentLine);
 			
 			if (currentLine == LevelOne.AWAY_GOAL_LINE) {//take a shot?
 				
@@ -280,6 +285,7 @@ public class LevelOne extends Activity implements OnClickListener {
 		} else {
 			
 			currentLine = this.moveBall(this.max(moves));//make the move
+            this.state.setCurrentBallPosition(currentLine);//save what line the ball is on
 			
 			if (currentLine == LevelOne.HOME_GOAL_LINE) {//take a shot?
 				
@@ -342,6 +348,7 @@ public class LevelOne extends Activity implements OnClickListener {
 			this.showToast(this.getResources().getString(R.string.LevelOneComputerGoal));
 			
 			this.board.goalAddAway();
+            this.state.increasePlayerScore();
 			this.board.setChipLocation(0);
 			
 		}
@@ -368,6 +375,7 @@ public class LevelOne extends Activity implements OnClickListener {
 			
 			this.board.goalAddHome();
 			this.board.setChipLocation(0);
+            this.state.increasePlayerScore();
             //this really needs to have a timer added
             computerTurn();
 		}

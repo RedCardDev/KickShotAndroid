@@ -10,6 +10,8 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 
+import com.redcarddev.kickshot.utils.LevelOneState;
+
 import java.util.Random;
 
 public class MainActivity extends Activity implements OnClickListener {
@@ -46,7 +48,10 @@ public class MainActivity extends Activity implements OnClickListener {
 			Intent intent = new Intent(MainActivity.this, LevelOne.class);
 
             Random random = new Random();
+            LevelOneState state = new LevelOneState();
             intent.putExtra(LevelOne.PARAM_RANDOM, random);
+            intent.putExtra(LevelOne.PARAM_STATE, state);
+
 
 
 			startActivity(intent);

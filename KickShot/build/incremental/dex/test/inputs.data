@@ -1,0 +1,7 @@
+# incremental data. DO NOT EDIT.
+# format is <lastModified> <length> <SHA-1> <path>
+# Encoding is UTF-8
+1382985160000 486 557cd964cf499a8768012a2f40f024990372d635 /Users/otternq/Documents/workspace/KickShot/KickShot/build/classes/test/com/redcarddev/kickshot/test/BuildConfig.class
+1382137311000 1648200 35a3c69e19d72743cac83778aecbee68680f63eb /Users/otternq/.gradle/caches/artifacts-26/filestore/com.google.guava/guava/11.0.2/jar/35a3c69e19d72743cac83778aecbee68680f63eb/guava-11.0.2.jar
+1382137310000 33015 40719ea6961c0cb6afaeb6a921eaa1f6afd4cfdf /Users/otternq/.gradle/caches/artifacts-26/filestore/com.google.code.findbugs/jsr305/1.3.9/jar/40719ea6961c0cb6afaeb6a921eaa1f6afd4cfdf/jsr305-1.3.9.jar
+1382137061000 104697 c67420447a8ea18d6374b4cce1b98542591d3220 /Users/otternq/.gradle/caches/artifacts-26/filestore/com.jayway.android.robotium/robotium-solo/4.2/jar/c67420447a8ea18d6374b4cce1b98542591d3220/robotium-solo-4.2.jar
