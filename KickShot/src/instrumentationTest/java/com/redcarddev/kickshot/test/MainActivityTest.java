@@ -7,7 +7,6 @@ import android.app.Activity;
 import android.test.ActivityInstrumentationTestCase2;
 
 import com.jayway.android.robotium.solo.Solo;
-import com.squareup.spoon.Spoon;
 
 public class MainActivityTest extends ActivityInstrumentationTestCase2<MainActivity> {
 	
@@ -29,7 +28,7 @@ public class MainActivityTest extends ActivityInstrumentationTestCase2<MainActiv
 	}
 	
 	public void testMainAcreen() {
-		Spoon.screenshot(this.context, "InitialState");
+		//Spoon.screenshot(this.context, "InitialState");
 		
 		solo.assertCurrentActivity("Expect that the MainActivity is open", MainActivity.class);
 		
@@ -37,7 +36,7 @@ public class MainActivityTest extends ActivityInstrumentationTestCase2<MainActiv
 		
 		solo.assertCurrentActivity("Change the the Junior Game", LevelOne.class);
 		
-		Spoon.screenshot(this.context,  "LevelOneInitial");
+		//Spoon.screenshot(this.context,  "LevelOneInitial");
 		
 	}
 

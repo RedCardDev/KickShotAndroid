@@ -4669,6 +4669,11 @@ false
                 qualifiers=""
                 type="layout" />
             <file
+                name="level_one_actions"
+                path="/Users/otternq/Documents/workspace/KickShot/KickShot/src/main/res/layout/level_one_actions.xml"
+                qualifiers=""
+                type="layout" />
+            <file
                 name="level_one_rules"
                 path="/Users/otternq/Documents/workspace/KickShot/KickShot/src/main/res/layout/level_one_rules.xml"
                 qualifiers=""
@@ -4706,6 +4711,8 @@ false
                 <color name="background" >#619ec6
                 </color>
 
+                <string name="PlayAgain" >Play Again?
+                </string>
                 <string name="LevelOneComputerGoal" >They scored
                 </string>
                 <string name="LevelOneRules" >Rules

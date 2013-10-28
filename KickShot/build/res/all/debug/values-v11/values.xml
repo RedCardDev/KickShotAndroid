@@ -2,8 +2,12 @@
 <resources>
 
     <!-- From: file:/Users/otternq/Documents/workspace/KickShot/KickShot/src/main/res/values-v11/colors_kickshot.xml -->
+    <eat-comment />
+
     <color name="pressed_kickshot">#CC33B5E5</color>
     <!-- From: file:/Users/otternq/Documents/workspace/KickShot/KickShot/src/main/res/values-v11/styles_kickshot.xml -->
+    <eat-comment />
+
     <style name="ActionBar.Solid.Kickshot" parent="@android:style/Widget.Holo.Light.ActionBar.Solid">
         <item name="android:background">@drawable/ab_solid_kickshot</item>
         <item name="android:backgroundStacked">@drawable/ab_stacked_solid_kickshot</item>
@@ -26,10 +30,14 @@
         <item name="android:background">@drawable/btn_cab_done_kickshot</item>
     </style>
     <!-- From: file:/Users/otternq/Documents/workspace/KickShot/KickShot/src/main/res/values-v11/styles.xml -->
+    <eat-comment />
+
     <style name="AppBaseTheme" parent="android:Theme.Holo.Light">
         <!-- API 11 theme customizations can go here. -->
     </style>
     <!-- From: file:/Users/otternq/Documents/workspace/KickShot/KickShot/src/main/res/values-v11/styles_kickshot.xml -->
+    <eat-comment />
+
     <style name="DropDownListView.Kickshot" parent="@android:style/Widget.Holo.Light.ListView.DropDown">
         <item name="android:listSelector">@drawable/selectable_background_kickshot</item>
     </style>
@@ -48,6 +56,8 @@
         <item name="android:progressDrawable">@drawable/progress_horizontal_kickshot</item>
     </style>
     <!-- From: file:/Users/otternq/Documents/workspace/KickShot/KickShot/build/exploded-bundles/ComAndroidSupportAppcompatV71800.aar/res/values-v11/values.xml -->
+    <eat-comment />
+
     <style name="Theme.Base" parent="android:Theme.Holo">
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowActionBar">false</item>
@@ -68,6 +78,8 @@
         <item name="selectableItemBackground">?android:attr/selectableItemBackground</item>
     </style>
     <!-- From: file:/Users/otternq/Documents/workspace/KickShot/KickShot/src/main/res/values-v11/styles_kickshot.xml -->
+    <eat-comment />
+
     <style name="Theme.Kickshot" parent="@android:style/Theme.Holo.Light">
         <item name="android:actionBarItemBackground">@drawable/selectable_background_kickshot</item>
         <item name="android:popupMenuStyle">@style/PopupMenu.Kickshot</item>
@@ -85,6 +97,8 @@
         <item name="android:dropDownListViewStyle">@style/DropDownListView.Kickshot</item>
     </style>
     <!-- From: file:/Users/otternq/Documents/workspace/KickShot/KickShot/build/exploded-bundles/ComAndroidSupportAppcompatV71800.aar/res/values-v11/values.xml -->
+    <eat-comment />
+
     <style name="Widget.AppCompat.Base.AutoCompleteTextView" parent="android:Widget.Holo.AutoCompleteTextView" />
 
     <style name="Widget.AppCompat.Base.ProgressBar" parent="android:Widget.Holo.ProgressBar" />

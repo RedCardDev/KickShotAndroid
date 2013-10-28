@@ -24,11 +24,12 @@ public class LevelOne extends Activity implements OnClickListener {
 	String LOGTAG = LevelOne.class.getName();
 	
 	static Random r;
-	
-	int currentPlayer = 1;
+
 	int currentState = 1;
 	
 	Board board = null;
+
+    final static String PARAM_RANDOM = "";
 	
 	final static int OFFENSE_STATE = 1;
 	final static int DEFENSE_STATE = 2;
@@ -42,13 +43,13 @@ public class LevelOne extends Activity implements OnClickListener {
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.level_one);
-		
-		 this.board = (Board)findViewById(R.id.board);
-		 this.board.setOnClickListener(this);
-		 
-		 this.r = new Random();
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.level_one);
+
+        this.board = (Board)findViewById(R.id.board);
+        this.board.setOnClickListener(this);
+
+        this.r = (Random) getIntent().getSerializableExtra(LevelOne.PARAM_RANDOM);
 	}
 
 	@Override
@@ -172,6 +173,14 @@ public class LevelOne extends Activity implements OnClickListener {
 		Toast toast = Toast.makeText(context, text, duration);
 		toast.show();
 	}
+
+    public void showAction(int state) {
+        Log.v(LOGTAG, "showAction e, state=" + state);
+        Intent myIntent = new Intent(this, LevelOneActions.class);
+        myIntent.putExtra("state", state);
+        startActivity(myIntent);
+        Log.v(LOGTAG, "showAction x");
+    }
 	
 
 	/**
@@ -244,7 +253,8 @@ public class LevelOne extends Activity implements OnClickListener {
 				
 				this.currentState = LevelOne.SHOT_STATE;
 				
-				this.showToast(this.getResources().getString(R.string.LevelOnePlayerShot)); 
+				this.showToast(this.getResources().getString(R.string.LevelOnePlayerShot));
+                this.showAction(LevelOneActions.PLAYER_SHOT);
 				
 				
 			}
@@ -278,6 +288,7 @@ public class LevelOne extends Activity implements OnClickListener {
 				this.currentState = LevelOne.BLOCK_STATE;
 				
 				this.showToast(this.getResources().getString(R.string.LevelOneComputerShot));
+                this.showAction(LevelOneActions.COMPUTER_SHOT);
 				
 			}
 			
@@ -322,6 +333,7 @@ public class LevelOne extends Activity implements OnClickListener {
 		if (doubles(moves)) {//blocked
 			
 			this.showToast(this.getResources().getString(R.string.LevelOnePlayerBlock));
+            this.showAction(LevelOneActions.PLAYER_BLOCKED);
 			
 			this.moveBall(moves[0] + moves[1]);
 
@@ -346,6 +358,7 @@ public class LevelOne extends Activity implements OnClickListener {
 		if (doubles(moves)) {//blocked
 			
 			this.showToast(this.getResources().getString(R.string.LevelOneComputerBlock));
+            this.showAction(LevelOneActions.COMPUTER_BLOCKED);
 			
 			this.moveBall(moves[0] + moves[1]);
 			

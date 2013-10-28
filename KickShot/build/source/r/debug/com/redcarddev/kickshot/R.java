@@ -17,8 +17,7 @@ public final class R {
         public static final int abc_slide_out_top=0x7f040005;
     }
     public static final class attr {
-        /**  From: file:/Users/otternq/Documents/workspace/KickShot/KickShot/build/exploded-bundles/ComAndroidSupportAppcompatV71800.aar/res/values/values.xml 
-         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static final int actionBarDivider=0x7f010000;
@@ -730,14 +729,7 @@ containing a value of this type.
         public static final int windowSplitActionBar=0x7f010052;
     }
     public static final class bool {
-        /**  From: file:/Users/otternq/Documents/workspace/KickShot/KickShot/build/exploded-bundles/ComAndroidSupportAppcompatV71800.aar/res/values-land/values.xml 
- From: file:/Users/otternq/Documents/workspace/KickShot/KickShot/build/exploded-bundles/ComAndroidSupportAppcompatV71800.aar/res/values-large/values.xml 
- From: file:/Users/otternq/Documents/workspace/KickShot/KickShot/build/exploded-bundles/ComAndroidSupportAppcompatV71800.aar/res/values-w480dp/values.xml 
-         */
         public static final int abc_action_bar_embed_tabs_pre_jb=0x7f050000;
-        /**  From: file:/Users/otternq/Documents/workspace/KickShot/KickShot/build/exploded-bundles/ComAndroidSupportAppcompatV71800.aar/res/values-xlarge/values.xml 
- From: file:/Users/otternq/Documents/workspace/KickShot/KickShot/build/exploded-bundles/ComAndroidSupportAppcompatV71800.aar/res/values-w720dp/values.xml 
-         */
         public static final int abc_action_bar_expanded_action_views_exclusive=0x7f050001;
         public static final int abc_config_actionMenuItemAllCaps=0x7f050002;
         public static final int abc_config_allowActionMenuItemTextWithIcon=0x7f050003;
@@ -749,18 +741,10 @@ containing a value of this type.
         public static final int abc_search_url_text_normal=0x7f060000;
         public static final int abc_search_url_text_pressed=0x7f060001;
         public static final int abc_search_url_text_selected=0x7f060002;
-        /**  From: file:/Users/otternq/Documents/workspace/KickShot/KickShot/src/main/res/values/strings.xml 
-         */
         public static final int background=0x7f060003;
-        /**  From: file:/Users/otternq/Documents/workspace/KickShot/KickShot/src/main/res/values/colors_kickshot.xml 
- From: file:/Users/otternq/Documents/workspace/KickShot/KickShot/src/main/res/values-v11/colors_kickshot.xml 
-         */
         public static final int pressed_kickshot=0x7f060004;
     }
     public static final class dimen {
-        /**  From: file:/Users/otternq/Documents/workspace/KickShot/KickShot/build/exploded-bundles/ComAndroidSupportAppcompatV71800.aar/res/values-w600dp/values.xml 
- From: file:/Users/otternq/Documents/workspace/KickShot/KickShot/build/exploded-bundles/ComAndroidSupportAppcompatV71800.aar/res/values-sw600dp/values.xml 
-         */
         public static final int abc_action_bar_default_height=0x7f080000;
         public static final int abc_action_bar_icon_vertical_padding=0x7f080001;
         public static final int abc_action_bar_stacked_max_height=0x7f080002;
@@ -777,9 +761,6 @@ containing a value of this type.
         public static final int abc_panel_menu_list_width=0x7f08000d;
         public static final int abc_search_view_preferred_width=0x7f08000e;
         public static final int abc_search_view_text_min_width=0x7f08000f;
-        /**  From: file:/Users/otternq/Documents/workspace/KickShot/KickShot/src/main/res/values/dimens.xml 
- From: file:/Users/otternq/Documents/workspace/KickShot/KickShot/src/main/res/values-sw720dp-land/dimens.xml 
-         */
         public static final int activity_horizontal_margin=0x7f080010;
         public static final int activity_vertical_margin=0x7f080011;
     }
@@ -918,9 +899,9 @@ containing a value of this type.
         public static final int tab_unselected_pressed_kickshot=0x7f020083;
     }
     public static final class id {
+        public static final int actionImage=0x7f070045;
+        public static final int actionText=0x7f070046;
         public static final int action_bar=0x7f07001a;
-        /**  From: file:/Users/otternq/Documents/workspace/KickShot/KickShot/build/exploded-bundles/ComAndroidSupportAppcompatV71800.aar/res/values/values.xml 
-         */
         public static final int action_bar_activity_content=0x7f070014;
         public static final int action_bar_container=0x7f070019;
         public static final int action_bar_overlay_layout=0x7f07001d;
@@ -933,8 +914,8 @@ containing a value of this type.
         public static final int action_mode_bar=0x7f07002f;
         public static final int action_mode_bar_stub=0x7f07002e;
         public static final int action_mode_close_button=0x7f070022;
-        public static final int action_rules=0x7f07004b;
-        public static final int action_settings=0x7f07004c;
+        public static final int action_rules=0x7f07004d;
+        public static final int action_settings=0x7f07004f;
         public static final int activity_chooser_view_content=0x7f070023;
         public static final int always=0x7f07000f;
         public static final int beginning=0x7f07000a;
@@ -963,6 +944,7 @@ containing a value of this type.
         public static final int never=0x7f07000d;
         public static final int none=0x7f070009;
         public static final int normal=0x7f070000;
+        public static final int play_again=0x7f07004e;
         public static final int progress_circular=0x7f070034;
         public static final int progress_horizontal=0x7f070035;
         public static final int radio=0x7f07002d;
@@ -985,12 +967,12 @@ containing a value of this type.
         public static final int split_action_bar=0x7f07001c;
         public static final int submit_area=0x7f07003f;
         public static final int tabMode=0x7f070002;
-        public static final int text1=0x7f070045;
-        public static final int text2=0x7f070046;
-        public static final int text3=0x7f070047;
-        public static final int text4=0x7f070048;
-        public static final int text5=0x7f070049;
-        public static final int text6=0x7f07004a;
+        public static final int text1=0x7f070047;
+        public static final int text2=0x7f070048;
+        public static final int text3=0x7f070049;
+        public static final int text4=0x7f07004a;
+        public static final int text5=0x7f07004b;
+        public static final int text6=0x7f07004c;
         public static final int title=0x7f070029;
         public static final int title_container=0x7f070030;
         public static final int top_action_bar=0x7f07001e;
@@ -999,9 +981,6 @@ containing a value of this type.
         public static final int withText=0x7f070010;
     }
     public static final class integer {
-        /**  From: file:/Users/otternq/Documents/workspace/KickShot/KickShot/build/exploded-bundles/ComAndroidSupportAppcompatV71800.aar/res/values-w360dp/values.xml 
- From: file:/Users/otternq/Documents/workspace/KickShot/KickShot/build/exploded-bundles/ComAndroidSupportAppcompatV71800.aar/res/values-w500dp/values.xml 
-         */
         public static final int abc_max_action_buttons=0x7f090000;
     }
     public static final class layout {
@@ -1031,16 +1010,15 @@ containing a value of this type.
         public static final int abc_search_view=0x7f030017;
         public static final int activity_main=0x7f030018;
         public static final int level_one=0x7f030019;
-        public static final int level_one_rules=0x7f03001a;
-        public static final int support_simple_spinner_dropdown_item=0x7f03001b;
+        public static final int level_one_actions=0x7f03001a;
+        public static final int level_one_rules=0x7f03001b;
+        public static final int support_simple_spinner_dropdown_item=0x7f03001c;
     }
     public static final class menu {
         public static final int levelone=0x7f0c0000;
         public static final int main=0x7f0c0001;
     }
     public static final class string {
-        /**  From: file:/Users/otternq/Documents/workspace/KickShot/KickShot/src/main/res/values/strings.xml 
-         */
         public static final int LevelOneComputerBlock=0x7f0a0000;
         public static final int LevelOneComputerGoal=0x7f0a0001;
         public static final int LevelOneComputerShot=0x7f0a0002;
@@ -1048,68 +1026,52 @@ containing a value of this type.
         public static final int LevelOnePlayerGoal=0x7f0a0004;
         public static final int LevelOnePlayerShot=0x7f0a0005;
         public static final int LevelOneRules=0x7f0a0006;
-        public static final int Rule1=0x7f0a0007;
-        public static final int Rule2=0x7f0a0008;
-        public static final int Rule3=0x7f0a0009;
-        public static final int Rule4=0x7f0a000a;
-        public static final int Rule5=0x7f0a000b;
-        public static final int Rule6=0x7f0a000c;
-        /**  From: file:/Users/otternq/Documents/workspace/KickShot/KickShot/build/exploded-bundles/ComAndroidSupportAppcompatV71800.aar/res/values/values.xml 
-         */
-        public static final int abc_action_bar_home_description=0x7f0a000d;
-        public static final int abc_action_bar_up_description=0x7f0a000e;
-        public static final int abc_action_menu_overflow_description=0x7f0a000f;
-        public static final int abc_action_mode_done=0x7f0a0010;
-        public static final int abc_activity_chooser_view_see_all=0x7f0a0011;
-        public static final int abc_activitychooserview_choose_application=0x7f0a0012;
-        public static final int abc_searchview_description_clear=0x7f0a0013;
-        public static final int abc_searchview_description_query=0x7f0a0014;
-        public static final int abc_searchview_description_search=0x7f0a0015;
-        public static final int abc_searchview_description_submit=0x7f0a0016;
-        public static final int abc_searchview_description_voice=0x7f0a0017;
-        public static final int abc_shareactionprovider_share_with=0x7f0a0018;
-        public static final int abc_shareactionprovider_share_with_application=0x7f0a0019;
-        /**  From: file:/Users/otternq/Documents/workspace/KickShot/KickShot/src/main/res/values/strings.xml 
-         */
-        public static final int action_settings=0x7f0a001a;
-        public static final int app_name=0x7f0a001b;
+        public static final int PlayAgain=0x7f0a0007;
+        public static final int Rule1=0x7f0a0008;
+        public static final int Rule2=0x7f0a0009;
+        public static final int Rule3=0x7f0a000a;
+        public static final int Rule4=0x7f0a000b;
+        public static final int Rule5=0x7f0a000c;
+        public static final int Rule6=0x7f0a000d;
+        public static final int abc_action_bar_home_description=0x7f0a000e;
+        public static final int abc_action_bar_up_description=0x7f0a000f;
+        public static final int abc_action_menu_overflow_description=0x7f0a0010;
+        public static final int abc_action_mode_done=0x7f0a0011;
+        public static final int abc_activity_chooser_view_see_all=0x7f0a0012;
+        public static final int abc_activitychooserview_choose_application=0x7f0a0013;
+        public static final int abc_searchview_description_clear=0x7f0a0014;
+        public static final int abc_searchview_description_query=0x7f0a0015;
+        public static final int abc_searchview_description_search=0x7f0a0016;
+        public static final int abc_searchview_description_submit=0x7f0a0017;
+        public static final int abc_searchview_description_voice=0x7f0a0018;
+        public static final int abc_shareactionprovider_share_with=0x7f0a0019;
+        public static final int abc_shareactionprovider_share_with_application=0x7f0a001a;
+        public static final int action_settings=0x7f0a001b;
+        public static final int app_name=0x7f0a001c;
     }
     public static final class style {
-        /**  From: file:/Users/otternq/Documents/workspace/KickShot/KickShot/src/main/res/values/styles_kickshot.xml 
- From: file:/Users/otternq/Documents/workspace/KickShot/KickShot/src/main/res/values-v11/styles_kickshot.xml 
-         */
         public static final int ActionBar_Solid_Kickshot=0x7f0b0000;
         public static final int ActionBar_Transparent_Kickshot=0x7f0b0001;
         public static final int ActionBarTabStyle_Kickshot=0x7f0b0002;
         public static final int ActionButton_CloseMode_Kickshot=0x7f0b0003;
-        /**  From: file:/Users/otternq/Documents/workspace/KickShot/KickShot/src/main/res/values/styles.xml 
-
+        /** 
             Theme customizations available in newer API levels can go in
             res/values-vXX/styles.xml, while customizations related to
             backward-compatibility can go here.
         
- From: file:/Users/otternq/Documents/workspace/KickShot/KickShot/src/main/res/values-v11/styles.xml 
  API 11 theme customizations can go here. 
- From: file:/Users/otternq/Documents/workspace/KickShot/KickShot/src/main/res/values-v14/styles.xml 
  API 14 theme customizations can go here. 
          */
         public static final int AppBaseTheme=0x7f0b0004;
         /**  All customizations that are NOT specific to a particular API-level can go here. 
          */
         public static final int AppTheme=0x7f0b0005;
-        /**  From: file:/Users/otternq/Documents/workspace/KickShot/KickShot/src/main/res/values/styles_kickshot.xml 
- From: file:/Users/otternq/Documents/workspace/KickShot/KickShot/src/main/res/values-v11/styles_kickshot.xml 
-         */
         public static final int DropDownListView_Kickshot=0x7f0b0006;
         public static final int DropDownNav_Kickshot=0x7f0b0007;
         public static final int PopupMenu_Kickshot=0x7f0b0008;
         public static final int ProgressBar_Kickshot=0x7f0b0009;
-        /**  From: file:/Users/otternq/Documents/workspace/KickShot/KickShot/build/exploded-bundles/ComAndroidSupportAppcompatV71800.aar/res/values/values.xml 
-         */
         public static final int TextAppearance_AppCompat_Base_CompactMenu_Dialog=0x7f0b000a;
         public static final int TextAppearance_AppCompat_Base_SearchResult=0x7f0b000b;
-        /**  From: file:/Users/otternq/Documents/workspace/KickShot/KickShot/build/exploded-bundles/ComAndroidSupportAppcompatV71800.aar/res/values-v14/values.xml 
-         */
         public static final int TextAppearance_AppCompat_Base_SearchResult_Subtitle=0x7f0b000c;
         public static final int TextAppearance_AppCompat_Base_SearchResult_Title=0x7f0b000d;
         public static final int TextAppearance_AppCompat_Base_Widget_PopupMenu_Large=0x7f0b000e;
@@ -1156,20 +1118,13 @@ containing a value of this type.
         public static final int Theme_AppCompat_CompactMenu_Dialog=0x7f0b0037;
         public static final int Theme_AppCompat_Light=0x7f0b0038;
         public static final int Theme_AppCompat_Light_DarkActionBar=0x7f0b0039;
-        /**  From: file:/Users/otternq/Documents/workspace/KickShot/KickShot/build/exploded-bundles/ComAndroidSupportAppcompatV71800.aar/res/values-v11/values.xml 
-         */
         public static final int Theme_Base=0x7f0b003a;
         public static final int Theme_Base_AppCompat=0x7f0b003b;
         public static final int Theme_Base_AppCompat_Light=0x7f0b003c;
         public static final int Theme_Base_AppCompat_Light_DarkActionBar=0x7f0b003d;
         public static final int Theme_Base_Light=0x7f0b003e;
-        /**  From: file:/Users/otternq/Documents/workspace/KickShot/KickShot/src/main/res/values/styles_kickshot.xml 
- From: file:/Users/otternq/Documents/workspace/KickShot/KickShot/src/main/res/values-v11/styles_kickshot.xml 
-         */
         public static final int Theme_Kickshot=0x7f0b003f;
         public static final int Theme_Kickshot_Widget=0x7f0b0040;
-        /**  From: file:/Users/otternq/Documents/workspace/KickShot/KickShot/build/exploded-bundles/ComAndroidSupportAppcompatV71800.aar/res/values/values.xml 
-         */
         public static final int Widget_AppCompat_ActionBar=0x7f0b0041;
         public static final int Widget_AppCompat_ActionBar_Solid=0x7f0b0042;
         public static final int Widget_AppCompat_ActionBar_TabBar=0x7f0b0043;
@@ -1191,8 +1146,6 @@ containing a value of this type.
         public static final int Widget_AppCompat_Base_ActionButton_Overflow=0x7f0b0053;
         public static final int Widget_AppCompat_Base_ActionMode=0x7f0b0054;
         public static final int Widget_AppCompat_Base_ActivityChooserView=0x7f0b0055;
-        /**  From: file:/Users/otternq/Documents/workspace/KickShot/KickShot/build/exploded-bundles/ComAndroidSupportAppcompatV71800.aar/res/values-v11/values.xml 
-         */
         public static final int Widget_AppCompat_Base_AutoCompleteTextView=0x7f0b0056;
         public static final int Widget_AppCompat_Base_DropDownItem_Spinner=0x7f0b0057;
         public static final int Widget_AppCompat_Base_ListView_DropDown=0x7f0b0058;
@@ -1248,7 +1201,7 @@ containing a value of this type.
         public static final int Widget_AppCompat_Spinner_DropDown_ActionBar=0x7f0b008a;
     }
     public static final class styleable {
-        /**  From: file:/Users/otternq/Documents/workspace/KickShot/KickShot/build/exploded-bundles/ComAndroidSupportAppcompatV71800.aar/res/values/values.xml 
+        /** Attributes that can be used with a ActionBar.
            <p>Includes the following attributes:</p>
            <table>
            <colgroup align="left" />
