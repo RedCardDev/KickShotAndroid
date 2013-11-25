@@ -4,6 +4,7 @@ import java.util.Random;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -49,6 +50,12 @@ public class LevelOneActions extends Activity {
 
         this.setActionView();
 
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event){
+        this.finish();
+        return true;
     }
 
     protected boolean setActionView() {
