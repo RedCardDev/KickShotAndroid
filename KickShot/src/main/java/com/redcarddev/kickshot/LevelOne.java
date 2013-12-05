@@ -246,6 +246,7 @@ public class LevelOne extends Activity implements OnClickListener {
 			this.currentState = LevelOne.DEFENSE_STATE;
 			
 			this.board.ballPosession(Board.AWAY);
+            this.showAction(LevelOneActions.PLAYER_TURNOVER);
 			
 		} else {//kept possesion
 			
@@ -281,6 +282,7 @@ public class LevelOne extends Activity implements OnClickListener {
 			
 			this.currentState = LevelOne.OFFENSE_STATE;
 			this.board.ballPosession(Board.HOME);
+            this.showAction(LevelOneActions.COMPUTER_TURNOVER);
 			
 		} else {
 			
@@ -310,6 +312,7 @@ public class LevelOne extends Activity implements OnClickListener {
 		if (doubles(moves)) {//take controll of the ball
 			
 			this.currentState = LevelOne.OFFENSE_STATE;
+            this.showAction(LevelOneActions.PLAYER_INTERCEPT);
 			this.board.ballPosession(Board.HOME);
 			
 		}
@@ -324,6 +327,7 @@ public class LevelOne extends Activity implements OnClickListener {
 		if (doubles(moves)) {//take away posession
 			//switch posession
 			this.currentState = LevelOne.DEFENSE_STATE;
+            this.showAction(LevelOneActions.COMPUTER_INTERCEPT);
 			this.board.ballPosession(Board.AWAY);
 		}
 		
@@ -344,7 +348,8 @@ public class LevelOne extends Activity implements OnClickListener {
 			this.moveBall(moves[0] + moves[1]);
 
 		} else {
-			
+
+            this.showAction(LevelOneActions.COMPUTER_SCORED);
 			this.showToast(this.getResources().getString(R.string.LevelOneComputerGoal));
 			
 			this.board.goalAddAway();
@@ -372,7 +377,8 @@ public class LevelOne extends Activity implements OnClickListener {
 		} else {
 			
 			this.showToast(this.getResources().getString(R.string.LevelOnePlayerGoal));
-			
+
+            this.showAction(LevelOneActions.PLAYER_SCORED);
 			this.board.goalAddHome();
 			this.board.setChipLocation(0);
             this.state.increasePlayerScore();
