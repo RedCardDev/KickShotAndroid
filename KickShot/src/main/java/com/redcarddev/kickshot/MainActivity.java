@@ -19,6 +19,7 @@ public class MainActivity extends Activity implements OnClickListener {
 	protected String LOGTAG = "MainActivity";
 	
 	Button juniorButton = null;
+    Button r1 = null;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +28,9 @@ public class MainActivity extends Activity implements OnClickListener {
 		
 		this.juniorButton = (Button)findViewById(R.id.junior);
 		this.juniorButton.setOnClickListener(this);
+
+        this.r1 = (Button)findViewById(R.id.r1);
+        this.r1.setOnClickListener(this);
 		
 	}
 
@@ -57,7 +61,14 @@ public class MainActivity extends Activity implements OnClickListener {
 			startActivity(intent);
 			
 			
-		}
+		} else if (view.getId() == R.id.r1) {
+
+            Intent intent = new Intent(MainActivity.this, LevelOneRules.class);
+            startActivity(intent);
+
+        } else {
+            Log.v(LOGTAG, Integer.toString(view.getId()));
+        }
 		
 		Log.v(LOGTAG, "onClick e");
 	}

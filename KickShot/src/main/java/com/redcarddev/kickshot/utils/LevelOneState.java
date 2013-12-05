@@ -10,6 +10,7 @@ import java.io.Serializable;
 public class LevelOneState implements Serializable {
 
     public int getCurrentState() {
+
         return currentState;
     }
 

@@ -1,43 +1,47 @@
 package com.redcarddev.kickshot.test;
 
-import com.redcarddev.kickshot.MainActivity;
-import com.redcarddev.kickshot.LevelOne;
-
 import android.app.Activity;
-import android.test.ActivityInstrumentationTestCase2;
 
-import com.jayway.android.robotium.solo.Solo;
+import android.content.Intent;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
+import com.pivotallabs.injected.InjectedActivity;
+import com.pivotallabs.tracker.RecentActivityActivity;
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.robolectric.Robolectric;
+import org.robolectric.RobolectricTestRunner;
+import org.robolectric.shadows.ShadowActivity;
+import org.robolectric.shadows.ShadowIntent;
 
-public class MainActivityTest extends ActivityInstrumentationTestCase2<MainActivity> {
-	
-	private Activity context;
-	
-	private Solo solo;
-	
-	public MainActivityTest() {
-		super(MainActivity.class);
-		
-	}
-	
-	protected void setUp() throws Exception {
-		super.setUp();
-		
-		this.context = this.getActivity();
-		this.solo = new Solo(this.getInstrumentation(), this.getActivity());
-		
-	}
-	
-	public void testMainAcreen() {
-		//Spoon.screenshot(this.context, "InitialState");
-		
-		solo.assertCurrentActivity("Expect that the MainActivity is open", MainActivity.class);
-		
-		solo.clickOnButton("Junior");
-		
-		solo.assertCurrentActivity("Change the the Junior Game", LevelOne.class);
-		
-		//Spoon.screenshot(this.context,  "LevelOneInitial");
-		
-	}
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertThat;
+import static org.robolectric.Robolectric.clickOn;
+import static org.robolectric.Robolectric.shadowOf;
+
+import android.widget.Button;
+
+import com.redcarddev.kickshot.MainActivity;
+
+@RunWith(RobolectricTestRunner.class)
+public class MainActivityTest {
+
+    protected MainActivity activity;
+    protected Button juniorButton;
+
+    @Before
+    public void setUp() {
+
+        activity = Robolectric.buildActivity(MainActivity.class).create().get();
+        juniorButton = (Button) activity.findViewById(R.id.junior);
+    }
+
+    @Test
+    public void shouldHaveAButtonThatSaysJuniorEdition() throws Exception {
+        assertThat((String) juniorButton.getText(), equalTo("Junior"));
+    }
 
 }

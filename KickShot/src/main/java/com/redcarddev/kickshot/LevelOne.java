@@ -104,7 +104,18 @@ public class LevelOne extends Activity implements OnClickListener {
         	
         	this.playerTurn();
             if(this.currentState != LevelOne.WON_STATE && this.currentState != LevelOne.LOST_STATE){
-                Timer buttonTimer = new Timer();
+
+                board.dicePositionAway(1);
+                board.dicePositionAway(2);
+
+                computerTurn();
+
+                board.dicePositionHome(1);
+                board.dicePositionHome(2);
+
+                board.setEnabled(true);
+
+                /*Timer buttonTimer = new Timer();
                 buttonTimer.schedule(new TimerTask() {
 
                     @Override
@@ -163,7 +174,7 @@ public class LevelOne extends Activity implements OnClickListener {
                             }
                         });
                     }
-                }, 1000);
+                }, 1000);*/
             }
 		}
 		
@@ -244,10 +255,11 @@ public class LevelOne extends Activity implements OnClickListener {
 		if (doubles(moves)) { //did the player lose possesion
 			Log.v(LOGTAG, "playerOffenseAction\t change to defense state");
 			this.currentState = LevelOne.DEFENSE_STATE;
-			
-			this.board.ballPosession(Board.AWAY);
+
             this.showAction(LevelOneActions.PLAYER_TURNOVER);
-			
+            this.board.ballPosession(Board.AWAY);
+
+
 		} else {//kept possesion
 			
 			currentLine = this.moveBall(this.max(moves));//make the move
@@ -258,11 +270,11 @@ public class LevelOne extends Activity implements OnClickListener {
 				Log.v(LOGTAG, "playerOffenseAction\t change to shot state");
 				
 				this.currentState = LevelOne.SHOT_STATE;
-				
-				this.showToast(this.getResources().getString(R.string.LevelOnePlayerShot));
+
                 this.showAction(LevelOneActions.PLAYER_SHOT);
-				
-				
+                this.showToast(this.getResources().getString(R.string.LevelOnePlayerShot));
+
+
 			}
 			
 			
@@ -281,8 +293,8 @@ public class LevelOne extends Activity implements OnClickListener {
 		if (doubles(moves)) { //switch to player on offense
 			
 			this.currentState = LevelOne.OFFENSE_STATE;
-			this.board.ballPosession(Board.HOME);
             this.showAction(LevelOneActions.COMPUTER_TURNOVER);
+			this.board.ballPosession(Board.HOME);
 			
 		} else {
 			
@@ -294,9 +306,8 @@ public class LevelOne extends Activity implements OnClickListener {
 				Log.v(LOGTAG, "playerOffenseAction\t change to shot state");
 				
 				this.currentState = LevelOne.BLOCK_STATE;
-				
-				this.showToast(this.getResources().getString(R.string.LevelOneComputerShot));
                 this.showAction(LevelOneActions.COMPUTER_SHOT);
+				this.showToast(this.getResources().getString(R.string.LevelOneComputerShot));
 				
 			}
 			
