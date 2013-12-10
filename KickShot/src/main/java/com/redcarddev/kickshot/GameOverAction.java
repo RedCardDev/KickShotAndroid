@@ -57,7 +57,6 @@ public class GameOverAction extends Activity {
         }
 
         this.setActionText(action);
-        //this.setActionImage(image);
 
         return true;
 
