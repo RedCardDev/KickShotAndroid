@@ -19,6 +19,8 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Toast;
 
+import android.net.Uri;
+
 public class LevelOne extends Activity implements OnClickListener {
 	
 	String LOGTAG = LevelOne.class.getName();
@@ -76,6 +78,15 @@ public class LevelOne extends Activity implements OnClickListener {
 	        	startActivity(intent);
 	        	
 	            return true;
+
+            case R.id.action_promote:
+
+                String url = "https://plus.google.com/communities/101373825390886664597/members";
+
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                startActivity(browserIntent);
+
+                return true;
 	            
 	        default:
 	            return super.onOptionsItemSelected(item);
@@ -137,7 +148,6 @@ public class LevelOne extends Activity implements OnClickListener {
 
                                                             @Override
                                                             public void run() {
-
 
 
                                                                 board.dicePositionHome(1);

@@ -508,6 +508,7 @@
     <!-- From: file:/Users/otternq/Documents/workspace/KickShot/KickShot/src/main/res/values/strings.xml -->
     <eat-comment />
 
+    <string name="Feedback">Give Feedback</string>
     <string name="LevelOneComputerBlock">They blocked your shot</string>
     <string name="LevelOneComputerGoal">They scored</string>
     <string name="LevelOneComputerShot">They took a shot</string>
