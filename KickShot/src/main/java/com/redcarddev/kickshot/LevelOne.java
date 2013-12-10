@@ -4,6 +4,7 @@ import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import com.redcarddev.kickshot.utils.LevelOneState;
 import com.redcarddev.kickshot.views.Board;
 import com.redcarddev.kickshot.views.Dice;
 
@@ -26,19 +27,21 @@ public class LevelOne extends Activity implements OnClickListener {
 	String LOGTAG = LevelOne.class.getName();
 	
 	static Random r;
+    private LevelOneState state;
 
 	int currentState = 1;
 	
 	Board board = null;
 
-    final static String PARAM_RANDOM = "";
+    final static String PARAM_RANDOM = "Random";
+    final static String PARAM_STATE = "State";
 	
-	final static int OFFENSE_STATE = 1;
-	final static int DEFENSE_STATE = 2;
-	final static int SHOT_STATE = 3;
-	final static int BLOCK_STATE = 4;
-    final static int WON_STATE = 5;
-    final static int LOST_STATE = 6;
+	public final static int OFFENSE_STATE = 1;
+    public final static int DEFENSE_STATE = 2;
+    public final static int SHOT_STATE = 3;
+    public final static int BLOCK_STATE = 4;
+    public final static int WON_STATE = 5;
+    public final static int LOST_STATE = 6;
 	
 	final static int AWAY_GOAL_LINE = 11;
 	final static int HOME_GOAL_LINE = -11;
@@ -52,6 +55,7 @@ public class LevelOne extends Activity implements OnClickListener {
         this.board.setOnClickListener(this);
 
         this.r = (Random) getIntent().getSerializableExtra(LevelOne.PARAM_RANDOM);
+        this.state = (LevelOneState) getIntent().getSerializableExtra(LevelOne.PARAM_STATE);
 	}
 
 	@Override
@@ -111,6 +115,17 @@ public class LevelOne extends Activity implements OnClickListener {
         	
         	this.playerTurn();
             if(this.currentState != LevelOne.WON_STATE && this.currentState != LevelOne.LOST_STATE){
+
+                /*board.dicePositionAway(1);
+                board.dicePositionAway(2);
+
+                computerTurn();
+
+                board.dicePositionHome(1);
+                board.dicePositionHome(2);
+
+                board.setEnabled(true);*/
+
                 Timer buttonTimer = new Timer();
                 buttonTimer.schedule(new TimerTask() {
 
@@ -250,23 +265,26 @@ public class LevelOne extends Activity implements OnClickListener {
 		if (doubles(moves)) { //did the player lose possesion
 			Log.v(LOGTAG, "playerOffenseAction\t change to defense state");
 			this.currentState = LevelOne.DEFENSE_STATE;
-			
-			this.board.ballPosession(Board.AWAY);
-			
+
+            this.showAction(LevelOneActions.PLAYER_TURNOVER);
+            this.board.ballPosession(Board.AWAY);
+
+
 		} else {//kept possesion
 			
 			currentLine = this.moveBall(this.max(moves));//make the move
+            this.state.setCurrentBallPosition(currentLine);
 			
 			if (currentLine == LevelOne.AWAY_GOAL_LINE) {//take a shot?
 				
 				Log.v(LOGTAG, "playerOffenseAction\t change to shot state");
 				
 				this.currentState = LevelOne.SHOT_STATE;
-				
-				this.showToast(this.getResources().getString(R.string.LevelOnePlayerShot));
+
                 this.showAction(LevelOneActions.PLAYER_SHOT);
-				
-				
+                this.showToast(this.getResources().getString(R.string.LevelOnePlayerShot));
+
+
 			}
 			
 			
@@ -285,20 +303,21 @@ public class LevelOne extends Activity implements OnClickListener {
 		if (doubles(moves)) { //switch to player on offense
 			
 			this.currentState = LevelOne.OFFENSE_STATE;
+            this.showAction(LevelOneActions.COMPUTER_TURNOVER);
 			this.board.ballPosession(Board.HOME);
 			
 		} else {
 			
 			currentLine = this.moveBall(this.max(moves));//make the move
+            this.state.setCurrentBallPosition(currentLine);//save what line the ball is on
 			
 			if (currentLine == LevelOne.HOME_GOAL_LINE) {//take a shot?
 				
 				Log.v(LOGTAG, "playerOffenseAction\t change to shot state");
 				
 				this.currentState = LevelOne.BLOCK_STATE;
-				
-				this.showToast(this.getResources().getString(R.string.LevelOneComputerShot));
                 this.showAction(LevelOneActions.COMPUTER_SHOT);
+				this.showToast(this.getResources().getString(R.string.LevelOneComputerShot));
 				
 			}
 			
@@ -314,6 +333,7 @@ public class LevelOne extends Activity implements OnClickListener {
 		if (doubles(moves)) {//take controll of the ball
 			
 			this.currentState = LevelOne.OFFENSE_STATE;
+            this.showAction(LevelOneActions.PLAYER_INTERCEPT);
 			this.board.ballPosession(Board.HOME);
 			
 		}
@@ -328,6 +348,7 @@ public class LevelOne extends Activity implements OnClickListener {
 		if (doubles(moves)) {//take away posession
 			//switch posession
 			this.currentState = LevelOne.DEFENSE_STATE;
+            this.showAction(LevelOneActions.COMPUTER_INTERCEPT);
 			this.board.ballPosession(Board.AWAY);
 		}
 		
@@ -348,10 +369,12 @@ public class LevelOne extends Activity implements OnClickListener {
 			this.moveBall(moves[0] + moves[1]);
 
 		} else {
-			
+
+            this.showAction(LevelOneActions.COMPUTER_SCORED);
 			this.showToast(this.getResources().getString(R.string.LevelOneComputerGoal));
 			
 			this.board.goalAddAway();
+            this.state.increasePlayerScore();
 			this.board.setChipLocation(0);
 			
 		}
@@ -375,9 +398,11 @@ public class LevelOne extends Activity implements OnClickListener {
 		} else {
 			
 			this.showToast(this.getResources().getString(R.string.LevelOnePlayerGoal));
-			
+
+            this.showAction(LevelOneActions.PLAYER_SCORED);
 			this.board.goalAddHome();
 			this.board.setChipLocation(0);
+            this.state.increasePlayerScore();
             //this really needs to have a timer added
             computerTurn();
 		}
