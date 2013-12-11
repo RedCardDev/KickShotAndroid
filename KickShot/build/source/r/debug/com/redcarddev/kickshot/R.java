@@ -910,7 +910,7 @@ containing a value of this type.
     }
     public static final class id {
         public static final int actionImage=0x7f070047;
-        public static final int actionText=0x7f070048;
+        public static final int actionText=0x7f070042;
         public static final int action_bar=0x7f07001a;
         public static final int action_bar_activity_content=0x7f070014;
         public static final int action_bar_container=0x7f070019;
@@ -924,16 +924,15 @@ containing a value of this type.
         public static final int action_mode_bar=0x7f07002f;
         public static final int action_mode_bar_stub=0x7f07002e;
         public static final int action_mode_close_button=0x7f070022;
-        public static final int action_promote=0x7f07004d;
-        public static final int action_rules=0x7f07004c;
-        public static final int action_settings=0x7f07004a;
+        public static final int action_promote=0x7f07004c;
+        public static final int action_rules=0x7f07004b;
+        public static final int action_settings=0x7f070049;
         public static final int activity_chooser_view_content=0x7f070023;
         public static final int always=0x7f07000f;
         public static final int beginning=0x7f07000a;
         public static final int board=0x7f070046;
         public static final int checkbox=0x7f07002b;
         public static final int collapseActionView=0x7f070011;
-        public static final int container=0x7f070042;
         public static final int default_activity_button=0x7f070026;
         public static final int dialog=0x7f070012;
         public static final int disableHome=0x7f070008;
@@ -956,14 +955,14 @@ containing a value of this type.
         public static final int never=0x7f07000d;
         public static final int none=0x7f070009;
         public static final int normal=0x7f070000;
-        public static final int play_again=0x7f07004b;
+        public static final int play_again=0x7f07004a;
         public static final int progress_circular=0x7f070034;
         public static final int progress_horizontal=0x7f070035;
         public static final int r1=0x7f070045;
         public static final int radio=0x7f07002d;
         public static final int right_container=0x7f070032;
         public static final int right_icon=0x7f070033;
-        public static final int rule=0x7f070049;
+        public static final int rule=0x7f070048;
         public static final int search_badge=0x7f070038;
         public static final int search_bar=0x7f070037;
         public static final int search_button=0x7f070039;
@@ -1018,11 +1017,10 @@ containing a value of this type.
         public static final int abc_search_view=0x7f030017;
         public static final int activity_game_over_action=0x7f030018;
         public static final int activity_main=0x7f030019;
-        public static final int fragment_game_over_action=0x7f03001a;
-        public static final int level_one=0x7f03001b;
-        public static final int level_one_actions=0x7f03001c;
-        public static final int level_one_rules=0x7f03001d;
-        public static final int support_simple_spinner_dropdown_item=0x7f03001e;
+        public static final int level_one=0x7f03001a;
+        public static final int level_one_actions=0x7f03001b;
+        public static final int level_one_rules=0x7f03001c;
+        public static final int support_simple_spinner_dropdown_item=0x7f03001d;
     }
     public static final class menu {
         public static final int game_over_action=0x7f0c0000;
