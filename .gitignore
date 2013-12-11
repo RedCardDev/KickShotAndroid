@@ -33,3 +33,5 @@ local.properties
 *.swp
 
 
+
+KickShot/src/main/res/values/hiddenstrings.xml
