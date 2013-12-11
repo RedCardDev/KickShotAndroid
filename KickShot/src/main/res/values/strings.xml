@@ -6,6 +6,10 @@
 
     <color name="background">#619ec6</color>
 
+    <string name="menu_signout">Sign Out</string>
+    <string name="menu_leaderboard">Leaderboard</string>
+    <string name="menu_achievements">Achievements</string>
+
     <!-- Level One / Game -->
     <string name="LevelOnePlayerGoal">You scored!</string>
     <string name="LevelOneComputerGoal">They scored</string>

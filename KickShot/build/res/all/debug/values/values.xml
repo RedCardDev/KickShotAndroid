@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
 
-    <!-- From: file:/Users/otternq/Documents/workspace/KickShot/KickShot/build/exploded-bundles/ComAndroidSupportAppcompatV71800.aar/res/values/values.xml -->
+    <!-- From: file:/Users/otternq/Documents/workspace/KickShot/KickShot/build/exploded-bundles/ComAndroidSupportAppcompatV71900.aar/res/values/values.xml -->
     <eat-comment />
 
     <attr name="actionBarDivider" format="reference" />
@@ -82,11 +82,24 @@
     <eat-comment />
 
     <color name="background">#619ec6</color>
+    <!-- From: file:/Users/otternq/Documents/workspace/KickShot/KickShot/build/exploded-bundles/ComGoogleAndroidGmsPlayServices4030.aar/res/values/colors.xml -->
+    <eat-comment />
+
+    <color name="common_action_bar_splitter">#d2d2d2</color>
+    <color name="common_signin_btn_dark_text_default">@android:color/white</color>
+    <color name="common_signin_btn_dark_text_disabled">#FFAAAAAA</color>
+    <color name="common_signin_btn_dark_text_focused">@android:color/white</color>
+    <color name="common_signin_btn_dark_text_pressed">@android:color/white</color>
+    <color name="common_signin_btn_default_background">#FFDD4B39</color>
+    <color name="common_signin_btn_light_text_default">#FF737373</color>
+    <color name="common_signin_btn_light_text_disabled">#FFAAAAAA</color>
+    <color name="common_signin_btn_light_text_focused">#FF737373</color>
+    <color name="common_signin_btn_light_text_pressed">@android:color/white</color>
     <!-- From: file:/Users/otternq/Documents/workspace/KickShot/KickShot/src/main/res/values/colors_kickshot.xml -->
     <eat-comment />
 
     <color name="pressed_kickshot">#CC33B5E5</color>
-    <!-- From: file:/Users/otternq/Documents/workspace/KickShot/KickShot/build/exploded-bundles/ComAndroidSupportAppcompatV71800.aar/res/values/values.xml -->
+    <!-- From: file:/Users/otternq/Documents/workspace/KickShot/KickShot/build/exploded-bundles/ComAndroidSupportAppcompatV71900.aar/res/values/values.xml -->
     <eat-comment />
 
     <declare-styleable name="ActionBar">
@@ -188,6 +201,24 @@
         -->
         <attr name="expandActivityOverflowButtonDrawable" format="reference" />
     </declare-styleable>
+    <!-- From: file:/Users/otternq/Documents/workspace/KickShot/KickShot/build/exploded-bundles/ComGoogleAndroidGmsPlayServices4030.aar/res/values/ads_attrs.xml -->
+    <eat-comment />
+
+    <declare-styleable name="AdsAttrs">
+
+        <!--
+    The size of the ad. It must be one of BANNER, FULL_BANNER, LEADERBOARD,
+    MEDIUM_RECTANGLE, SMART_BANNER, WIDE_SKYSCRAPER, or
+    &lt;width&gt;x&lt;height&gt;.
+        -->
+        <attr name="adSize" format="string" />
+
+        <!-- The ad unit ID. -->
+        <attr name="adUnitId" format="string" />
+    </declare-styleable>
+    <!-- From: file:/Users/otternq/Documents/workspace/KickShot/KickShot/build/exploded-bundles/ComAndroidSupportAppcompatV71900.aar/res/values/values.xml -->
+    <eat-comment />
+
     <declare-styleable name="CompatTextView">
 
         <!-- Present the text in ALL CAPS. This may use a small-caps form when available. -->
@@ -207,6 +238,34 @@
         <!-- Size of padding on either end of a divider. -->
         <attr name="dividerPadding" format="dimension" />
     </declare-styleable>
+    <!-- From: file:/Users/otternq/Documents/workspace/KickShot/KickShot/build/exploded-bundles/ComGoogleAndroidGmsPlayServices4030.aar/res/values/maps_attrs.xml -->
+    <eat-comment />
+
+    <declare-styleable name="MapAttrs">
+        <attr name="mapType" format="enum">
+            <enum name="none" value="0" />
+            <enum name="normal" value="1" />
+            <enum name="satellite" value="2" />
+            <enum name="terrain" value="3" />
+            <enum name="hybrid" value="4" />
+        </attr>
+        <attr name="cameraBearing" format="float" />
+        <attr name="cameraTargetLat" format="float" />
+        <attr name="cameraTargetLng" format="float" />
+        <attr name="cameraTilt" format="float" />
+        <attr name="cameraZoom" format="float" />
+        <attr name="uiCompass" format="boolean" />
+        <attr name="uiRotateGestures" format="boolean" />
+        <attr name="uiScrollGestures" format="boolean" />
+        <attr name="uiTiltGestures" format="boolean" />
+        <attr name="uiZoomControls" format="boolean" />
+        <attr name="uiZoomGestures" format="boolean" />
+        <attr name="useViewLifecycle" format="boolean" />
+        <attr name="zOrderOnTop" format="boolean" />
+    </declare-styleable>
+    <!-- From: file:/Users/otternq/Documents/workspace/KickShot/KickShot/build/exploded-bundles/ComAndroidSupportAppcompatV71900.aar/res/values/values.xml -->
+    <eat-comment />
+
     <declare-styleable name="MenuGroup">
 
         <!-- The ID of the group. -->
@@ -477,6 +536,7 @@
 
     <dimen name="abc_action_bar_default_height">48dip</dimen>
     <dimen name="abc_action_bar_icon_vertical_padding">8dip</dimen>
+    <dimen name="abc_action_bar_progress_bar_size">40dp</dimen>
     <dimen name="abc_action_bar_stacked_max_height">48dp</dimen>
     <dimen name="abc_action_bar_stacked_tab_max_width">180dp</dimen>
     <dimen name="abc_action_bar_subtitle_bottom_margin">5dip</dimen>
@@ -496,15 +556,21 @@
 
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
-    <!-- From: file:/Users/otternq/Documents/workspace/KickShot/KickShot/build/exploded-bundles/ComAndroidSupportAppcompatV71800.aar/res/values/values.xml -->
+    <!-- From: file:/Users/otternq/Documents/workspace/KickShot/KickShot/build/exploded-bundles/ComAndroidSupportAppcompatV71900.aar/res/values/values.xml -->
     <eat-comment />
 
     <item name="action_bar_activity_content" type="id"/>
     <item name="action_menu_divider" type="id"/>
     <item name="action_menu_presenter" type="id"/>
     <item name="home" type="id"/>
+    <item name="progress_circular" type="id"/>
+    <item name="progress_horizontal" type="id"/>
 
     <integer name="abc_max_action_buttons">2</integer>
+    <!-- From: file:/Users/otternq/Documents/workspace/KickShot/KickShot/build/exploded-bundles/ComGoogleAndroidGmsPlayServices4030.aar/res/values/version.xml -->
+    <eat-comment />
+
+    <integer name="google_play_services_version">4030500</integer>
     <!-- From: file:/Users/otternq/Documents/workspace/KickShot/KickShot/src/main/res/values/strings.xml -->
     <eat-comment />
 
@@ -523,7 +589,7 @@
     <string name="Rule4">4) Defense rolls dice. If doubles, defense intercepts the ball.</string>
     <string name="Rule5">5) If offense advances to the goal line, they enter shooting mode and take a shot immediately.</string>
     <string name="Rule6">6) Defense rolls dice. If doubles, defense blocks the shot and receives the ball on the line equal to the total dice roll.</string>
-    <!-- From: file:/Users/otternq/Documents/workspace/KickShot/KickShot/build/exploded-bundles/ComAndroidSupportAppcompatV71800.aar/res/values/values.xml -->
+    <!-- From: file:/Users/otternq/Documents/workspace/KickShot/KickShot/build/exploded-bundles/ComAndroidSupportAppcompatV71900.aar/res/values/values.xml -->
     <eat-comment />
 
     <string name="abc_action_bar_home_description">Navigate home</string>
@@ -543,8 +609,50 @@
     <eat-comment />
 
     <string name="action_settings">Settings</string>
+    <!-- From: file:/Users/otternq/Documents/workspace/KickShot/KickShot/src/main/res/values/hiddenstrings.xml -->
+    <eat-comment />
+
+    <string name="app_id">827638956548</string>
+    <!-- From: file:/Users/otternq/Documents/workspace/KickShot/KickShot/src/main/res/values/strings.xml -->
+    <eat-comment />
+
     <string name="app_name">KickShot</string>
+    <!-- From: file:/Users/otternq/Documents/workspace/KickShot/KickShot/build/exploded-bundles/ComGoogleAndroidGmsPlayServices4030.aar/res/values/strings.xml -->
+    <eat-comment />
+
+    <string name="auth_client_needs_enabling_title">      An application requires Google Play Services to be enabled.</string>
+    <string name="auth_client_needs_installation_title">      An application requires installation of Google Play Services.</string>
+    <string name="auth_client_needs_update_title">      An application requires an update for Google Play Services.</string>
+    <string name="auth_client_play_services_err_notification_msg">Google Play services error</string>
+    <string name="auth_client_requested_by_msg">Requested by <ns1:g id="app_name">%1$s</ns1:g></string>
+    <string name="auth_client_using_bad_version_title">      An application attempted to use a bad version of Google Play Services.</string>
+    <string name="common_google_play_services_enable_button" msgid="2523291102206661146">Enable Google Play services</string>
+    <string name="common_google_play_services_enable_text" msgid="227660514972886228">This app won\'t work unless you enable Google Play services.</string>
+    <string name="common_google_play_services_enable_title" msgid="5122002158466380389">Enable Google Play services</string>
+    <string name="common_google_play_services_install_button" msgid="7153882981874058840">Get Google Play services</string>
+    <string name="common_google_play_services_install_text_phone" msgid="2122112764540849864">This app won\'t run without Google Play services, which are missing from your phone.</string>
+    <string name="common_google_play_services_install_text_tablet" msgid="7351599665250191022">This app won\'t run without Google Play services, which are missing from your tablet.</string>
+    <string name="common_google_play_services_install_title" msgid="7215213145546190223">Get Google Play services</string>
+    <string name="common_google_play_services_invalid_account_text">The specified account does not exist on this device. Please choose a different account.</string>
+    <string name="common_google_play_services_invalid_account_title">Invalid Account</string>
+    <string name="common_google_play_services_network_error_text">A data connection is required to connect to Google Play services.</string>
+    <string name="common_google_play_services_network_error_title">Network Error</string>
+    <string name="common_google_play_services_unknown_issue">Unknown issue with Google Play services.</string>
+    <string name="common_google_play_services_unsupported_date_text">The date on the device appears to be incorrect. Please check the date on the device.</string>
+    <string name="common_google_play_services_unsupported_text">Google Play services, which some of your applications rely on, is not supported by your device. Please contact the manufacturer for assistance.</string>
+    <string name="common_google_play_services_unsupported_title">Google Play services</string>
+    <string name="common_google_play_services_update_button" msgid="6556509956452265614">Update</string>
+    <string name="common_google_play_services_update_text" msgid="9053896323427875356">This app won\'t run unless you update Google Play services.</string>
+    <string name="common_google_play_services_update_title" msgid="1788179980625863495">Update Google Play services</string>
+    <string name="common_signin_button_text">Sign in</string>
+    <string name="common_signin_button_text_long">Sign in with Google</string>
+    <!-- From: file:/Users/otternq/Documents/workspace/KickShot/KickShot/src/main/res/values/strings.xml -->
+    <eat-comment />
+
     <string name="hello_world">Hello world!</string>
+    <string name="menu_achievements">Achievements</string>
+    <string name="menu_leaderboard">Leaderboard</string>
+    <string name="menu_signout">Sign Out</string>
     <string name="title_activity_game_over_action">GameOverAction</string>
     <!-- From: file:/Users/otternq/Documents/workspace/KickShot/KickShot/src/main/res/values/styles_kickshot.xml -->
     <eat-comment />
@@ -602,7 +710,7 @@
     <style name="ProgressBar.Kickshot" parent="@android:style/Widget.Holo.Light.ProgressBar.Horizontal">
         <item name="android:progressDrawable">@drawable/progress_horizontal_kickshot</item>
     </style>
-    <!-- From: file:/Users/otternq/Documents/workspace/KickShot/KickShot/build/exploded-bundles/ComAndroidSupportAppcompatV71800.aar/res/values/values.xml -->
+    <!-- From: file:/Users/otternq/Documents/workspace/KickShot/KickShot/build/exploded-bundles/ComAndroidSupportAppcompatV71900.aar/res/values/values.xml -->
     <eat-comment />
 
     <style name="TextAppearance.AppCompat.Base.CompactMenu.Dialog" parent="android:TextAppearance.Medium">
@@ -688,13 +796,21 @@
         <item name="android:textColor">?attr/actionMenuTextColor</item>
     </style>
 
-    <style name="TextAppearance.AppCompat.Widget.Base.ActionBar.Subtitle" parent="android:TextAppearance.Small" />
+    <style name="TextAppearance.AppCompat.Widget.Base.ActionBar.Subtitle" parent="android:TextAppearance.Small">
+        <item name="android:textSize">@dimen/abc_action_bar_subtitle_text_size</item>
+    </style>
 
-    <style name="TextAppearance.AppCompat.Widget.Base.ActionBar.Subtitle.Inverse" parent="android:TextAppearance.Small.Inverse" />
+    <style name="TextAppearance.AppCompat.Widget.Base.ActionBar.Subtitle.Inverse" parent="android:TextAppearance.Small.Inverse">
+        <item name="android:textSize">@dimen/abc_action_bar_subtitle_text_size</item>
+    </style>
 
-    <style name="TextAppearance.AppCompat.Widget.Base.ActionBar.Title" parent="android:TextAppearance.Medium" />
+    <style name="TextAppearance.AppCompat.Widget.Base.ActionBar.Title" parent="android:TextAppearance.Medium">
+        <item name="android:textSize">@dimen/abc_action_bar_title_text_size</item>
+    </style>
 
-    <style name="TextAppearance.AppCompat.Widget.Base.ActionBar.Title.Inverse" parent="android:TextAppearance.Medium.Inverse" />
+    <style name="TextAppearance.AppCompat.Widget.Base.ActionBar.Title.Inverse" parent="android:TextAppearance.Medium.Inverse">
+        <item name="android:textSize">@dimen/abc_action_bar_title_text_size</item>
+    </style>
 
     <style name="TextAppearance.AppCompat.Widget.Base.ActionMode.Subtitle" parent="android:TextAppearance.Small">
         <item name="android:textColor">?android:attr/textColorSecondary</item>
@@ -736,7 +852,7 @@
         <item name="popupMenuStyle">@style/Widget.AppCompat.PopupMenu</item>
         <item name="textAppearanceLargePopupMenu">            @style/TextAppearance.AppCompat.Widget.PopupMenu.Large</item>
         <item name="textAppearanceSmallPopupMenu">            @style/TextAppearance.AppCompat.Widget.PopupMenu.Small</item>
-        <item name="listPopupWindowStyle">@style/Widget.AppCompat.PopupMenu</item>
+        <item name="listPopupWindowStyle">@style/Widget.AppCompat.ListPopupWindow</item>
         <item name="dropDownListViewStyle">@style/Widget.AppCompat.ListView.DropDown</item>
 
         <!-- SearchView attributes -->
@@ -785,7 +901,7 @@
         <item name="popupMenuStyle">@style/Widget.AppCompat.Light.PopupMenu</item>
         <item name="textAppearanceLargePopupMenu">            @style/TextAppearance.AppCompat.Light.Widget.PopupMenu.Large</item>
         <item name="textAppearanceSmallPopupMenu">            @style/TextAppearance.AppCompat.Light.Widget.PopupMenu.Small</item>
-        <item name="listPopupWindowStyle">@style/Widget.AppCompat.Light.PopupMenu</item>
+        <item name="listPopupWindowStyle">@style/Widget.AppCompat.Light.ListPopupWindow</item>
         <item name="dropDownListViewStyle">@style/Widget.AppCompat.Light.ListView.DropDown</item>
 
         <!-- SearchView attributes -->
@@ -820,7 +936,7 @@
         <item name="popupMenuStyle">@style/Widget.AppCompat.Light.PopupMenu</item>
         <item name="textAppearanceLargePopupMenu">            @style/TextAppearance.AppCompat.Light.Widget.PopupMenu.Large</item>
         <item name="textAppearanceSmallPopupMenu">            @style/TextAppearance.AppCompat.Light.Widget.PopupMenu.Small</item>
-        <item name="listPopupWindowStyle">@style/Widget.AppCompat.PopupMenu</item>
+        <item name="listPopupWindowStyle">@style/Widget.AppCompat.ListPopupWindow</item>
         <item name="dropDownListViewStyle">@style/Widget.AppCompat.ListView.DropDown</item>
 
         <!-- SearchView attributes -->
@@ -990,7 +1106,7 @@
         <item name="android:popupMenuStyle">@style/PopupMenu.Kickshot</item>
         <item name="android:dropDownListViewStyle">@style/DropDownListView.Kickshot</item>
     </style>
-    <!-- From: file:/Users/otternq/Documents/workspace/KickShot/KickShot/build/exploded-bundles/ComAndroidSupportAppcompatV71800.aar/res/values/values.xml -->
+    <!-- From: file:/Users/otternq/Documents/workspace/KickShot/KickShot/build/exploded-bundles/ComAndroidSupportAppcompatV71900.aar/res/values/values.xml -->
     <eat-comment />
 
     <style name="Widget.AppCompat.ActionBar" parent="Widget.AppCompat.Base.ActionBar" />
@@ -1058,6 +1174,7 @@
         <item name="android:gravity">center_horizontal</item>
         <item name="android:paddingLeft">16dip</item>
         <item name="android:paddingRight">16dip</item>
+        <item name="android:minWidth">80dip</item>
     </style>
 
     <style name="Widget.AppCompat.Base.ActionButton" parent="">
@@ -1106,6 +1223,14 @@
         <item name="android:gravity">center_vertical</item>
     </style>
 
+    <style name="Widget.AppCompat.Base.ListPopupWindow" parent="">
+        <item name="android:dropDownSelector">@drawable/abc_list_selector_holo_dark</item>
+        <item name="android:popupBackground">@drawable/abc_menu_dropdown_panel_holo_dark</item>
+        <item name="android:dropDownVerticalOffset">0dip</item>
+        <item name="android:dropDownHorizontalOffset">0dip</item>
+        <item name="android:dropDownWidth">wrap_content</item>
+    </style>
+
     <style name="Widget.AppCompat.Base.ListView.DropDown" parent="android:Widget.ListView">
         <item name="android:listSelector">@drawable/abc_list_selector_holo_dark</item>
     </style>
@@ -1115,15 +1240,14 @@
         <item name="android:divider">?attr/dividerHorizontal</item>
     </style>
 
-    <style name="Widget.AppCompat.Base.PopupMenu" parent="">
-        <item name="android:dropDownSelector">@drawable/abc_list_selector_holo_dark</item>
-        <item name="android:popupBackground">@drawable/abc_menu_dropdown_panel_holo_dark</item>
-        <item name="android:dropDownVerticalOffset">0dip</item>
-        <item name="android:dropDownHorizontalOffset">0dip</item>
-        <item name="android:dropDownWidth">wrap_content</item>
-    </style>
+    <style name="Widget.AppCompat.Base.PopupMenu" parent="@style/Widget.AppCompat.Base.ListPopupWindow" />
 
-    <style name="Widget.AppCompat.Base.ProgressBar" parent="android:Widget.ProgressBar" />
+    <style name="Widget.AppCompat.Base.ProgressBar" parent="android:Widget.ProgressBar">
+        <item name="android:minWidth">@dimen/abc_action_bar_progress_bar_size</item>
+        <item name="android:maxWidth">@dimen/abc_action_bar_progress_bar_size</item>
+        <item name="android:minHeight">@dimen/abc_action_bar_progress_bar_size</item>
+        <item name="android:maxHeight">@dimen/abc_action_bar_progress_bar_size</item>
+    </style>
 
     <style name="Widget.AppCompat.Base.ProgressBar.Horizontal" parent="android:Widget.ProgressBar.Horizontal" />
 
@@ -1233,17 +1357,19 @@
 
     <style name="Widget.AppCompat.Light.Base.DropDownItem.Spinner" parent="Widget.AppCompat.Base.DropDownItem.Spinner" />
 
-    <style name="Widget.AppCompat.Light.Base.ListView.DropDown" parent="android:Widget.ListView">
-        <item name="android:listSelector">@drawable/abc_list_selector_holo_light</item>
-    </style>
-
-    <style name="Widget.AppCompat.Light.Base.PopupMenu" parent="">
+    <style name="Widget.AppCompat.Light.Base.ListPopupWindow" parent="">
         <item name="android:dropDownSelector">@drawable/abc_list_selector_holo_light</item>
         <item name="android:popupBackground">@drawable/abc_menu_dropdown_panel_holo_light</item>
         <item name="android:dropDownVerticalOffset">0dip</item>
         <item name="android:dropDownHorizontalOffset">0dip</item>
         <item name="android:dropDownWidth">wrap_content</item>
     </style>
+
+    <style name="Widget.AppCompat.Light.Base.ListView.DropDown" parent="android:Widget.ListView">
+        <item name="android:listSelector">@drawable/abc_list_selector_holo_light</item>
+    </style>
+
+    <style name="Widget.AppCompat.Light.Base.PopupMenu" parent="@style/Widget.AppCompat.Light.Base.ListPopupWindow" />
 
     <style name="Widget.AppCompat.Light.Base.Spinner" parent="Widget.AppCompat.Base.Spinner">
         <item name="android:dropDownSelector">@drawable/abc_list_selector_holo_light</item>
@@ -1253,11 +1379,15 @@
 
     <style name="Widget.AppCompat.Light.DropDownItem.Spinner" parent="Widget.AppCompat.Light.Base.DropDownItem.Spinner" />
 
+    <style name="Widget.AppCompat.Light.ListPopupWindow" parent="Widget.AppCompat.Light.Base.ListPopupWindow" />
+
     <style name="Widget.AppCompat.Light.ListView.DropDown" parent="Widget.AppCompat.Light.Base.ListView.DropDown" />
 
     <style name="Widget.AppCompat.Light.PopupMenu" parent="Widget.AppCompat.Light.Base.PopupMenu" />
 
     <style name="Widget.AppCompat.Light.Spinner.DropDown.ActionBar" parent="Widget.AppCompat.Light.Base.Spinner" />
+
+    <style name="Widget.AppCompat.ListPopupWindow" parent="Widget.AppCompat.Base.ListPopupWindow" />
 
     <style name="Widget.AppCompat.ListView.DropDown" parent="Widget.AppCompat.Base.ListView.DropDown" />
 

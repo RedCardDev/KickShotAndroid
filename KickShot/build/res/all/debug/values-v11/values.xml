@@ -55,7 +55,7 @@
     <style name="ProgressBar.Kickshot" parent="@android:style/Widget.Holo.Light.ProgressBar.Horizontal">
         <item name="android:progressDrawable">@drawable/progress_horizontal_kickshot</item>
     </style>
-    <!-- From: file:/Users/otternq/Documents/workspace/KickShot/KickShot/build/exploded-bundles/ComAndroidSupportAppcompatV71800.aar/res/values-v11/values.xml -->
+    <!-- From: file:/Users/otternq/Documents/workspace/KickShot/KickShot/build/exploded-bundles/ComAndroidSupportAppcompatV71900.aar/res/values-v11/values.xml -->
     <eat-comment />
 
     <style name="Theme.Base" parent="android:Theme.Holo">
@@ -96,7 +96,7 @@
         <item name="android:popupMenuStyle">@style/PopupMenu.Kickshot</item>
         <item name="android:dropDownListViewStyle">@style/DropDownListView.Kickshot</item>
     </style>
-    <!-- From: file:/Users/otternq/Documents/workspace/KickShot/KickShot/build/exploded-bundles/ComAndroidSupportAppcompatV71800.aar/res/values-v11/values.xml -->
+    <!-- From: file:/Users/otternq/Documents/workspace/KickShot/KickShot/build/exploded-bundles/ComAndroidSupportAppcompatV71900.aar/res/values-v11/values.xml -->
     <eat-comment />
 
     <style name="Widget.AppCompat.Base.AutoCompleteTextView" parent="android:Widget.Holo.AutoCompleteTextView" />
