@@ -20,6 +20,8 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Toast;
 
+import android.net.Uri;
+
 public class LevelOne extends Activity implements OnClickListener {
 	
 	String LOGTAG = LevelOne.class.getName();
@@ -80,6 +82,15 @@ public class LevelOne extends Activity implements OnClickListener {
 	        	startActivity(intent);
 	        	
 	            return true;
+
+            case R.id.action_promote:
+
+                String url = "https://plus.google.com/communities/101373825390886664597/members";
+
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                startActivity(browserIntent);
+
+                return true;
 	            
 	        default:
 	            return super.onOptionsItemSelected(item);
@@ -91,11 +102,19 @@ public class LevelOne extends Activity implements OnClickListener {
 		if (view.getId() == R.id.board) {
 			Log.v(LOGTAG, "Clicked on the board");
 
-            if(board.GameOver() == 1){
+            if(board.GameOver() != 1){
                 this.currentState = LevelOne.LOST_STATE;
             }
             else if(board.GameOver() == 2){
                 this.currentState = LevelOne.WON_STATE;
+            }
+
+            if (this.currentState == LevelOne.WON_STATE || this.currentState == LevelOne.LOST_STATE) {
+                Intent gameOverIntent = new Intent(this, GameOverAction.class);
+                gameOverIntent.putExtra("state", board.GameOver() - 1);
+                startActivity(gameOverIntent);
+
+                finish();
             }
 
 			
@@ -105,7 +124,7 @@ public class LevelOne extends Activity implements OnClickListener {
         	this.playerTurn();
             if(this.currentState != LevelOne.WON_STATE && this.currentState != LevelOne.LOST_STATE){
 
-                board.dicePositionAway(1);
+                /*board.dicePositionAway(1);
                 board.dicePositionAway(2);
 
                 computerTurn();
@@ -113,9 +132,9 @@ public class LevelOne extends Activity implements OnClickListener {
                 board.dicePositionHome(1);
                 board.dicePositionHome(2);
 
-                board.setEnabled(true);
+                board.setEnabled(true);*/
 
-                /*Timer buttonTimer = new Timer();
+                Timer buttonTimer = new Timer();
                 buttonTimer.schedule(new TimerTask() {
 
                     @Override
@@ -154,7 +173,6 @@ public class LevelOne extends Activity implements OnClickListener {
                                                             public void run() {
 
 
-
                                                                 board.dicePositionHome(1);
                                                                 board.dicePositionHome(2);
 
@@ -174,7 +192,7 @@ public class LevelOne extends Activity implements OnClickListener {
                             }
                         });
                     }
-                }, 1000);*/
+                }, 1000);
             }
 		}
 		

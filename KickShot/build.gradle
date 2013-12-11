@@ -41,7 +41,6 @@ sourceSets {
 dependencies {
     compile 'org.roboguice:roboguice:2.0'
     compile 'com.android.support:appcompat-v7:18.0.0'
-
     testLocalCompile 'junit:junit:4.8.2'
 
     testLocalCompile 'org.robolectric:robolectric:2.1'

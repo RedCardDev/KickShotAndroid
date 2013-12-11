@@ -4778,9 +4778,9 @@ false
                 </string>
                 <string name="Rule3" >3) If a double is rolled, the offense turns the ball over.
                 </string>
-                <string name="LevelOneComputerShot" >They took a shot
-                </string>
                 <string name="Rule2" >2) Offense rolls dice to advance the ball. Ball advances equal to the highest die value.
+                </string>
+                <string name="LevelOneComputerShot" >They took a shot
                 </string>
                 <string name="Rule5" >5) If offense advances to the goal line, they enter shooting mode and take a shot immediately.
                 </string>
@@ -4789,6 +4789,12 @@ false
                 <string name="Rule4" >4) Defense rolls dice. If doubles, defense intercepts the ball.
                 </string>
                 <string name="Rule1" >1) Ball Starts at the midfield circle after every score or the start of each half.
+                </string>
+                <string name="Feedback" >Give Feedback
+                </string>
+                <string name="hello_world" >Hello world!
+                </string>
+                <string name="title_activity_game_over_action" >GameOverAction
                 </string>
             </file>
             <file
@@ -5110,6 +5116,22 @@ useLogo|showHome
 
                     <!-- API 14 theme customizations can go here. -->
                 </style>
+            </file>
+            <file
+                name="activity_game_over_action"
+                path="/Users/otternq/Documents/workspace/KickShot/KickShot/src/main/res/layout/activity_game_over_action.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="game_over_action"
+                path="/Users/otternq/Documents/workspace/KickShot/KickShot/src/main/res/menu/game_over_action.xml"
+                qualifiers=""
+                type="menu" />
+            <file
+                path="/Users/otternq/Documents/workspace/KickShot/KickShot/src/main/res/values-w820dp/dimens.xml"
+                qualifiers="w820dp" >
+                <dimen name="activity_horizontal_margin" >64dp
+                </dimen>
             </file>
         </source>
         <source path="/Users/otternq/Documents/workspace/KickShot/KickShot/build/res/rs/debug" />

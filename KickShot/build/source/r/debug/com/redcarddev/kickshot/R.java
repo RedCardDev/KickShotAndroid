@@ -909,8 +909,8 @@ containing a value of this type.
         public static final int tab_unselected_pressed_kickshot=0x7f02008d;
     }
     public static final class id {
-        public static final int actionImage=0x7f070046;
-        public static final int actionText=0x7f070047;
+        public static final int actionImage=0x7f070047;
+        public static final int actionText=0x7f070042;
         public static final int action_bar=0x7f07001a;
         public static final int action_bar_activity_content=0x7f070014;
         public static final int action_bar_container=0x7f070019;
@@ -924,12 +924,13 @@ containing a value of this type.
         public static final int action_mode_bar=0x7f07002f;
         public static final int action_mode_bar_stub=0x7f07002e;
         public static final int action_mode_close_button=0x7f070022;
-        public static final int action_rules=0x7f070049;
-        public static final int action_settings=0x7f07004b;
+        public static final int action_promote=0x7f07004c;
+        public static final int action_rules=0x7f07004b;
+        public static final int action_settings=0x7f070049;
         public static final int activity_chooser_view_content=0x7f070023;
         public static final int always=0x7f07000f;
         public static final int beginning=0x7f07000a;
-        public static final int board=0x7f070045;
+        public static final int board=0x7f070046;
         public static final int checkbox=0x7f07002b;
         public static final int collapseActionView=0x7f070011;
         public static final int default_activity_button=0x7f070026;
@@ -945,8 +946,8 @@ containing a value of this type.
         public static final int icon=0x7f070028;
         public static final int ifRoom=0x7f07000e;
         public static final int image=0x7f070025;
-        public static final int imageView1=0x7f070042;
-        public static final int junior=0x7f070043;
+        public static final int imageView1=0x7f070043;
+        public static final int junior=0x7f070044;
         public static final int left_icon=0x7f070031;
         public static final int listMode=0x7f070001;
         public static final int list_item=0x7f070027;
@@ -957,7 +958,7 @@ containing a value of this type.
         public static final int play_again=0x7f07004a;
         public static final int progress_circular=0x7f070034;
         public static final int progress_horizontal=0x7f070035;
-        public static final int r1=0x7f070044;
+        public static final int r1=0x7f070045;
         public static final int radio=0x7f07002d;
         public static final int right_container=0x7f070032;
         public static final int right_icon=0x7f070033;
@@ -1014,46 +1015,51 @@ containing a value of this type.
         public static final int abc_screen=0x7f030015;
         public static final int abc_search_dropdown_item_icons_2line=0x7f030016;
         public static final int abc_search_view=0x7f030017;
-        public static final int activity_main=0x7f030018;
-        public static final int level_one=0x7f030019;
-        public static final int level_one_actions=0x7f03001a;
-        public static final int level_one_rules=0x7f03001b;
-        public static final int support_simple_spinner_dropdown_item=0x7f03001c;
+        public static final int activity_game_over_action=0x7f030018;
+        public static final int activity_main=0x7f030019;
+        public static final int level_one=0x7f03001a;
+        public static final int level_one_actions=0x7f03001b;
+        public static final int level_one_rules=0x7f03001c;
+        public static final int support_simple_spinner_dropdown_item=0x7f03001d;
     }
     public static final class menu {
-        public static final int levelone=0x7f0c0000;
-        public static final int main=0x7f0c0001;
+        public static final int game_over_action=0x7f0c0000;
+        public static final int levelone=0x7f0c0001;
+        public static final int main=0x7f0c0002;
     }
     public static final class string {
-        public static final int LevelOneComputerBlock=0x7f0a0000;
-        public static final int LevelOneComputerGoal=0x7f0a0001;
-        public static final int LevelOneComputerShot=0x7f0a0002;
-        public static final int LevelOnePlayerBlock=0x7f0a0003;
-        public static final int LevelOnePlayerGoal=0x7f0a0004;
-        public static final int LevelOnePlayerShot=0x7f0a0005;
-        public static final int LevelOneRules=0x7f0a0006;
-        public static final int PlayAgain=0x7f0a0007;
-        public static final int Rule1=0x7f0a0008;
-        public static final int Rule2=0x7f0a0009;
-        public static final int Rule3=0x7f0a000a;
-        public static final int Rule4=0x7f0a000b;
-        public static final int Rule5=0x7f0a000c;
-        public static final int Rule6=0x7f0a000d;
-        public static final int abc_action_bar_home_description=0x7f0a000e;
-        public static final int abc_action_bar_up_description=0x7f0a000f;
-        public static final int abc_action_menu_overflow_description=0x7f0a0010;
-        public static final int abc_action_mode_done=0x7f0a0011;
-        public static final int abc_activity_chooser_view_see_all=0x7f0a0012;
-        public static final int abc_activitychooserview_choose_application=0x7f0a0013;
-        public static final int abc_searchview_description_clear=0x7f0a0014;
-        public static final int abc_searchview_description_query=0x7f0a0015;
-        public static final int abc_searchview_description_search=0x7f0a0016;
-        public static final int abc_searchview_description_submit=0x7f0a0017;
-        public static final int abc_searchview_description_voice=0x7f0a0018;
-        public static final int abc_shareactionprovider_share_with=0x7f0a0019;
-        public static final int abc_shareactionprovider_share_with_application=0x7f0a001a;
-        public static final int action_settings=0x7f0a001b;
-        public static final int app_name=0x7f0a001c;
+        public static final int Feedback=0x7f0a0000;
+        public static final int LevelOneComputerBlock=0x7f0a0001;
+        public static final int LevelOneComputerGoal=0x7f0a0002;
+        public static final int LevelOneComputerShot=0x7f0a0003;
+        public static final int LevelOnePlayerBlock=0x7f0a0004;
+        public static final int LevelOnePlayerGoal=0x7f0a0005;
+        public static final int LevelOnePlayerShot=0x7f0a0006;
+        public static final int LevelOneRules=0x7f0a0007;
+        public static final int PlayAgain=0x7f0a0008;
+        public static final int Rule1=0x7f0a0009;
+        public static final int Rule2=0x7f0a000a;
+        public static final int Rule3=0x7f0a000b;
+        public static final int Rule4=0x7f0a000c;
+        public static final int Rule5=0x7f0a000d;
+        public static final int Rule6=0x7f0a000e;
+        public static final int abc_action_bar_home_description=0x7f0a000f;
+        public static final int abc_action_bar_up_description=0x7f0a0010;
+        public static final int abc_action_menu_overflow_description=0x7f0a0011;
+        public static final int abc_action_mode_done=0x7f0a0012;
+        public static final int abc_activity_chooser_view_see_all=0x7f0a0013;
+        public static final int abc_activitychooserview_choose_application=0x7f0a0014;
+        public static final int abc_searchview_description_clear=0x7f0a0015;
+        public static final int abc_searchview_description_query=0x7f0a0016;
+        public static final int abc_searchview_description_search=0x7f0a0017;
+        public static final int abc_searchview_description_submit=0x7f0a0018;
+        public static final int abc_searchview_description_voice=0x7f0a0019;
+        public static final int abc_shareactionprovider_share_with=0x7f0a001a;
+        public static final int abc_shareactionprovider_share_with_application=0x7f0a001b;
+        public static final int action_settings=0x7f0a001c;
+        public static final int app_name=0x7f0a001d;
+        public static final int hello_world=0x7f0a001e;
+        public static final int title_activity_game_over_action=0x7f0a001f;
     }
     public static final class style {
         public static final int ActionBar_Solid_Kickshot=0x7f0b0000;
