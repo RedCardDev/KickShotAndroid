@@ -55,65 +55,65 @@ public class Board extends View {
     /**
      * The Score to win the game
      */
-    protected int maxScore = 10;
-	
+    protected int maxScore = 1;
+
 	/**
 	 * The y position of the two dice
 	 */
 	protected int[] diceYPos = {0,0}; //represents the current position
-	
+
 	/**
 	 * The home y position of the two dice
 	 */
 	protected int[] diceHomeYPosition = {0,0}; //set in init
-	
+
 	/**
 	 * The away y position of the two dice
 	 */
 	protected int[] diceAwayYPosition = {50, 250};
-	
+
 	protected Bitmap goalAwayImage = null;
-	
+
 	protected Bitmap goalHomeImage = null;
-	
+
 	protected int[] goalYPos = {0,0};
 	protected int[] goalXPos = {0,0};
-	
+
 	protected int goalsAway = 0;
 	protected int goalsHome = 0;
-	
+
 	protected Paint paint;
-	
+
 	/**
 	 * Class variable for HOME
 	 */
 	public final static int HOME = 1;
-	
+
 	/**
 	 * Class variable for AWAY
 	 */
 	public final static int AWAY = 2;
-	
+
 	int initSet = 0;
 
 	public Board(Context context, AttributeSet attrs) {
 	    super(context, attrs);
-	    
+
 	    dice = new Dice[2];
 	    this.dice[0] = new Dice(context);
 	    this.dice[1] = new Dice(context);
-	    
+
 	    Resources res = getContext().getResources();
-	    
+
 	    this.goalAwayImage = BitmapFactory.decodeResource(res, R.drawable.ballchipaway);
 	    this.goalHomeImage = BitmapFactory.decodeResource(res, R.drawable.ballchiphome);
-	    
+
 	}
-	
+
 	public boolean onTouchEvent(MotionEvent event) {
 		return super.onTouchEvent(event);
 	}
-	
+
 	/**
 	 * sets the location of the chip
 	 * @param loc the integer the chipLine is set to
@@ -122,16 +122,16 @@ public class Board extends View {
 		this.chipLine = loc;
 		this.ballMove();
 	}
-	
+
 	/**
 	 * Changes the Bitmap displayed for the ball chip
 	 * @param playerTurn Either Board.HOME or Board.AWAY
 	 * @return True if a possible player
 	 */
 	public Boolean ballPosession(int playerTurn) {
-		
+
 		int chipDrawable;
-		
+
 		if (playerTurn == Board.HOME) {//home chip
 			chipDrawable = R.drawable.ballchiphome;
 		} else if (playerTurn == Board.AWAY) {//away chip
@@ -139,14 +139,14 @@ public class Board extends View {
 		} else {
 			return false;
 		}
-		
+
 		Resources res = getContext().getResources();
 		this.chip = BitmapFactory.decodeResource(res, chipDrawable);
-		
+
 		invalidate();
 		return true;
 	}
-	
+
 	/**
 	 * Changes the face of a specific dice
 	 * @param dice The dice that should be changes (1 or 2)
@@ -154,48 +154,48 @@ public class Board extends View {
 	 * @return True if a possible dice index
 	 */
 	public Boolean diceChangeFace(int dice, int diceFace) {
-		
+
 		if (dice < 1 || dice > 2) {
 			return false;
 		}
-		
+
 		this.dice[dice - 1].setDiceFace(diceFace);
 		invalidate();
-		
+
 		return true;
 	}
-	
+
 	/**
 	 * Moves the specified dice to the home position
 	 * @param dice The die to move
 	 * @return True if a possible dice index
 	 */
 	public Boolean dicePositionHome(int dice) {
-		
+
 		if (dice < 1 || dice > 2) {
 			return false;
 		}
-		
+
 		this.diceYPos[dice - 1] = this.diceHomeYPosition[dice - 1];
 		invalidate();
-		
+
 		return true;
 	}
-	
+
 	/**
 	 * Moves the specified dice to the away position
 	 * @param dice The die to move
 	 * @return True if a possible dice index
 	 */
 	public Boolean dicePositionAway(int dice) {
-		
+
 		if (dice < 1 || dice > 2) {
 			return false;
 		}
-		
+
 		this.diceYPos[dice - 1] = this.diceAwayYPosition[dice - 1];
 		invalidate();
-		
+
 		return true;
 	}
 	

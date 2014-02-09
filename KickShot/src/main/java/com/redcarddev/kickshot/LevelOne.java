@@ -71,7 +71,7 @@ public class LevelOne extends Activity implements OnClickListener {
 	    // Handle item selection
 	    switch (item.getItemId()) {
             case R.id.play_again:
-                Intent start_again = new Intent(LevelOne.this, LevelOne.class);
+                Intent start_again = getIntent();
                 finish();
                 startActivity(start_again);
 
@@ -101,6 +101,7 @@ public class LevelOne extends Activity implements OnClickListener {
 	public void onClick(View view) {
 		if (view.getId() == R.id.board) {
 			Log.v(LOGTAG, "Clicked on the board");
+            /*<<<<<<< HEAD
 
             if(board.GameOver() != 1){
                 this.currentState = LevelOne.LOST_STATE;
@@ -110,29 +111,42 @@ public class LevelOne extends Activity implements OnClickListener {
             }
 
             if (this.currentState == LevelOne.WON_STATE || this.currentState == LevelOne.LOST_STATE) {
-                Intent gameOverIntent = new Intent(this, GameOverAction.class);
+                //Intent gameOverIntent = new Intent(this, GameOverAction.class);
                 gameOverIntent.putExtra("state", board.GameOver() - 1);
                 startActivity(gameOverIntent);
 
                 finish();
-            }
+            }*/
 
-			
-			
+
 			this.board.setEnabled(false);
-        	
-        	this.playerTurn();
-            if(this.currentState != LevelOne.WON_STATE && this.currentState != LevelOne.LOST_STATE){
-
+            if(board.GameOver() == 1 || board.GameOver() == 2){
+                if(board.GameOver() == 1){
+                    this.currentState = LevelOne.LOST_STATE;
+                    Intent start_again = new Intent(LevelOne.this, LevelOne.class);
+                    finish();
+                    startActivity(start_again);
+                    //this.showGameOver(0);
+                }
+                else if(board.GameOver() == 2){
+                    this.currentState = LevelOne.WON_STATE;
+                    //this.showGameOver(1);
+                    Intent start_again = new Intent(LevelOne.this, LevelOne.class);
+                    finish();
+                    startActivity(start_again);
+                }
+            }
+            if(board.GameOver() != 1 && board.GameOver() != 2){
+                this.playerTurn();
                 /*board.dicePositionAway(1);
                 board.dicePositionAway(2);
 
                 computerTurn();
 
                 board.dicePositionHome(1);
-                board.dicePositionHome(2);
+                board.dicePositionHome(2);*/
 
-                board.setEnabled(true);*/
+                board.setEnabled(true);
 
                 Timer buttonTimer = new Timer();
                 buttonTimer.schedule(new TimerTask() {
@@ -214,7 +228,19 @@ public class LevelOne extends Activity implements OnClickListener {
         startActivity(myIntent);
         Log.v(LOGTAG, "showAction x");
     }
-	
+
+    public void showGameOver(int state) {
+        Log.v(LOGTAG, "showGameOver e, state=" + state);
+        Intent myIntent = new Intent(this, Winning.class);
+        myIntent.putExtra("state", state);
+        startActivity(myIntent);
+        Log.v(LOGTAG, "showAction x");
+
+        Intent start_again = new Intent(LevelOne.this, LevelOne.class);
+        finish();
+        startActivity(start_again);
+    }
+
 
 	/**
 	 * Find an integer between 1 and 6
