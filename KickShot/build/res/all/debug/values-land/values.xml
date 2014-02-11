@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- From: file:/Users/otternq/Documents/workspace/KickShot/KickShot/build/exploded-bundles/ComAndroidSupportAppcompatV71800.aar/res/values-land/values.xml -->
+    <!-- From: file:/C:/Users/Cyborg/Documents/GitHub/KickShotAndroid/KickShot/build/exploded-bundles/ComAndroidSupportAppcompatV71900.aar/res/values-land/values.xml -->
     <eat-comment />
 
     <bool name="abc_action_bar_embed_tabs_pre_jb">true</bool>
@@ -10,6 +10,7 @@
 
     <dimen name="abc_action_bar_default_height">40dip</dimen>
     <dimen name="abc_action_bar_icon_vertical_padding">4dip</dimen>
+    <dimen name="abc_action_bar_progress_bar_size">32dp</dimen>
     <dimen name="abc_action_bar_subtitle_bottom_margin">4dip</dimen>
     <dimen name="abc_action_bar_subtitle_text_size">12dp</dimen>
     <dimen name="abc_action_bar_subtitle_top_margin">-2dp</dimen>

@@ -22,4 +22,4 @@
     <item android:state_pressed="false" android:state_focused="true" android:drawable="@drawable/list_focused_kickshot" />
     <item android:state_pressed="true" android:drawable="@drawable/pressed_background_kickshot" />
     <item android:drawable="@android:color/transparent" />
-</selector><!-- From: file:/Users/otternq/Documents/workspace/KickShot/KickShot/src/main/res/drawable/selectable_background_kickshot.xml -->
+</selector><!-- From: file:/C:/Users/Cyborg/Documents/GitHub/KickShotAndroid/KickShot/src/main/res/drawable/selectable_background_kickshot.xml -->

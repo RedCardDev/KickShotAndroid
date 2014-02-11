@@ -20,4 +20,4 @@
 <shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">
     <solid android:color="@color/pressed_kickshot" />
 </shape>
-<!-- From: file:/Users/otternq/Documents/workspace/KickShot/KickShot/src/main/res/drawable/pressed_background_kickshot.xml -->
+<!-- From: file:/C:/Users/Cyborg/Documents/GitHub/KickShotAndroid/KickShot/src/main/res/drawable/pressed_background_kickshot.xml -->

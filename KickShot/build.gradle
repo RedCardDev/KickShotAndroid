@@ -3,7 +3,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:0.6.+'
+        classpath 'com.android.tools.build:gradle:0.8.+'
     }
 }
 
@@ -21,12 +21,12 @@ repositories {
 }
 
 android {
-    compileSdkVersion 18
-    buildToolsVersion "18.0.1"
+    compileSdkVersion 19
+    buildToolsVersion "19.0.1"
 
     defaultConfig {
         minSdkVersion 8
-        targetSdkVersion 18
+        targetSdkVersion 19
     }
 }
 
@@ -40,7 +40,7 @@ sourceSets {
 
 dependencies {
     compile 'org.roboguice:roboguice:2.0'
-    compile 'com.android.support:appcompat-v7:18.0.0'
+    compile 'com.android.support:appcompat-v7:19.0.0'
     testLocalCompile 'junit:junit:4.8.2'
 
     testLocalCompile 'org.robolectric:robolectric:2.1'
@@ -51,14 +51,14 @@ dependencies {
 
 task localTest(type: Test, dependsOn: assemble) {
     testClassesDir = sourceSets.testLocal.output.classesDir
-
+/*
     android.sourceSets.main.java.srcDirs.each { dir ->
         def buildDir = dir.getAbsolutePath().split('/')
         buildDir =  (buildDir[0..(buildDir.length - 4)] + ['build', 'classes', 'debug']).join('/')
 
         sourceSets.testLocal.compileClasspath += files(buildDir)
         sourceSets.testLocal.runtimeClasspath += files(buildDir)
-    }
+    }*/
 
     classpath = sourceSets.testLocal.runtimeClasspath
 }
