@@ -31,7 +31,17 @@ public class Board extends View {
 	 * The area that will display the dice and the ball chip
 	 */
 	private Canvas canvas = null;
-	
+
+    /**
+     * The height of the board at initialization
+     */
+	private int boardHeight = 0;
+
+    /**
+     * The amount the chip moves in pixels
+     */
+    private int pMoveAmount = 0;
+
 	/**
 	 * The current x position of the ball
 	 */
@@ -234,8 +244,9 @@ public class Board extends View {
 		}
 		
 		Log.v(LOGTAG, "Chip Line: " + this.chipLine);
-		
-		this.chipYPos = this.chipInitYPos - (this.chipLine * 40);
+
+        // 40 shouldn't be hard coded in
+		this.chipYPos = this.chipInitYPos - (this.chipLine * this.pMoveAmount);
 		Log.v(LOGTAG, "Setting chipYPos: " + this.chipYPos);
 		
 		invalidate();
@@ -269,6 +280,12 @@ public class Board extends View {
 		this.chipXPos = (this.canvas.getWidth() - this.chip.getWidth()) / 2;
 						
 		this.chipInitYPos = this.chipYPos = (this.canvas.getHeight() - this.chip.getHeight())/2;
+        this.boardHeight = this.canvas.getHeight();
+        this.pMoveAmount = this.boardHeight/22;
+
+        Log.v(LOGTAG, "Board Height: " + this.boardHeight);
+        Log.v(LOGTAG, "Move Amount: " + this.pMoveAmount);
+
 		this.chipLine = 0;
 		
 		this.paint = new Paint(); 
