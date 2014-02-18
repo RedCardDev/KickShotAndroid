@@ -6,10 +6,8 @@ import java.util.TimerTask;
 
 import com.redcarddev.kickshot.utils.LevelOneState;
 import com.redcarddev.kickshot.views.Board;
-import com.redcarddev.kickshot.views.Dice;
 
 import android.os.Bundle;
-import android.os.SystemClock;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -101,6 +99,7 @@ public class LevelOne extends Activity implements OnClickListener {
 	public void onClick(View view) {
 		if (view.getId() == R.id.board) {
 			Log.v(LOGTAG, "Clicked on the board");
+            this.board.setEnabled(false);
             /*<<<<<<< HEAD
 
             if(board.GameOver() != 1){
@@ -118,8 +117,6 @@ public class LevelOne extends Activity implements OnClickListener {
                 finish();
             }*/
 
-
-			this.board.setEnabled(false);
             if(board.GameOver() == 1 || board.GameOver() == 2){
                 if(board.GameOver() == 1){
                     this.currentState = LevelOne.LOST_STATE;
@@ -146,7 +143,6 @@ public class LevelOne extends Activity implements OnClickListener {
                 board.dicePositionHome(1);
                 board.dicePositionHome(2);*/
 
-                board.setEnabled(true);
 
                 Timer buttonTimer = new Timer();
                 buttonTimer.schedule(new TimerTask() {

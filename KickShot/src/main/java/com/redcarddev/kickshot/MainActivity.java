@@ -11,15 +11,11 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 
-import com.redcarddev.kickshot.utils.LevelOneState;
-
-import java.util.Random;
-
 public class MainActivity extends Activity implements OnClickListener {
 	
 	protected String LOGTAG = "MainActivity";
 	
-	Button juniorButton = null;
+	Button playButton = null;
     Button r1 = null;
     Button facebook = null;
     Button twitter = null;
@@ -33,8 +29,8 @@ public class MainActivity extends Activity implements OnClickListener {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		
-		this.juniorButton = (Button)findViewById(R.id.junior);
-		this.juniorButton.setOnClickListener(this);
+		this.playButton = (Button)findViewById(R.id.play);
+		this.playButton.setOnClickListener(this);
 
         this.facebook = (Button)findViewById(R.id.fb);
         this.facebook.setOnClickListener(this);
@@ -72,17 +68,9 @@ public class MainActivity extends Activity implements OnClickListener {
 		
 		Log.v(LOGTAG, "onClick e");
 		
-		if (view.getId() == R.id.junior) {
+		if (view.getId() == R.id.play) {
 			
-			Intent intent = new Intent(MainActivity.this, LevelOne.class);
-
-            Random random = new Random();
-            LevelOneState state = new LevelOneState();
-            intent.putExtra(LevelOne.PARAM_RANDOM, random);
-            intent.putExtra(LevelOne.PARAM_STATE, state);
-
-
-
+			Intent intent = new Intent(MainActivity.this, PlayGame.class);
 			startActivity(intent);
 			
 			
@@ -95,9 +83,11 @@ public class MainActivity extends Activity implements OnClickListener {
         }else if(view.getId() == R.id.website){
             openWebUrl("http://kickshot.org/");
         }else if(view.getId() == R.id.videos){
-
+            Intent intent = new Intent(MainActivity.this, CoolVideos.class);
+            startActivity(intent);
         }else if(view.getId() == R.id.form){
-
+            Intent intent = new Intent(MainActivity.this, CorrectForm.class);
+            startActivity(intent);
         }/*else if (view.getId() == R.id.r1) {
 
             Intent intent = new Intent(MainActivity.this, LevelOneRules.class);
