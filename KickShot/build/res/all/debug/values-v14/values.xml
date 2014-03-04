@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- From: file:/Users/otternq/Documents/workspace/KickShot/KickShot/src/main/res/values-v14/styles.xml -->
+    <!-- From: file:/C:/Users/Cyborg/Documents/GitHub/KickShotAndroid/KickShot/src/main/res/values-v14/styles.xml -->
     <eat-comment />
 
     <style name="AppBaseTheme" parent="android:Theme.Holo.Light.DarkActionBar">
         <!-- API 14 theme customizations can go here. -->
     </style>
-    <!-- From: file:/Users/otternq/Documents/workspace/KickShot/KickShot/build/exploded-bundles/ComAndroidSupportAppcompatV71800.aar/res/values-v14/values.xml -->
+    <!-- From: file:/C:/Users/Cyborg/Documents/GitHub/KickShotAndroid/KickShot/build/exploded-bundles/ComAndroidSupportAppcompatV71900.aar/res/values-v14/values.xml -->
     <eat-comment />
 
     <style name="TextAppearance.AppCompat.Base.SearchResult.Subtitle" parent="@android:TextAppearance.Holo.SearchResult.Subtitle" />
@@ -145,6 +145,8 @@
 
     <style name="Widget.AppCompat.Base.DropDownItem.Spinner" parent="android:Widget.Holo.DropDownItem.Spinner" />
 
+    <style name="Widget.AppCompat.Base.ListPopupWindow" parent="android:Widget.Holo.ListPopupWindow" />
+
     <style name="Widget.AppCompat.Base.ListView.DropDown" parent="android:Widget.Holo.ListView.DropDown" />
 
     <style name="Widget.AppCompat.Base.ListView.Menu" parent="android:Widget.ListView.Menu" />
@@ -180,6 +182,8 @@
     <style name="Widget.AppCompat.Light.Base.ActionMode.Inverse" parent="android:Widget.Holo.Light.ActionMode.Inverse" />
 
     <style name="Widget.AppCompat.Light.Base.DropDownItem.Spinner" parent="android:Widget.Holo.Light.DropDownItem.Spinner" />
+
+    <style name="Widget.AppCompat.Light.Base.ListPopupWindow" parent="android:Widget.Holo.Light.ListPopupWindow" />
 
     <style name="Widget.AppCompat.Light.Base.ListView.DropDown" parent="android:Widget.Holo.ListView.DropDown" />
 

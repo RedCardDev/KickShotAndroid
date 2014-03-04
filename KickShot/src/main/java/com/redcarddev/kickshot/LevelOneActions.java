@@ -8,6 +8,8 @@ import android.view.MotionEvent;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.redcarddev.kickshot.utils.SoundManager;
+
 /**
  * Created by otternq on 10/27/13.
  */
@@ -50,6 +52,14 @@ public class LevelOneActions extends Activity {
 
         this.setActionView();
 
+        SoundManager.Instance().SetOwner(this);
+        try {
+            SoundManager.Instance().LoadSound("cheer", R.raw.crowd_cheers_2);
+            SoundManager.Instance().LoadSound("boo", R.raw.boo);
+        } catch (Exception e) {
+            // WHAT TO DO IF SOUNDS FAIL TO LOAD?
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -65,6 +75,7 @@ public class LevelOneActions extends Activity {
         switch (this.state) {
             case LevelOneActions.COMPUTER_SCORED:
                 action = "They scored!";
+                SoundManager.Instance().PlaySound("boo");
                 break;
             case LevelOneActions.COMPUTER_BLOCKED:
                 action = "They blocked your shot!";
@@ -94,6 +105,7 @@ public class LevelOneActions extends Activity {
                 break;
             case LevelOneActions.PLAYER_SCORED:
                 action = "You scored!";
+                SoundManager.Instance().PlaySound("cheer");
                 break;
             case LevelOneActions.PLAYER_BLOCKED:
                 action = "You blocked their shot!";

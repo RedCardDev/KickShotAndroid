@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <merger>
 
-    <dataSet config="ComAndroidSupportAppcompatV71800.aar" >
-        <source path="/Users/otternq/Documents/workspace/KickShot/KickShot/build/exploded-bundles/ComAndroidSupportAppcompatV71800.aar/assets" />
+    <dataSet config="ComAndroidSupportAppcompatV71900.aar" >
+        <source path="C:\Users\Cyborg\Documents\GitHub\KickShotAndroid\KickShot\build\exploded-bundles\ComAndroidSupportAppcompatV71900.aar\assets" />
     </dataSet>
     <dataSet config="main" >
-        <source path="/Users/otternq/Documents/workspace/KickShot/KickShot/src/main/assets" />
+        <source path="C:\Users\Cyborg\Documents\GitHub\KickShotAndroid\KickShot\src\main\assets" />
     </dataSet>
     <dataSet config="debug" >
-        <source path="/Users/otternq/Documents/workspace/KickShot/KickShot/src/debug/assets" />
+        <source path="C:\Users\Cyborg\Documents\GitHub\KickShotAndroid\KickShot\src\debug\assets" />
     </dataSet>
 
 </merger>

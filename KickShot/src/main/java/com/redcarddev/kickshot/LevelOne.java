@@ -24,7 +24,7 @@ public class LevelOne extends Activity implements OnClickListener {
 	
 	String LOGTAG = LevelOne.class.getName();
 	
-	static Random r;
+	Random r;
     private LevelOneState state;
 
 	int currentState = 1;

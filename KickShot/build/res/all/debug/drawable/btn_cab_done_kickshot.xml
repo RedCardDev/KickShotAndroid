@@ -25,4 +25,4 @@
     <item android:state_enabled="true"
         android:drawable="@drawable/btn_cab_done_default_kickshot" />
 </selector>
-<!-- From: file:/Users/otternq/Documents/workspace/KickShot/KickShot/src/main/res/drawable/btn_cab_done_kickshot.xml -->
+<!-- From: file:/C:/Users/Cyborg/Documents/GitHub/KickShotAndroid/KickShot/src/main/res/drawable/btn_cab_done_kickshot.xml -->
