@@ -1,10 +1,13 @@
 package com.redcarddev.kickshot;
 
+import java.io.InputStream;
 import java.util.Random;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MotionEvent;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -14,8 +17,6 @@ import android.widget.TextView;
 public class LevelOneActions extends Activity {
 
     String LOGTAG = this.getClass().getName();
-
-    static Random r = new Random();
 
     final static int COMPUTER_SCORED = 1;
     final static int COMPUTER_BLOCKED = 3;
@@ -30,16 +31,25 @@ public class LevelOneActions extends Activity {
     final static int PLAYER_TURNOVER = 8;
 
     protected int state = -1;
-    protected int whichSide;
-
-    protected TextView actionText;
-    protected ImageView actionImage;
+    protected String gifPath;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.level_one_actions);
+        Intent mIntent = getIntent();
+        this.state = mIntent.getIntExtra("state", -1);
+        gifPath = this.setActionView();
+
+        GifWebView view = new GifWebView(this, gifPath);
+        setContentView(view);
+        //setContentView(R.layout.level_one_actions);
+
+
+
+        /*GifWebView view = new GifWebView(this, "file://android_asset/shot_away.gif");
+
+        setContentView(view);
 
         Intent mIntent = getIntent();
         this.state = mIntent.getIntExtra("state", -1);
@@ -49,6 +59,7 @@ public class LevelOneActions extends Activity {
         this.actionImage = (ImageView)findViewById(R.id.actionImage);
 
         this.setActionView();
+        */
 
     }
 
@@ -58,93 +69,46 @@ public class LevelOneActions extends Activity {
         return true;
     }
 
-    protected boolean setActionView() {
-
-        String action = "";
+    protected String setActionView() {
+        String url = "";
         // every time this is called randomize if it's a shot to the left or right
         switch (this.state) {
             case LevelOneActions.COMPUTER_SCORED:
-                action = "They scored!";
+                url = "file:///android_asset/computer_goal.gif";
                 break;
             case LevelOneActions.COMPUTER_BLOCKED:
-                action = "They blocked your shot!";
-                if(this.whichSide >= 50){
-                    this.actionImage.setImageResource(R.drawable.away_block_left);
-                }
-                else{
-                    this.actionImage.setImageResource(R.drawable.away_block_right);
-                }
+                url = "file:///android_asset/block_away.gif";
                 break;
             case LevelOneActions.COMPUTER_SHOT:
-                action = "They are shooting!";
-                if(this.whichSide >= 50){
-                    this.actionImage.setImageResource(R.drawable.away_shot_left);
-                }
-                else{
-                    this.actionImage.setImageResource(R.drawable.away_shot_left);
-                }
+                url = "file:///android_asset/shot_away.gif";
                 break;
             case LevelOneActions.COMPUTER_INTERCEPT:
-                action = "They intercepted the ball!";
-                this.actionImage.setImageResource(R.drawable.away_intercept);
+                url = "file:///android_asset/intercept_away.gif";
                 break;
             case LevelOneActions.COMPUTER_TURNOVER:
-                action = "They turned over the ball!";
-                this.actionImage.setImageResource(R.drawable.home_intercept);
+                url = "file:///android_asset/intercept_home.gif";
                 break;
             case LevelOneActions.PLAYER_SCORED:
-                action = "You scored!";
+                url = "file:///android_asset/home_goal.gif";
                 break;
             case LevelOneActions.PLAYER_BLOCKED:
-                action = "You blocked their shot!";
-                if(this.whichSide >= 50){
-                    this.actionImage.setImageResource(R.drawable.home_block_left);
-                }
-                else{
-                    this.actionImage.setImageResource(R.drawable.home_block_right);
-                }
+                url = "file:///android_asset/block_home.gif";
                 break;
             case LevelOneActions.PLAYER_SHOT:
-                action = "You are shooting!";
-                this.actionImage.setImageResource(R.drawable.home_shot_left);
-                if(this.whichSide >= 50){
-                    this.actionImage.setImageResource(R.drawable.home_shot_left);
-                }
-                else{
-                    this.actionImage.setImageResource(R.drawable.home_shot_right);
-                }
+                url = "file:///android_asset/shot_home.gif";
                 break;
             case LevelOneActions.PLAYER_INTERCEPT:
-                action = "You intercepted the ball!";
-                this.actionImage.setImageResource(R.drawable.home_intercept);
+                url = "file:///android_asset/intercept_home.gif";
                 break;
             case LevelOneActions.PLAYER_TURNOVER:
-                action = "You turned the ball over";
-                this.actionImage.setImageResource(R.drawable.away_intercept);
+                url = "file:///android_asset/intercept_away.gif";
                 break;
             default:
-                return false;
+                return url;
         }
 
-        this.setActionText(action);
-        //this.setActionImage(image);
-
-        return true;
+        return url;
 
     }
-
-    protected boolean setActionImage(String image) {
-        return false;
-    }
-
-    protected boolean setActionText(String action) {
-
-        this.actionText.setText(action);
-
-        return true;
-
-    }
-
-
 
 }
