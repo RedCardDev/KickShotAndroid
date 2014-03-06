@@ -23,9 +23,9 @@ local.properties
 .idea/
 .gradle/
 *.gradle
+KickShot/
 /*/local.properties
 /*/out
-/*/build
 /*/*/production
 *.iml
 *.iws
