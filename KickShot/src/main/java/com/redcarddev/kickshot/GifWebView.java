@@ -1,7 +1,5 @@
 package com.redcarddev.kickshot;
 
-import java.io.InputStream;
-
 import android.content.Context;
 import android.webkit.WebView;
 
