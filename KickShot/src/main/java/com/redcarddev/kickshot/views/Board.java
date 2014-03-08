@@ -65,7 +65,7 @@ public class Board extends View {
     /**
      * The Score to win the game
      */
-    protected int maxScore = 1;
+    protected int maxScore = 10;
 
 	/**
 	 * The y position of the two dice
@@ -79,8 +79,9 @@ public class Board extends View {
 
 	/**
 	 * The away y position of the two dice
+     * Set in init
 	 */
-	protected int[] diceAwayYPosition = {50, 250};
+	protected int[] diceAwayYPosition = {0, 0};
 
 	protected Bitmap goalAwayImage = null;
 
@@ -187,6 +188,7 @@ public class Board extends View {
 		}
 
 		this.diceYPos[dice - 1] = this.diceHomeYPosition[dice - 1];
+//        this.diceXPos[dice - 1] = this.
 		invalidate();
 
 		return true;
@@ -258,11 +260,15 @@ public class Board extends View {
 	 * Prepares the resources for onDraw
 	 */
 	private void init() {
+        this.boardHeight = this.canvas.getHeight();
 		
 		//need to make this more dynamic for the smaller devices
 		//
-		this.diceHomeYPosition[0] = this.canvas.getHeight() - 150;
-		this.diceHomeYPosition[1] = this.canvas.getHeight() - 350;
+		this.diceHomeYPosition[0] = this.canvas.getHeight() - (this.dice[0].getCurrent().getHeight() + this.boardHeight/22 + 20);
+		this.diceHomeYPosition[1] = this.diceHomeYPosition[0] - this.dice[0].getCurrent().getHeight() - 20;
+
+        this.diceAwayYPosition[0] = this.boardHeight/22 + 20;
+        this.diceAwayYPosition[1] = this.diceAwayYPosition[0] + this.dice[0].getCurrent().getHeight() + 20;
 		
 		ballPosession(1);
 		dicePositionHome(1);
@@ -280,7 +286,6 @@ public class Board extends View {
 		this.chipXPos = (this.canvas.getWidth() - this.chip.getWidth()) / 2;
 						
 		this.chipInitYPos = this.chipYPos = (this.canvas.getHeight() - this.chip.getHeight())/2;
-        this.boardHeight = this.canvas.getHeight();
         this.pMoveAmount = this.boardHeight/22;
 
         Log.v(LOGTAG, "Board Height: " + this.boardHeight);
@@ -309,17 +314,17 @@ public class Board extends View {
 			this.init();
 		}
 		
-		canvas.drawBitmap(this.dice[0].getCurrent(), 0, this.diceYPos[0], null);
-		canvas.drawBitmap(this.dice[1].getCurrent(), 0, this.diceYPos[1], null);
+		canvas.drawBitmap(this.dice[0].getCurrent(), this.canvas.getWidth() * 1/6, this.diceYPos[0], null);
+		canvas.drawBitmap(this.dice[1].getCurrent(), this.canvas.getWidth() * 1/6, this.diceYPos[1], null);
 		
 		canvas.drawBitmap(this.chip, this.chipXPos, this.chipYPos, null);
 		
-		canvas.drawBitmap(this.goalAwayImage, this.goalXPos[1], this.goalYPos[1], null);
-		canvas.drawBitmap(this.goalHomeImage, this.goalXPos[0], this.goalYPos[0], null);
+		//canvas.drawBitmap(this.goalAwayImage, this.goalXPos[1], this.goalYPos[1], null);
+		//canvas.drawBitmap(this.goalHomeImage, this.goalXPos[0], this.goalYPos[0], null);
 		
-		
-		canvas.drawText(Integer.toString(this.goalsHome), this.goalXPos[0] + 15, this.goalYPos[0] + 40, this.paint);
-		canvas.drawText(Integer.toString(this.goalsAway), this.goalXPos[1] + 15, this.goalYPos[1] + 40, this.paint);
+		paint.setTextSize(this.canvas.getHeight()*2/22);
+        canvas.drawText(Integer.toString(this.goalsHome), this.canvas.getWidth()*3/4, this.canvas.getHeight()*9/10, this.paint);
+        canvas.drawText(Integer.toString(this.goalsAway), this.canvas.getWidth()*3/4, this.canvas.getHeight()*2/12, this.paint);
 		
 	}
 
