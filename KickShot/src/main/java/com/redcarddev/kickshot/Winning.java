@@ -2,41 +2,45 @@ package com.redcarddev.kickshot;
 
 import java.util.Random;
 import android.app.Activity;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MotionEvent;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.view.View.OnClickListener;
 
 
 /**
  * Created by Jordan on 12/3/13.
  */
-public class Winning extends Activity {
+public class Winning extends Activity implements OnClickListener{
 
     String LOGTAG = this.getClass().getName();
 
     protected int state = -1;
 
+    //still need these for the message
     final static int COMPUTER_WON = 0;
     final static int PLAYER_WON = 1;
 
-    protected TextView actionText;
-    protected ImageView actionImage;
+    Button playButton = null;
+    Button menuButton = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.level_one_actions);
+        setContentView(R.layout.winning);
 
-        Intent mIntent = getIntent();
-        this.state = mIntent.getIntExtra("state", -1);
+        this.playButton = (Button)findViewById(R.id.play_again);
+        this.playButton.setOnClickListener(this);
 
-        this.actionText = (TextView)findViewById(R.id.actionText);
-        this.actionImage = (ImageView)findViewById(R.id.actionImage);
-
-        this.setGameOverView();
+        this.menuButton = (Button)findViewById(R.id.main_menu);
+        this.menuButton.setOnClickListener(this);
 
     }
 
@@ -46,37 +50,24 @@ public class Winning extends Activity {
         return true;
     }
 
-    protected boolean setGameOverView() {
+    @Override
+    public void onClick(View view) {
 
-        String action = "";
-        // every time this is called randomize if it's a shot to the left or right
-        switch (this.state) {
-            case Winning.COMPUTER_WON:
-                action = "YOU LOST!!!";
-                break;
-            case Winning.PLAYER_WON:
-                action = "CONGRATS! YOU WON!!";
-                break;
-            default:
-                return false;
+        Log.v(LOGTAG, "onClick e");
+
+        if (view.getId() == R.id.play_again) {
+
+            Intent intent = new Intent(Winning.this, PlayGame.class);
+            startActivity(intent);
+        }else if(view.getId() == R.id.main_menu){
+            Intent intent = new Intent(Winning.this, MainActivity.class);
+            startActivity(intent);
+        }
+        else {
+            Log.v(LOGTAG, Integer.toString(view.getId()));
         }
 
-        this.setActionText(action);
-
-        return true;
-
-    }
-
-    protected boolean setActionImage(String image) {
-        return false;
-    }
-
-    protected boolean setActionText(String action) {
-
-        this.actionText.setText(action);
-
-        return true;
-
+        Log.v(LOGTAG, "onClick e");
     }
 
 

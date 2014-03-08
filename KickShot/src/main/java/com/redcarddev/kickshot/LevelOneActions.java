@@ -74,34 +74,34 @@ public class LevelOneActions extends Activity {
         // every time this is called randomize if it's a shot to the left or right
         switch (this.state) {
             case LevelOneActions.COMPUTER_SCORED:
-                url = "file:///android_asset/computer_goal.gif";
+                url = "file:///android_asset/computer_goal.html";
                 break;
             case LevelOneActions.COMPUTER_BLOCKED:
-                url = "file:///android_asset/block_away.gif";
+                url = "file:///android_asset/block_away.html";
                 break;
             case LevelOneActions.COMPUTER_SHOT:
-                url = "file:///android_asset/shot_away.gif";
+                url = "file:///android_asset/shot_away.html";
                 break;
             case LevelOneActions.COMPUTER_INTERCEPT:
-                url = "file:///android_asset/intercept_away.gif";
+                url = "file:///android_asset/intercept_away.html";
                 break;
             case LevelOneActions.COMPUTER_TURNOVER:
-                url = "file:///android_asset/intercept_home.gif";
+                url = "file:///android_asset/intercept_home.html";
                 break;
             case LevelOneActions.PLAYER_SCORED:
-                url = "file:///android_asset/home_goal.gif";
+                url = "file:///android_asset/home_goal.html";
                 break;
             case LevelOneActions.PLAYER_BLOCKED:
-                url = "file:///android_asset/block_home.gif";
+                url = "file:///android_asset/block_home.html";
                 break;
             case LevelOneActions.PLAYER_SHOT:
-                url = "file:///android_asset/shot_home.gif";
+                url = "file:///android_asset/shot_home.html";
                 break;
             case LevelOneActions.PLAYER_INTERCEPT:
-                url = "file:///android_asset/intercept_home.gif";
+                url = "file:///android_asset/intercept_home.html";
                 break;
             case LevelOneActions.PLAYER_TURNOVER:
-                url = "file:///android_asset/intercept_away.gif";
+                url = "file:///android_asset/intercept_away.html";
                 break;
             default:
                 return url;

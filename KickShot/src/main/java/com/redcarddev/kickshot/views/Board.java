@@ -38,6 +38,16 @@ public class Board extends View {
 	private int boardHeight = 0;
 
     /**
+     * The location of the goal the away team is defending
+     */
+    private int awayGoalLine = 0;
+
+    /**
+     * The location of the goal the home team is defending
+     */
+    private int homeGoalLine = 0;
+
+    /**
      * The amount the chip moves in pixels
      */
     private int pMoveAmount = 0;
@@ -65,7 +75,7 @@ public class Board extends View {
     /**
      * The Score to win the game
      */
-    protected int maxScore = 10;
+    protected int maxScore = 1;
 
 	/**
 	 * The y position of the two dice
@@ -261,6 +271,9 @@ public class Board extends View {
 	 */
 	private void init() {
         this.boardHeight = this.canvas.getHeight();
+
+        this.awayGoalLine = boardHeight*1/22;
+        this.homeGoalLine = boardHeight*21/22;
 		
 		//need to make this more dynamic for the smaller devices
 		//
@@ -286,7 +299,7 @@ public class Board extends View {
 		this.chipXPos = (this.canvas.getWidth() - this.chip.getWidth()) / 2;
 						
 		this.chipInitYPos = this.chipYPos = (this.canvas.getHeight() - this.chip.getHeight())/2;
-        this.pMoveAmount = this.boardHeight/22;
+        this.pMoveAmount = (this.homeGoalLine - this.awayGoalLine)/22;
 
         Log.v(LOGTAG, "Board Height: " + this.boardHeight);
         Log.v(LOGTAG, "Move Amount: " + this.pMoveAmount);
