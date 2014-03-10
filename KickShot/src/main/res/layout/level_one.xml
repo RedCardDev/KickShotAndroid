@@ -10,4 +10,26 @@
         android:layout_height="fill_parent"
         android:background="@drawable/board" />
 
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.6"
+            android:layout_gravity="bottom"
+            android:id="@+id/actionImage"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:id="@+id/actionText" />
+    </FrameLayout>
+
+
 </RelativeLayout>

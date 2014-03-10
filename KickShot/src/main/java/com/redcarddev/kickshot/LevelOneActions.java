@@ -13,7 +13,7 @@ import com.redcarddev.kickshot.utils.SoundManager;
 /**
  * Created by otternq on 10/27/13.
  */
-public class LevelOneActions extends Activity {
+public class LevelOneActions{
 
     String LOGTAG = this.getClass().getName();
 
@@ -37,35 +37,12 @@ public class LevelOneActions extends Activity {
     protected TextView actionText;
     protected ImageView actionImage;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    protected void set_source(int s, TextView t, ImageView i){
+        state = s;
+        actionText = t;
+        actionImage = i;
 
-        setContentView(R.layout.level_one_actions);
 
-        Intent mIntent = getIntent();
-        this.state = mIntent.getIntExtra("state", -1);
-        this.whichSide = r.nextInt(100);
-
-        this.actionText = (TextView)findViewById(R.id.actionText);
-        this.actionImage = (ImageView)findViewById(R.id.actionImage);
-
-        this.setActionView();
-
-        SoundManager.Instance().SetOwner(this);
-        try {
-            SoundManager.Instance().LoadSound("cheer", R.raw.crowd_cheers_2);
-            SoundManager.Instance().LoadSound("boo", R.raw.boo);
-        } catch (Exception e) {
-            // WHAT TO DO IF SOUNDS FAIL TO LOAD?
-            e.printStackTrace();
-        }
-    }
-
-    @Override
-    public boolean onTouchEvent(MotionEvent event){
-        this.finish();
-        return true;
     }
 
     protected boolean setActionView() {

@@ -12,7 +12,7 @@ import android.widget.TextView;
 /**
  * Created by Jordan on 12/3/13.
  */
-public class Winning extends Activity {
+public class Winning {
 
     String LOGTAG = this.getClass().getName();
 
@@ -24,26 +24,10 @@ public class Winning extends Activity {
     protected TextView actionText;
     protected ImageView actionImage;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-        setContentView(R.layout.level_one_actions);
-
-        Intent mIntent = getIntent();
-        this.state = mIntent.getIntExtra("state", -1);
-
-        this.actionText = (TextView)findViewById(R.id.actionText);
-        this.actionImage = (ImageView)findViewById(R.id.actionImage);
-
-        this.setGameOverView();
-
-    }
-
-    @Override
-    public boolean onTouchEvent(MotionEvent event){
-        this.finish();
-        return true;
+    public void set_source(int s, TextView t, ImageView i){
+        state = s;
+        actionImage = i;
+        actionText = t;
     }
 
     protected boolean setGameOverView() {

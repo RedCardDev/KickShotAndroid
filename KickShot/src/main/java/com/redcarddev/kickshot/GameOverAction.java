@@ -24,7 +24,7 @@ public class GameOverAction extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.level_one_actions);
+        setContentView(R.layout.level_one);
 
         Intent mIntent = getIntent();
         this.state = mIntent.getIntExtra("player_state", -1);

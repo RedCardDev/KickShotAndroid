@@ -16,6 +16,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import android.net.Uri;
@@ -43,6 +45,9 @@ public class LevelOne extends Activity implements OnClickListener {
 	
 	final static int AWAY_GOAL_LINE = 11;
 	final static int HOME_GOAL_LINE = -11;
+
+    protected TextView actionText;
+    protected ImageView actionImage;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +59,12 @@ public class LevelOne extends Activity implements OnClickListener {
 
         this.r = (Random) getIntent().getSerializableExtra(LevelOne.PARAM_RANDOM);
         this.state = (LevelOneState) getIntent().getSerializableExtra(LevelOne.PARAM_STATE);
+
+        this.actionText = (TextView)findViewById(R.id.actionText);
+        this.actionImage = (ImageView)findViewById(R.id.actionImage);
+
+        actionImage.setOnClickListener(this);
+        actionText.setOnClickListener(this);
 	}
 
 	@Override
@@ -97,6 +108,10 @@ public class LevelOne extends Activity implements OnClickListener {
 
 	@Override
 	public void onClick(View view) {
+        if (view.getId() == R.id.actionImage || view.getId() == R.id.actionText){
+            this.actionImage.setImageResource(0);
+            this.actionText.setText(null);
+        }
 		if (view.getId() == R.id.board) {
 			Log.v(LOGTAG, "Clicked on the board");
             this.board.setEnabled(false);
@@ -219,17 +234,33 @@ public class LevelOne extends Activity implements OnClickListener {
 
     public void showAction(int state) {
         Log.v(LOGTAG, "showAction e, state=" + state);
-        Intent myIntent = new Intent(this, LevelOneActions.class);
-        myIntent.putExtra("state", state);
-        startActivity(myIntent);
+        //Intent myIntent = new Intent(this, LevelOneActions.class);
+        //myIntent.putExtra("state", state);
+        //startActivity(myIntent);
+
+        //this.actionText = (TextView)findViewById(R.id.actionText);
+        //this.actionImage = (ImageView)findViewById(R.id.actionImage);
+
+        //actionImage.setOnClickListener(this);
+        //actionText.setOnClickListener(this);
+
+        LevelOneActions leveloneactions = new LevelOneActions();
+        leveloneactions.set_source(state, actionText, actionImage);
+        leveloneactions.setActionView();
+
         Log.v(LOGTAG, "showAction x");
     }
 
     public void showGameOver(int state) {
         Log.v(LOGTAG, "showGameOver e, state=" + state);
-        Intent myIntent = new Intent(this, Winning.class);
-        myIntent.putExtra("state", state);
-        startActivity(myIntent);
+        //Intent myIntent = new Intent(this, Winning.class);
+        //myIntent.putExtra("state", state);
+        //startActivity(myIntent);
+
+        Winning winning = new Winning();
+        winning.set_source(state, actionText, actionImage);
+        winning.setGameOverView();
+
         Log.v(LOGTAG, "showAction x");
 
         Intent start_again = new Intent(LevelOne.this, LevelOne.class);
