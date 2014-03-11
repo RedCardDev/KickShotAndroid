@@ -55,12 +55,14 @@
         <activity
             android:name="com.redcarddev.kickshot.LevelOneActions"
             android:label="@string/app_name"
-            android:screenOrientation="portrait" >
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar">
         </activity>
         <activity
             android:name="com.redcarddev.kickshot.Winning"
             android:label="@string/app_name"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar">
         </activity>
     </application>
 

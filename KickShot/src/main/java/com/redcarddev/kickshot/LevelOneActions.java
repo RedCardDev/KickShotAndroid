@@ -4,11 +4,13 @@ import java.io.InputStream;
 import java.util.Random;
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 /**
@@ -33,6 +35,8 @@ public class LevelOneActions extends Activity {
     protected int state = -1;
     protected String gifPath;
 
+    private WebView  webView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,10 +44,17 @@ public class LevelOneActions extends Activity {
         Intent mIntent = getIntent();
         this.state = mIntent.getIntExtra("state", -1);
         gifPath = this.setActionView();
+        setContentView(R.layout.level_one_actions);
 
-        GifWebView view = new GifWebView(this, gifPath);
-        setContentView(view);
-        //setContentView(R.layout.level_one_actions);
+
+        webView = (WebView) findViewById(R.id.webviewActionView);
+        webView.setBackgroundColor(Color.TRANSPARENT);
+        webView.loadUrl(gifPath);
+        //GifWebView view = new GifWebView(this, gifPath);
+
+        //view.getBackground().setAlpha(128);
+        //setContentView(view);
+
 
 
 
