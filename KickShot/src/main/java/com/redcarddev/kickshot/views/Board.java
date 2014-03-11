@@ -75,7 +75,7 @@ public class Board extends View {
     /**
      * The Score to win the game
      */
-    protected int maxScore = 1;
+    protected int maxScore = 10;
 
 	/**
 	 * The y position of the two dice

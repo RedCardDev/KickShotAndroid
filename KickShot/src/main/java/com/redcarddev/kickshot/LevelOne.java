@@ -420,7 +420,7 @@ public class LevelOne extends Activity implements OnClickListener {
 	}
 	
 	public void playerTurn() {
-		
+		//this.showAction(LevelOneActions.PLAYER_TURN);
 		switch(this.currentState) {
     	
 	    	case LevelOne.OFFENSE_STATE:
@@ -444,7 +444,7 @@ public class LevelOne extends Activity implements OnClickListener {
 	}
 	
 	public void computerTurn() {
-		
+        //this.showAction(LevelOneActions.COMPUTER_TURN);
 		switch(this.currentState) {
     	
 	    	case LevelOne.OFFENSE_STATE:

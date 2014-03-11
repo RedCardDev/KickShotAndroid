@@ -25,12 +25,14 @@ public class LevelOneActions extends Activity {
     final static int COMPUTER_SHOT = 5;
     final static int COMPUTER_INTERCEPT = 7;
     final static int COMPUTER_TURNOVER = 9;
+    final static int COMPUTER_TURN = 11;
 
     final static int PLAYER_SCORED = 0;
     final static int PLAYER_BLOCKED = 2;
     final static int PLAYER_SHOT = 4;
     final static int PLAYER_INTERCEPT = 6;
     final static int PLAYER_TURNOVER = 8;
+    final static int PLAYER_TURN = 10;
 
     protected int state = -1;
     protected String gifPath;
@@ -113,6 +115,12 @@ public class LevelOneActions extends Activity {
                 break;
             case LevelOneActions.PLAYER_TURNOVER:
                 url = "file:///android_asset/intercept_away.html";
+                break;
+            case LevelOneActions.COMPUTER_TURN:
+                url = "file:///android_asset/computer_turn.html";
+                break;
+            case LevelOneActions.PLAYER_TURN:
+                url = "file:///android_asset/home_turn.html";
                 break;
             default:
                 return url;
