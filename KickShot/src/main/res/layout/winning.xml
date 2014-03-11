@@ -6,9 +6,9 @@
                 android:layout_height="match_parent"
                 android:background="#00FFFFFF">
 
-    <LinearLayout
+    <RelativeLayout
             android:minWidth="200dp"
-            android:minHeight="200dp"
+            android:minHeight="160dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="#77000000"
@@ -24,7 +24,10 @@
             android:background="#ffDCD35A"
             android:layout_margin="10dp"
             android:clickable="true"
-            android:layout_gravity="center"/>
+            android:layout_gravity="center"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"/>
 
         <Button
             android:id="@+id/main_menu"
@@ -35,7 +38,9 @@
             android:layout_margin="10dp"
             android:text=" Main Menu "
             android:clickable="true"
-            android:layout_gravity="center"/>
+            android:layout_gravity="center_horizontal|bottom"
+            android:layout_below="@+id/play_again"
+            android:layout_centerHorizontal="true"/>
 
-    </LinearLayout>
+    </RelativeLayout>
 </RelativeLayout>
