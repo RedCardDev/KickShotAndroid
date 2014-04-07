@@ -1,14 +1,17 @@
 package com.redcarddev.kickshot;
 
+import java.io.InputStream;
 import java.util.Random;
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.MotionEvent;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
-
-import com.redcarddev.kickshot.utils.SoundManager;
 
 /**
  * Created by otternq on 10/27/13.
@@ -17,31 +20,49 @@ public class LevelOneActions extends Activity {
 
     String LOGTAG = this.getClass().getName();
 
-    static Random r = new Random();
-
     final static int COMPUTER_SCORED = 1;
     final static int COMPUTER_BLOCKED = 3;
     final static int COMPUTER_SHOT = 5;
     final static int COMPUTER_INTERCEPT = 7;
     final static int COMPUTER_TURNOVER = 9;
+    final static int COMPUTER_TURN = 11;
 
     final static int PLAYER_SCORED = 0;
     final static int PLAYER_BLOCKED = 2;
     final static int PLAYER_SHOT = 4;
     final static int PLAYER_INTERCEPT = 6;
     final static int PLAYER_TURNOVER = 8;
+    final static int PLAYER_TURN = 10;
 
     protected int state = -1;
-    protected int whichSide;
+    protected String gifPath;
 
-    protected TextView actionText;
-    protected ImageView actionImage;
+    private WebView  webView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        Intent mIntent = getIntent();
+        this.state = mIntent.getIntExtra("state", -1);
+        gifPath = this.setActionView();
         setContentView(R.layout.level_one_actions);
+
+
+        webView = (WebView) findViewById(R.id.webviewActionView);
+        webView.setBackgroundColor(Color.TRANSPARENT);
+        webView.loadUrl(gifPath);
+        //GifWebView view = new GifWebView(this, gifPath);
+
+        //view.getBackground().setAlpha(128);
+        //setContentView(view);
+
+
+
+
+        /*GifWebView view = new GifWebView(this, "file://android_asset/shot_away.gif");
+
+        setContentView(view);
 
         Intent mIntent = getIntent();
         this.state = mIntent.getIntExtra("state", -1);
@@ -51,15 +72,8 @@ public class LevelOneActions extends Activity {
         this.actionImage = (ImageView)findViewById(R.id.actionImage);
 
         this.setActionView();
+        */
 
-        SoundManager.Instance().SetOwner(this);
-        try {
-            SoundManager.Instance().LoadSound("cheer", R.raw.crowd_cheers_2);
-            SoundManager.Instance().LoadSound("boo", R.raw.boo);
-        } catch (Exception e) {
-            // WHAT TO DO IF SOUNDS FAIL TO LOAD?
-            e.printStackTrace();
-        }
     }
 
     @Override
@@ -68,95 +82,52 @@ public class LevelOneActions extends Activity {
         return true;
     }
 
-    protected boolean setActionView() {
-
-        String action = "";
+    protected String setActionView() {
+        String url = "";
         // every time this is called randomize if it's a shot to the left or right
         switch (this.state) {
             case LevelOneActions.COMPUTER_SCORED:
-                action = "They scored!";
-                SoundManager.Instance().PlaySound("boo");
+                url = "file:///android_asset/computer_goal.html";
                 break;
             case LevelOneActions.COMPUTER_BLOCKED:
-                action = "They blocked your shot!";
-                if(this.whichSide >= 50){
-                    this.actionImage.setImageResource(R.drawable.away_block_left);
-                }
-                else{
-                    this.actionImage.setImageResource(R.drawable.away_block_right);
-                }
+                url = "file:///android_asset/block_away.html";
                 break;
             case LevelOneActions.COMPUTER_SHOT:
-                action = "They are shooting!";
-                if(this.whichSide >= 50){
-                    this.actionImage.setImageResource(R.drawable.away_shot_left);
-                }
-                else{
-                    this.actionImage.setImageResource(R.drawable.away_shot_left);
-                }
+                url = "file:///android_asset/shot_away.html";
                 break;
             case LevelOneActions.COMPUTER_INTERCEPT:
-                action = "They intercepted the ball!";
-                this.actionImage.setImageResource(R.drawable.away_intercept);
+                url = "file:///android_asset/intercept_away.html";
                 break;
             case LevelOneActions.COMPUTER_TURNOVER:
-                action = "They turned over the ball!";
-                this.actionImage.setImageResource(R.drawable.home_intercept);
+                url = "file:///android_asset/intercept_home.html";
                 break;
             case LevelOneActions.PLAYER_SCORED:
-                action = "You scored!";
-                SoundManager.Instance().PlaySound("cheer");
+                url = "file:///android_asset/home_goal.html";
                 break;
             case LevelOneActions.PLAYER_BLOCKED:
-                action = "You blocked their shot!";
-                if(this.whichSide >= 50){
-                    this.actionImage.setImageResource(R.drawable.home_block_left);
-                }
-                else{
-                    this.actionImage.setImageResource(R.drawable.home_block_right);
-                }
+                url = "file:///android_asset/block_home.html";
                 break;
             case LevelOneActions.PLAYER_SHOT:
-                action = "You are shooting!";
-                this.actionImage.setImageResource(R.drawable.home_shot_left);
-                if(this.whichSide >= 50){
-                    this.actionImage.setImageResource(R.drawable.home_shot_left);
-                }
-                else{
-                    this.actionImage.setImageResource(R.drawable.home_shot_right);
-                }
+                url = "file:///android_asset/shot_home.html";
                 break;
             case LevelOneActions.PLAYER_INTERCEPT:
-                action = "You intercepted the ball!";
-                this.actionImage.setImageResource(R.drawable.home_intercept);
+                url = "file:///android_asset/intercept_home.html";
                 break;
             case LevelOneActions.PLAYER_TURNOVER:
-                action = "You turned the ball over";
-                this.actionImage.setImageResource(R.drawable.away_intercept);
+                url = "file:///android_asset/intercept_away.html";
+                break;
+            case LevelOneActions.COMPUTER_TURN:
+                url = "file:///android_asset/computer_turn.html";
+                break;
+            case LevelOneActions.PLAYER_TURN:
+                url = "file:///android_asset/home_turn.html";
                 break;
             default:
-                return false;
+                return url;
         }
 
-        this.setActionText(action);
-        //this.setActionImage(image);
-
-        return true;
+        return url;
 
     }
-
-    protected boolean setActionImage(String image) {
-        return false;
-    }
-
-    protected boolean setActionText(String action) {
-
-        this.actionText.setText(action);
-
-        return true;
-
-    }
-
-
 
 }

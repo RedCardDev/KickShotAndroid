@@ -100,40 +100,24 @@ public class LevelOne extends Activity implements OnClickListener {
 		if (view.getId() == R.id.board) {
 			Log.v(LOGTAG, "Clicked on the board");
             this.board.setEnabled(false);
-            /*<<<<<<< HEAD
-
-            if(board.GameOver() != 1){
-                this.currentState = LevelOne.LOST_STATE;
-            }
-            else if(board.GameOver() == 2){
-                this.currentState = LevelOne.WON_STATE;
-            }
-
-            if (this.currentState == LevelOne.WON_STATE || this.currentState == LevelOne.LOST_STATE) {
-                //Intent gameOverIntent = new Intent(this, GameOverAction.class);
-                gameOverIntent.putExtra("state", board.GameOver() - 1);
-                startActivity(gameOverIntent);
-
-                finish();
-            }*/
 
             if(board.GameOver() == 1 || board.GameOver() == 2){
                 if(board.GameOver() == 1){
                     this.currentState = LevelOne.LOST_STATE;
-                    Intent start_again = new Intent(LevelOne.this, LevelOne.class);
-                    finish();
-                    startActivity(start_again);
-                    //this.showGameOver(0);
+                    //Intent start_again = new Intent(LevelOne.this, LevelOne.class);
+                    //finish();
+                    //startActivity(start_again);
+                    this.showGameOver(0);
                 }
                 else if(board.GameOver() == 2){
                     this.currentState = LevelOne.WON_STATE;
-                    //this.showGameOver(1);
-                    Intent start_again = new Intent(LevelOne.this, LevelOne.class);
-                    finish();
-                    startActivity(start_again);
+                    this.showGameOver(1);
+                    //Intent start_again = new Intent(LevelOne.this, LevelOne.class);
+                    //finish();
+                    //startActivity(start_again);
                 }
             }
-            if(board.GameOver() != 1 && board.GameOver() != 2){
+            else if(board.GameOver() != 1 && board.GameOver() != 2){
                 this.playerTurn();
                 /*board.dicePositionAway(1);
                 board.dicePositionAway(2);
@@ -231,10 +215,6 @@ public class LevelOne extends Activity implements OnClickListener {
         myIntent.putExtra("state", state);
         startActivity(myIntent);
         Log.v(LOGTAG, "showAction x");
-
-        Intent start_again = new Intent(LevelOne.this, LevelOne.class);
-        finish();
-        startActivity(start_again);
     }
 
 
@@ -440,7 +420,7 @@ public class LevelOne extends Activity implements OnClickListener {
 	}
 	
 	public void playerTurn() {
-		
+		//this.showAction(LevelOneActions.PLAYER_TURN);
 		switch(this.currentState) {
     	
 	    	case LevelOne.OFFENSE_STATE:
@@ -464,7 +444,7 @@ public class LevelOne extends Activity implements OnClickListener {
 	}
 	
 	public void computerTurn() {
-		
+		//this.showAction(LevelOneActions.COMPUTER_TURN);
 		switch(this.currentState) {
     	
 	    	case LevelOne.OFFENSE_STATE:
