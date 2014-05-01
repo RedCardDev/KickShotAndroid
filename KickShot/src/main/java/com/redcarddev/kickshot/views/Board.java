@@ -14,6 +14,10 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Toast;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class Board extends View {
 	
@@ -36,6 +40,11 @@ public class Board extends View {
      * The height of the board at initialization
      */
 	private int boardHeight = 0;
+
+    /**
+     * the playable area of the ball
+     */
+    private int fieldHeight = 0;
 
     /**
      * The location of the goal the away team is defending
@@ -81,6 +90,34 @@ public class Board extends View {
 	 * The y position of the two dice
 	 */
 	protected int[] diceYPos = {0,0}; //represents the current position
+
+    /**
+     * The map of values the ball can land
+     */
+     protected int[] boardMap = {   0,    //11
+                                    0,    //10
+                                    0,    // 9
+                                    0,    // 8
+                                    0,    // 7
+                                    0,    // 6
+                                    0,    // 5
+                                    0,    // 4
+                                    0,    // 3
+                                    0,    // 2
+                                    0,    // 1
+                                    0,    // 0
+                                    0,    //-1
+                                    0,    //-2
+                                    0,    //-3
+                                    0,    //-4
+                                    0,    //-5
+                                    0,    //-6
+                                    0,    //-7
+                                    0,    //-8
+                                    0,    //-9
+                                    0,    //-10
+                                    0,    //-11
+    };
 
 	/**
 	 * The home y position of the two dice
@@ -254,17 +291,126 @@ public class Board extends View {
 		else if(this.chipLine >= 11){//do not allow past the away goal
 			this.chipLine = 11;
 		}
-		
-		Log.v(LOGTAG, "Chip Line: " + this.chipLine);
 
+
+        /*
+        *   treat each line as a container...
+         */
+        this.chipLine = 1;
+        switch(this.chipLine){
+            case 11:
+                this.chipYPos = this.boardMap[0];
+                break;
+            case 10:
+                this.chipYPos = this.boardMap[1];
+                break;
+            case 9:
+                this.chipYPos = this.boardMap[2];
+                break;
+            case 8:
+                this.chipYPos = this.boardMap[3];
+                break;
+            case 7:
+                this.chipYPos = this.boardMap[4];
+                break;
+            case 6:
+                this.chipYPos = this.boardMap[5];
+                break;
+            case 5:
+                this.chipYPos = this.boardMap[6];
+                break;
+            case 4:
+                this.chipYPos = this.boardMap[7];
+                break;
+            case 3:
+                this.chipYPos = this.boardMap[8];
+                break;
+            case 2:
+                this.chipYPos = this.boardMap[9];
+                break;
+            case 1:
+                this.chipYPos = this.boardMap[10];
+                break;
+            case 0:
+                this.chipYPos = this.boardMap[11];
+                break;
+            case -1:
+                this.chipYPos = this.boardMap[12];
+                break;
+            case -2:
+                this.chipYPos = this.boardMap[13];
+                break;
+            case -3:
+                this.chipYPos = this.boardMap[14];
+                break;
+            case -4:
+                this.chipYPos = this.boardMap[15];
+                break;
+            case -5:
+                this.chipYPos = this.boardMap[16];
+                break;
+            case -6:
+                this.chipYPos = this.boardMap[17];
+                break;
+            case -7:
+                this.chipYPos = this.boardMap[18];
+                break;
+            case -8:
+                this.chipYPos = this.boardMap[19];
+                break;
+            case -9:
+                this.chipYPos = this.boardMap[20];
+                break;
+            case -10:
+                this.chipYPos = this.boardMap[21];
+                break;
+            case -11:
+                this.chipYPos = this.boardMap[22];
+                break;
+        }
         // 40 shouldn't be hard coded in
-		this.chipYPos = this.chipInitYPos - (this.chipLine * this.pMoveAmount);
+		//this.chipYPos = this.chipInitYPos - (this.chipLine * this.pMoveAmount);
+        Log.v(LOGTAG, "adjust amount: " + ((9*boardHeight)/22 - (8*boardHeight)/22)/2);
+        Log.v(LOGTAG, "BOARD HEIGHT: " + boardHeight);
+        Log.v(LOGTAG, "Chip Line: " + this.chipLine);
 		Log.v(LOGTAG, "Setting chipYPos: " + this.chipYPos);
 		
 		invalidate();
 		
 		return this.chipLine;
 	}
+
+    /**
+     * Initializes the boardmap for proper chip placement
+     */
+    private void initBoardMap(){
+        int adjustAmount = (fieldHeight)/22;
+        //Log.v(LOGTAG, "initboardadjust: " + adjustAmount);
+        this.boardMap[0] = this.chipInitYPos - adjustAmount*21;
+        this.boardMap[1] = this.chipInitYPos - adjustAmount*19;
+        this.boardMap[2] = this.chipInitYPos - adjustAmount*17;
+        this.boardMap[3] = this.chipInitYPos - adjustAmount*15;
+        this.boardMap[4] = this.chipInitYPos - adjustAmount*13;
+        this.boardMap[5] = this.chipInitYPos - adjustAmount*11;
+        this.boardMap[6] = this.chipInitYPos - adjustAmount*9;
+        this.boardMap[7] = this.chipInitYPos - adjustAmount*7;
+        this.boardMap[8] = this.chipInitYPos - adjustAmount*5;
+        this.boardMap[9] = this.chipInitYPos - adjustAmount*3;
+        this.boardMap[10] = this.chipInitYPos - adjustAmount;
+        this.boardMap[11] = this.chipInitYPos;
+        this.boardMap[12] = this.chipInitYPos + adjustAmount;
+        this.boardMap[13] = this.chipInitYPos + adjustAmount*3;
+        this.boardMap[14] = this.chipInitYPos + adjustAmount*5;
+        this.boardMap[15] = this.chipInitYPos + adjustAmount*7;
+        this.boardMap[16] = this.chipInitYPos + adjustAmount*9;
+        this.boardMap[17] = this.chipInitYPos + adjustAmount*11;
+        this.boardMap[18] = this.chipInitYPos + adjustAmount*13;
+        this.boardMap[19] = this.chipInitYPos + adjustAmount*15;
+        this.boardMap[20] = this.chipInitYPos + adjustAmount*17;
+        this.boardMap[21] = this.chipInitYPos + adjustAmount*19;
+        this.boardMap[22] = this.chipInitYPos + adjustAmount*21;
+
+    }
 	
 	/**
 	 * Prepares the resources for onDraw
@@ -272,8 +418,9 @@ public class Board extends View {
 	private void init() {
         this.boardHeight = this.canvas.getHeight();
 
-        this.awayGoalLine = boardHeight*1/22;
-        this.homeGoalLine = boardHeight*21/22;
+        this.awayGoalLine = boardHeight*1/24;
+        this.homeGoalLine = boardHeight*23/24;
+        this.fieldHeight = this.homeGoalLine - this.awayGoalLine;
 		
 		//need to make this more dynamic for the smaller devices
 		//
@@ -301,6 +448,7 @@ public class Board extends View {
 		this.chipInitYPos = this.chipYPos = (this.canvas.getHeight() - this.chip.getHeight())/2;
         this.pMoveAmount = (this.homeGoalLine - this.awayGoalLine)/22;
 
+        Log.v(LOGTAG, "Cur Y Pos: " + this.chipYPos);
         Log.v(LOGTAG, "Board Height: " + this.boardHeight);
         Log.v(LOGTAG, "Move Amount: " + this.pMoveAmount);
 
@@ -312,11 +460,20 @@ public class Board extends View {
 		this.canvas.drawPaint(paint); 
 
 		paint.setColor(Color.RED); 
-		paint.setTextSize(40); 
+		paint.setTextSize(40);
+        this.initBoardMap();
 		
 		this.initSet = 1;
 		
 	}
+
+    public void showToast(String text) {
+        Context context = this.getContext();
+        int duration = Toast.LENGTH_SHORT;
+
+        Toast toast = Toast.makeText(context, text, duration);
+        toast.show();
+    }
 
 	protected void onDraw(Canvas canvas) {
 		super.onDraw(canvas);
