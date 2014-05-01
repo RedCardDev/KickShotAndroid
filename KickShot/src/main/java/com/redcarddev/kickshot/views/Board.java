@@ -296,7 +296,7 @@ public class Board extends View {
         /*
         *   treat each line as a container...
          */
-        this.chipLine = 1;
+        //this.chipLine = 2;
         switch(this.chipLine){
             case 11:
                 this.chipYPos = this.boardMap[0];
@@ -368,12 +368,6 @@ public class Board extends View {
                 this.chipYPos = this.boardMap[22];
                 break;
         }
-        // 40 shouldn't be hard coded in
-		//this.chipYPos = this.chipInitYPos - (this.chipLine * this.pMoveAmount);
-        Log.v(LOGTAG, "adjust amount: " + ((9*boardHeight)/22 - (8*boardHeight)/22)/2);
-        Log.v(LOGTAG, "BOARD HEIGHT: " + boardHeight);
-        Log.v(LOGTAG, "Chip Line: " + this.chipLine);
-		Log.v(LOGTAG, "Setting chipYPos: " + this.chipYPos);
 		
 		invalidate();
 		
@@ -384,7 +378,7 @@ public class Board extends View {
      * Initializes the boardmap for proper chip placement
      */
     private void initBoardMap(){
-        int adjustAmount = (fieldHeight)/22;
+        int adjustAmount = (fieldHeight)/44;
         //Log.v(LOGTAG, "initboardadjust: " + adjustAmount);
         this.boardMap[0] = this.chipInitYPos - adjustAmount*21;
         this.boardMap[1] = this.chipInitYPos - adjustAmount*19;
@@ -448,10 +442,6 @@ public class Board extends View {
 		this.chipInitYPos = this.chipYPos = (this.canvas.getHeight() - this.chip.getHeight())/2;
         this.pMoveAmount = (this.homeGoalLine - this.awayGoalLine)/22;
 
-        Log.v(LOGTAG, "Cur Y Pos: " + this.chipYPos);
-        Log.v(LOGTAG, "Board Height: " + this.boardHeight);
-        Log.v(LOGTAG, "Move Amount: " + this.pMoveAmount);
-
 		this.chipLine = 0;
 		
 		this.paint = new Paint(); 
@@ -466,14 +456,6 @@ public class Board extends View {
 		this.initSet = 1;
 		
 	}
-
-    public void showToast(String text) {
-        Context context = this.getContext();
-        int duration = Toast.LENGTH_SHORT;
-
-        Toast toast = Toast.makeText(context, text, duration);
-        toast.show();
-    }
 
 	protected void onDraw(Canvas canvas) {
 		super.onDraw(canvas);
