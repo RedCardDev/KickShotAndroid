@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.redcarddev.kickshot"
+    package="com.redcarddev.kickshot_junior"
     android:versionCode="3"
     android:versionName="1.0.2" >
 
@@ -14,9 +14,10 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:logo="@drawable/kickshotbig"
-        android:theme="@style/Theme.Kickshot" >
+        android:theme="@style/Theme.Kickshot"
+        android:debuggable="false">
         <activity
-            android:name="com.redcarddev.kickshot.splash"
+            android:name="com.redcarddev.kickshot_junior.splash"
             android:label="KickShot"
             android:theme="@android:style/Theme.NoTitleBar"
             android:screenOrientation="portrait">
@@ -27,51 +28,51 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.redcarddev.kickshot.MainActivity"
+            android:name="com.redcarddev.kickshot_junior.MainActivity"
             android:label="@string/app_name"
             android:theme="@android:style/Theme.NoTitleBar" >
         </activity>
         <activity
-            android:name="com.redcarddev.kickshot.credits"
+            android:name="com.redcarddev.kickshot_junior.credits"
             android:label="KickShot"
             android:theme="@android:style/Theme.NoTitleBar" >
         </activity>
         <activity
-            android:name="com.redcarddev.kickshot.PlayGame"
+            android:name="com.redcarddev.kickshot_junior.PlayGame"
             android:label="KickShot"
             android:theme="@android:style/Theme.NoTitleBar"
             android:screenOrientation="portrait">
         </activity>
         <activity
-                android:name="com.redcarddev.kickshot.CorrectForm"
+                android:name="com.redcarddev.kickshot_junior.CorrectForm"
                 android:label="KickShot"
                 android:theme="@android:style/Theme.NoTitleBar"
                 android:screenOrientation="portrait">
         </activity>
         <activity
-                android:name="com.redcarddev.kickshot.CoolVideos"
+                android:name="com.redcarddev.kickshot_junior.CoolVideos"
                 android:label="KickShot"
                 android:theme="@android:style/Theme.NoTitleBar"
                 android:screenOrientation="portrait">
         </activity>
         <activity
-            android:name="com.redcarddev.kickshot.LevelOne"
+            android:name="com.redcarddev.kickshot_junior.LevelOne"
             android:label="@string/app_name"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name="com.redcarddev.kickshot.LevelOneRules"
+            android:name="com.redcarddev.kickshot_junior.LevelOneRules"
             android:label="@string/app_name"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name="com.redcarddev.kickshot.LevelOneActions"
+            android:name="com.redcarddev.kickshot_junior.LevelOneActions"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Translucent.NoTitleBar">
         </activity>
         <activity
-            android:name="com.redcarddev.kickshot.Winning"
+            android:name="com.redcarddev.kickshot_junior.Winning"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Translucent.NoTitleBar">

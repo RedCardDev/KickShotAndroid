@@ -1,27 +1,33 @@
-# view AndroidManifest.xml #generated:40
--keep class com.redcarddev.kickshot.CoolVideos { <init>(...); }
-
-# view AndroidManifest.xml #generated:34
--keep class com.redcarddev.kickshot.CorrectForm { <init>(...); }
+# view AndroidManifest.xml #generated:52
+-keep class com.redcarddev.kickshot_junior.CoolVideos { <init>(...); }
 
 # view AndroidManifest.xml #generated:46
--keep class com.redcarddev.kickshot.LevelOne { <init>(...); }
+-keep class com.redcarddev.kickshot_junior.CorrectForm { <init>(...); }
 
-# view AndroidManifest.xml #generated:56
--keep class com.redcarddev.kickshot.LevelOneActions { <init>(...); }
+# view AndroidManifest.xml #generated:58
+-keep class com.redcarddev.kickshot_junior.LevelOne { <init>(...); }
 
-# view AndroidManifest.xml #generated:51
--keep class com.redcarddev.kickshot.LevelOneRules { <init>(...); }
+# view AndroidManifest.xml #generated:68
+-keep class com.redcarddev.kickshot_junior.LevelOneActions { <init>(...); }
 
-# view AndroidManifest.xml #generated:18
--keep class com.redcarddev.kickshot.MainActivity { <init>(...); }
+# view AndroidManifest.xml #generated:63
+-keep class com.redcarddev.kickshot_junior.LevelOneRules { <init>(...); }
 
-# view AndroidManifest.xml #generated:28
--keep class com.redcarddev.kickshot.PlayGame { <init>(...); }
+# view AndroidManifest.xml #generated:30
+-keep class com.redcarddev.kickshot_junior.MainActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:62
--keep class com.redcarddev.kickshot.Winning { <init>(...); }
+# view AndroidManifest.xml #generated:40
+-keep class com.redcarddev.kickshot_junior.PlayGame { <init>(...); }
+
+# view AndroidManifest.xml #generated:74
+-keep class com.redcarddev.kickshot_junior.Winning { <init>(...); }
+
+# view AndroidManifest.xml #generated:35
+-keep class com.redcarddev.kickshot_junior.credits { <init>(...); }
+
+# view AndroidManifest.xml #generated:19
+-keep class com.redcarddev.kickshot_junior.splash { <init>(...); }
 
 # view res/layout/level_one.xml #generated:7
--keep class com.redcarddev.kickshot.views.Board { <init>(...); }
+-keep class com.redcarddev.kickshot_junior.views.Board { <init>(...); }
 

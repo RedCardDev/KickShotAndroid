@@ -1,20 +1,26 @@
-com.redcarddev.kickshot.CoolVideos -> com.redcarddev.kickshot.CoolVideos:
+com.redcarddev.kickshot_junior.CoolVideos -> com.redcarddev.kickshot_junior.CoolVideos:
     java.lang.String LOGTAG -> a
+    android.widget.Button aboutKickShot -> b
+    android.widget.Button boardGame -> c
+    android.widget.Button boardGamePlay -> d
+    android.widget.Button RadioAd -> e
+    android.widget.Button boardGameReview -> f
+    android.widget.Button credits -> g
     void onCreate(android.os.Bundle) -> onCreate
     void onClick(android.view.View) -> onClick
-com.redcarddev.kickshot.CorrectForm -> com.redcarddev.kickshot.CorrectForm:
+com.redcarddev.kickshot_junior.CorrectForm -> com.redcarddev.kickshot_junior.CorrectForm:
     java.lang.String LOGTAG -> a
     android.widget.Button headerButton -> b
     android.widget.Button throwinButton -> c
     android.widget.Button slidetackleButton -> d
     void onCreate(android.os.Bundle) -> onCreate
     void onClick(android.view.View) -> onClick
-com.redcarddev.kickshot.LevelOne -> com.redcarddev.kickshot.LevelOne:
+com.redcarddev.kickshot_junior.LevelOne -> com.redcarddev.kickshot_junior.LevelOne:
     java.lang.String LOGTAG -> a
     java.util.Random r -> b
-    com.redcarddev.kickshot.utils.LevelOneState state -> e
+    com.redcarddev.kickshot_junior.utils.LevelOneState state -> e
     int currentState -> c
-    com.redcarddev.kickshot.views.Board board -> d
+    com.redcarddev.kickshot_junior.views.Board board -> d
     void onCreate(android.os.Bundle) -> onCreate
     boolean onCreateOptionsMenu(android.view.Menu) -> onCreateOptionsMenu
     boolean onOptionsItemSelected(android.view.MenuItem) -> onOptionsItemSelected
@@ -35,25 +41,25 @@ com.redcarddev.kickshot.LevelOne -> com.redcarddev.kickshot.LevelOne:
     void playerTurn() -> i
     void computerTurn() -> j
     int moveBall(int) -> c
-com.redcarddev.kickshot.LevelOne$1 -> com.redcarddev.kickshot.a:
-    com.redcarddev.kickshot.LevelOne this$0 -> a
+com.redcarddev.kickshot_junior.LevelOne$1 -> com.redcarddev.kickshot_junior.a:
+    com.redcarddev.kickshot_junior.LevelOne this$0 -> a
     void run() -> run
-com.redcarddev.kickshot.LevelOne$1$1 -> com.redcarddev.kickshot.b:
-    com.redcarddev.kickshot.LevelOne$1 this$1 -> a
+com.redcarddev.kickshot_junior.LevelOne$1$1 -> com.redcarddev.kickshot_junior.b:
+    com.redcarddev.kickshot_junior.LevelOne$1 this$1 -> a
     void run() -> run
-com.redcarddev.kickshot.LevelOne$1$1$1 -> com.redcarddev.kickshot.c:
-    com.redcarddev.kickshot.LevelOne$1$1 this$2 -> a
+com.redcarddev.kickshot_junior.LevelOne$1$1$1 -> com.redcarddev.kickshot_junior.c:
+    com.redcarddev.kickshot_junior.LevelOne$1$1 this$2 -> a
     void run() -> run
-com.redcarddev.kickshot.LevelOne$1$1$1$1 -> com.redcarddev.kickshot.d:
-    com.redcarddev.kickshot.LevelOne$1$1$1 this$3 -> a
+com.redcarddev.kickshot_junior.LevelOne$1$1$1$1 -> com.redcarddev.kickshot_junior.d:
+    com.redcarddev.kickshot_junior.LevelOne$1$1$1 this$3 -> a
     void run() -> run
-com.redcarddev.kickshot.LevelOne$1$1$1$1$1 -> com.redcarddev.kickshot.e:
-    com.redcarddev.kickshot.LevelOne$1$1$1$1 this$4 -> a
+com.redcarddev.kickshot_junior.LevelOne$1$1$1$1$1 -> com.redcarddev.kickshot_junior.e:
+    com.redcarddev.kickshot_junior.LevelOne$1$1$1$1 this$4 -> a
     void run() -> run
-com.redcarddev.kickshot.LevelOne$1$1$1$1$1$1 -> com.redcarddev.kickshot.f:
-    com.redcarddev.kickshot.LevelOne$1$1$1$1$1 this$5 -> a
+com.redcarddev.kickshot_junior.LevelOne$1$1$1$1$1$1 -> com.redcarddev.kickshot_junior.f:
+    com.redcarddev.kickshot_junior.LevelOne$1$1$1$1$1 this$5 -> a
     void run() -> run
-com.redcarddev.kickshot.LevelOneActions -> com.redcarddev.kickshot.LevelOneActions:
+com.redcarddev.kickshot_junior.LevelOneActions -> com.redcarddev.kickshot_junior.LevelOneActions:
     java.lang.String LOGTAG -> a
     int state -> b
     java.lang.String gifPath -> c
@@ -61,12 +67,12 @@ com.redcarddev.kickshot.LevelOneActions -> com.redcarddev.kickshot.LevelOneActio
     void onCreate(android.os.Bundle) -> onCreate
     boolean onTouchEvent(android.view.MotionEvent) -> onTouchEvent
     java.lang.String setActionView() -> a
-com.redcarddev.kickshot.LevelOneRules -> com.redcarddev.kickshot.LevelOneRules:
+com.redcarddev.kickshot_junior.LevelOneRules -> com.redcarddev.kickshot_junior.LevelOneRules:
     java.lang.String LOGTAG -> a
     void onCreate(android.os.Bundle) -> onCreate
     boolean onOptionsItemSelected(android.view.MenuItem) -> onOptionsItemSelected
     void onClick(android.view.View) -> onClick
-com.redcarddev.kickshot.MainActivity -> com.redcarddev.kickshot.MainActivity:
+com.redcarddev.kickshot_junior.MainActivity -> com.redcarddev.kickshot_junior.MainActivity:
     java.lang.String LOGTAG -> a
     android.widget.Button playButton -> b
     android.widget.Button r1 -> c
@@ -80,13 +86,13 @@ com.redcarddev.kickshot.MainActivity -> com.redcarddev.kickshot.MainActivity:
     boolean onCreateOptionsMenu(android.view.Menu) -> onCreateOptionsMenu
     void onClick(android.view.View) -> onClick
     void openWebUrl(java.lang.String) -> a
-com.redcarddev.kickshot.PlayGame -> com.redcarddev.kickshot.PlayGame:
+com.redcarddev.kickshot_junior.PlayGame -> com.redcarddev.kickshot_junior.PlayGame:
     java.lang.String LOGTAG -> a
     android.widget.Button juniorButton -> b
     android.widget.Button instructions -> c
     void onCreate(android.os.Bundle) -> onCreate
     void onClick(android.view.View) -> onClick
-com.redcarddev.kickshot.Winning -> com.redcarddev.kickshot.Winning:
+com.redcarddev.kickshot_junior.Winning -> com.redcarddev.kickshot_junior.Winning:
     java.lang.String LOGTAG -> a
     int state -> b
     android.widget.Button playButton -> c
@@ -94,39 +100,61 @@ com.redcarddev.kickshot.Winning -> com.redcarddev.kickshot.Winning:
     void onCreate(android.os.Bundle) -> onCreate
     boolean onTouchEvent(android.view.MotionEvent) -> onTouchEvent
     void onClick(android.view.View) -> onClick
-com.redcarddev.kickshot.utils.LevelOneState -> com.redcarddev.kickshot.a.a:
+com.redcarddev.kickshot_junior.credits -> com.redcarddev.kickshot_junior.credits:
+    void onCreate(android.os.Bundle) -> onCreate
+com.redcarddev.kickshot_junior.splash -> com.redcarddev.kickshot_junior.splash:
+    int SPLASH_TIME_LENGTH -> a
+    android.webkit.WebView webView -> b
+    void onCreate(android.os.Bundle) -> onCreate
+com.redcarddev.kickshot_junior.splash$1 -> com.redcarddev.kickshot_junior.g:
+    com.redcarddev.kickshot_junior.splash this$0 -> a
+    void run() -> run
+com.redcarddev.kickshot_junior.utils.LevelOneState -> com.redcarddev.kickshot_junior.a.a:
     int computerScore -> a
     int playerScore -> b
     int currentState -> c
     int currentBallPosition -> d
     void setCurrentBallPosition(int) -> a
     void increasePlayerScore() -> a
-com.redcarddev.kickshot.views.Board -> com.redcarddev.kickshot.views.Board:
+com.redcarddev.kickshot_junior.utils.SoundManager -> com.redcarddev.kickshot_junior.a.b:
+    com.redcarddev.kickshot_junior.utils.SoundManager _instance -> a
+    int MAX_STREAMS -> b
+    android.media.SoundPool _soundPool -> c
+    android.media.AudioManager _audioManager -> d
+    java.util.HashMap _soundMap -> e
+    android.app.Activity _owner -> f
+    com.redcarddev.kickshot_junior.utils.SoundManager Instance() -> a
+    void SetOwner(android.app.Activity) -> a
+    void LoadSound(java.lang.String,int) -> a
+    void PlaySound(java.lang.String) -> a
+com.redcarddev.kickshot_junior.views.Board -> com.redcarddev.kickshot_junior.views.Board:
     java.lang.String LOGTAG -> a
     android.graphics.Bitmap chip -> b
-    com.redcarddev.kickshot.views.Dice[] dice -> c
+    com.redcarddev.kickshot_junior.views.Dice[] dice -> c
     android.graphics.Bitmap diceImage -> d
-    android.graphics.Canvas canvas -> u
-    int boardHeight -> v
-    int awayGoalLine -> w
-    int homeGoalLine -> x
-    int pMoveAmount -> y
+    android.graphics.Canvas canvas -> v
+    int boardHeight -> w
+    int fieldHeight -> x
+    int awayGoalLine -> y
+    int homeGoalLine -> z
+    int pMoveAmount -> A
     int chipXPos -> e
     int chipYPos -> f
     int chipInitYPos -> g
     int chipLine -> h
     int maxScore -> i
     int[] diceYPos -> j
-    int[] diceHomeYPosition -> k
-    int[] diceAwayYPosition -> l
-    android.graphics.Bitmap goalAwayImage -> m
-    android.graphics.Bitmap goalHomeImage -> n
-    int[] goalYPos -> o
-    int[] goalXPos -> p
-    int goalsAway -> q
-    int goalsHome -> r
-    android.graphics.Paint paint -> s
-    int initSet -> t
+    int[] boardMap -> k
+    int[] diceHomeYPosition -> l
+    int[] diceAwayYPosition -> m
+    android.graphics.Bitmap goalAwayImage -> n
+    android.graphics.Bitmap goalHomeImage -> o
+    int[] goalYPos -> p
+    int[] goalXPos -> q
+    int goalsAway -> r
+    int goalsHome -> s
+    android.graphics.Paint paint -> t
+    int initSet -> u
     boolean onTouchEvent(android.view.MotionEvent) -> onTouchEvent
     void setChipLocation(int) -> setChipLocation
     java.lang.Boolean ballPosession(int) -> a
@@ -136,12 +164,13 @@ com.redcarddev.kickshot.views.Board -> com.redcarddev.kickshot.views.Board:
     int ballTowardsAway(int) -> d
     int ballTowardsHome(int) -> e
     int ballMove() -> d
-    void init() -> e
+    void initBoardMap() -> e
+    void init() -> f
     void onDraw(android.graphics.Canvas) -> onDraw
     java.lang.Boolean goalAddAway() -> a
     java.lang.Boolean goalAddHome() -> b
     java.lang.Integer GameOver() -> c
-com.redcarddev.kickshot.views.Dice -> com.redcarddev.kickshot.views.a:
+com.redcarddev.kickshot_junior.views.Dice -> com.redcarddev.kickshot_junior.views.a:
     android.content.Context context -> a
     android.graphics.Bitmap face -> b
     int currentDiceFace -> c

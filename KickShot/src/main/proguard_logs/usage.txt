@@ -1,7 +1,7 @@
-com.redcarddev.kickshot.BuildConfig
-com.redcarddev.kickshot.GameOverAction
-com.redcarddev.kickshot.GifWebView
-com.redcarddev.kickshot.LevelOne:
+com.redcarddev.kickshot_junior.BuildConfig
+com.redcarddev.kickshot_junior.GameOverAction
+com.redcarddev.kickshot_junior.GifWebView
+com.redcarddev.kickshot_junior.LevelOne:
     static final java.lang.String PARAM_RANDOM
     static final java.lang.String PARAM_STATE
     public static final int OFFENSE_STATE
@@ -12,7 +12,7 @@ com.redcarddev.kickshot.LevelOne:
     public static final int LOST_STATE
     static final int AWAY_GOAL_LINE
     static final int HOME_GOAL_LINE
-com.redcarddev.kickshot.LevelOneActions:
+com.redcarddev.kickshot_junior.LevelOneActions:
     static final int COMPUTER_SCORED
     static final int COMPUTER_BLOCKED
     static final int COMPUTER_SHOT
@@ -25,20 +25,21 @@ com.redcarddev.kickshot.LevelOneActions:
     static final int PLAYER_INTERCEPT
     static final int PLAYER_TURNOVER
     static final int PLAYER_TURN
-com.redcarddev.kickshot.R
-com.redcarddev.kickshot.R$attr
-com.redcarddev.kickshot.R$color
-com.redcarddev.kickshot.R$dimen
-com.redcarddev.kickshot.R$drawable
-com.redcarddev.kickshot.R$id
-com.redcarddev.kickshot.R$layout
-com.redcarddev.kickshot.R$menu
-com.redcarddev.kickshot.R$string
-com.redcarddev.kickshot.R$style
-com.redcarddev.kickshot.Winning:
+com.redcarddev.kickshot_junior.R
+com.redcarddev.kickshot_junior.R$attr
+com.redcarddev.kickshot_junior.R$color
+com.redcarddev.kickshot_junior.R$dimen
+com.redcarddev.kickshot_junior.R$drawable
+com.redcarddev.kickshot_junior.R$id
+com.redcarddev.kickshot_junior.R$layout
+com.redcarddev.kickshot_junior.R$menu
+com.redcarddev.kickshot_junior.R$raw
+com.redcarddev.kickshot_junior.R$string
+com.redcarddev.kickshot_junior.R$style
+com.redcarddev.kickshot_junior.Winning:
     static final int COMPUTER_WON
     static final int PLAYER_WON
-com.redcarddev.kickshot.utils.LevelOneState:
+com.redcarddev.kickshot_junior.utils.LevelOneState:
     14:14:public int getCurrentState()
     18:19:public void setCurrentState(int)
     22:22:public int getCurrentBallPosition()
@@ -47,10 +48,10 @@ com.redcarddev.kickshot.utils.LevelOneState:
     38:39:public void increaseComputerScore()
     42:42:public int getPlayerScore()
     46:47:public void setPlayerScore(int)
-com.redcarddev.kickshot.views.Board:
+com.redcarddev.kickshot_junior.views.Board:
     public static final int HOME
     public static final int AWAY
-com.redcarddev.kickshot.views.Dice:
+com.redcarddev.kickshot_junior.views.Dice:
     public static final int ONE
     public static final int TWO
     public static final int THREE
