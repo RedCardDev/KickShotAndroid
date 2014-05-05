@@ -1,6 +1,6 @@
-package com.redcarddev.kickshot_junior.utils;
+package com.redcarddev.kickshot_real.utils;
 
-import com.redcarddev.kickshot_junior.LevelOne;
+import com.redcarddev.kickshot_real.LevelOne;
 
 import java.io.Serializable;
 

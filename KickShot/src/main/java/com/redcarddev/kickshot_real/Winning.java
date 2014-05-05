@@ -1,4 +1,4 @@
-package com.redcarddev.kickshot_junior;
+package com.redcarddev.kickshot_real;
 
 import java.util.Random;
 import android.app.Activity;

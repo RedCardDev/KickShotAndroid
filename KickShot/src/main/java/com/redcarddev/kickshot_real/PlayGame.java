@@ -1,4 +1,4 @@
-package com.redcarddev.kickshot_junior;
+package com.redcarddev.kickshot_real;
 
 import android.net.Uri;
 import android.os.Bundle;
@@ -15,8 +15,8 @@ import java.util.Random;
  * Created by Jordan on 2/18/14.
  */
 
-import com.redcarddev.kickshot_junior.utils.LevelOneState;
-import com.redcarddev.kickshot_junior.utils.SoundManager;
+import com.redcarddev.kickshot_real.utils.LevelOneState;
+import com.redcarddev.kickshot_real.utils.SoundManager;
 
 public class PlayGame extends Activity implements OnClickListener {
     protected String LOGTAG = "MainActivity";

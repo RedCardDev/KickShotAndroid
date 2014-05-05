@@ -1,4 +1,4 @@
-package com.redcarddev.kickshot_junior;
+package com.redcarddev.kickshot_real;
 
 import java.io.InputStream;
 import java.util.Random;
@@ -13,7 +13,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.redcarddev.kickshot_junior.utils.SoundManager;
+import com.redcarddev.kickshot_real.utils.SoundManager;
 
 /**
  * Created by otternq on 10/27/13.

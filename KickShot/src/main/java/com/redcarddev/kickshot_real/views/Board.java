@@ -1,6 +1,6 @@
-package com.redcarddev.kickshot_junior.views;
+package com.redcarddev.kickshot_real.views;
 
-import com.redcarddev.kickshot_junior.R;
+import com.redcarddev.kickshot_real.R;
 
 import android.content.Context;
 import android.content.res.Resources;

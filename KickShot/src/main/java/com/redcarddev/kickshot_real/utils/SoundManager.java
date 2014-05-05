@@ -1,4 +1,4 @@
-package com.redcarddev.kickshot_junior.utils;
+package com.redcarddev.kickshot_real.utils;
 
 import android.app.Activity;
 import android.content.Context;

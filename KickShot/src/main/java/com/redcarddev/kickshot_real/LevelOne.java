@@ -1,11 +1,11 @@
-package com.redcarddev.kickshot_junior;
+package com.redcarddev.kickshot_real;
 
 import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import com.redcarddev.kickshot_junior.utils.LevelOneState;
-import com.redcarddev.kickshot_junior.views.Board;
+import com.redcarddev.kickshot_real.utils.LevelOneState;
+import com.redcarddev.kickshot_real.views.Board;
 
 import android.os.Bundle;
 import android.app.Activity;

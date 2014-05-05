@@ -1,11 +1,11 @@
-package com.redcarddev.kickshot_junior.views;
+package com.redcarddev.kickshot_real.views;
 
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 
-import com.redcarddev.kickshot_junior.R;
+import com.redcarddev.kickshot_real.R;
 
 public class Dice {
 	
