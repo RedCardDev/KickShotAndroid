@@ -3,8 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    
-    android:background="@drawable/home_page_background" >
+    android:background="@drawable/world_cup_background">
+    <!--android:background="@drawable/home_page_background" >-->
 
     <Button
             android:id="@+id/play"
@@ -53,7 +53,7 @@
             android:background="@drawable/buy_game_button"
             android:layout_marginBottom="30dp"
             android:layout_marginRight="20dp"
-            android:layout_above="@+id/fb"
+            android:layout_above="@+id/twitter"
             android:layout_alignParentRight="true"/>
 
     <Button
@@ -62,16 +62,16 @@
             android:layout_height="wrap_content"
             android:background="@drawable/facebook_icon"
             android:layout_alignTop="@+id/twitter"
-            android:layout_centerHorizontal="true"/>
+            android:layout_toLeftOf="@+id/twitter"/>
 
     <Button
             android:id="@+id/twitter"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/twitter_icon"
-            android:layout_toRightOf="@+id/fb"
-            android:layout_marginLeft="15dp"
-            android:layout_alignParentBottom="true"/>
+            android:layout_marginLeft="20dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignLeft="@+id/buy"/>
 
 
 </RelativeLayout>
